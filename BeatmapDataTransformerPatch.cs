@@ -54,19 +54,26 @@ namespace AccessAbility
     [HarmonyPatch(typeof(NoteController), "Update")]
     internal class NoteControllerPatch
     {
-        static void Postfix(NoteController __instance)//, NoteMovement ___noteMovement)
+        static void Postfix(NoteController __instance)
         {
-            Plugin.Log.Debug("NoteController PostFix");
+            //Plugin.Log.Debug("NoteController PostFix");
 
             //Plugin.Log.Debug("Note z position:" + __instance.noteTransform.position.z);
-            if (__instance.noteData.colorType == ColorType.ColorA)
+
+            /*if (PluginConfig.Instance.delete_blue || PluginConfig.Instance.delete_red)
             {
-                if (__instance.noteTransform.position.z <= 6)
-                {
+                return;
+            }*/
+
+            if (PluginConfig.Instance.dissolve_red && __instance.noteData.colorType == ColorType.ColorA && __instance.noteTransform.position.z <= PluginConfig.Instance.dissolve_distance)
+            {
                     __instance.Dissolve(0.001f);
-                }
             }
 
+            if (PluginConfig.Instance.dissolve_blue && __instance.noteData.colorType == ColorType.ColorB && __instance.noteTransform.position.z <= PluginConfig.Instance.dissolve_distance)
+            {
+                    __instance.Dissolve(0.001f);
+            }
         }
     }
 }
