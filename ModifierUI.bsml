@@ -1,14 +1,14 @@
 ﻿<bg xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xsi:schemaLocation='https://monkeymanboy.github.io/BSML-Docs/ https://raw.githubusercontent.com/monkeymanboy/BSML-Docs/gh-pages/BSMLSchema.xsd'>
 	<settings-container child-control-width='true' child-expand-width='true' size-delta-y='-5'>
-		<checkbox-setting value='delete_blue' on-change='set_delete_blue' text='No Blue' hover-hint='Play original red patterns only'></checkbox-setting>
-		<checkbox-setting value='dissolve_blue' on-change='set_dissolve_blue' text='Disappearing Blue' hover-hint='Play original red patterns with disappearing blue blocks'></checkbox-setting>
+		<checkbox-setting value='delete_blue' on-change='set_delete_blue' text='No Blue' font-color='#4d4dffff' hover-hint='Play original red patterns only'></checkbox-setting>
+		<checkbox-setting value='dissolve_blue' on-change='set_dissolve_blue' text='Disappearing Blue' font-color='#4d4dff' hover-hint='Play original red patterns with disappearing blue blocks'></checkbox-setting>
 		
 		<horizontal>
 			<text text='------------------' font-color='#00000000' font-size='1'></text>
 		</horizontal>
 		
-		<checkbox-setting value='delete_red' on-change='set_delete_red' text='No Red' hover-hint='Play original blue patterns only'></checkbox-setting>
-		<checkbox-setting value='dissolve_red' on-change='set_dissolve_red' text='Disappearing Red' hover-hint='Play original blue patterns with disappearing red blocks'></checkbox-setting>
+		<checkbox-setting value='delete_red' on-change='set_delete_red' text='No Red' font-color='#ff4d4dff' hover-hint='Play original blue patterns only'></checkbox-setting>
+		<checkbox-setting value='dissolve_red' on-change='set_dissolve_red' text='Disappearing Red' font-color='#ff4d4dff' hover-hint='Play original blue patterns with disappearing red blocks'></checkbox-setting>
 
 		<horizontal>
 			<text text='------------------' font-color='#00000000' font-size='1'></text>
@@ -18,7 +18,7 @@
 
 		<checkbox-setting value='neversubmit_enabled' on-change='set_neversubmit_enabled' text='Disable Score Submission' hover-hint='Submitted score is a fraction of the whole-map maximum score'></checkbox-setting>
 	</settings-container>
-		<vertical pad-top='40'>
+		<vertical pad-top='50'>
 			<horizontal child-expand-width='true'>
 				<text text='AccessAbility v1.0.0 by Zephyr#9125' font-color='#ff0080ff' font-size='3' align='Center'></text>
 			</horizontal>
