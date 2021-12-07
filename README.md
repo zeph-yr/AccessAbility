@@ -28,5 +28,5 @@ For those who like to still see the other-color blocks but not be bombarded with
 <b>Final score will be as if you missed all of the other color blocks</b>
 <img src="https://github.com/zeph-yr/AccessAbility/blob/master/Screenshots/AccessAbility_screenshot_4_small.png" width="700" height=""/>
 
-# About
+## About
 Not all disabilities are visible or obvious. And that doesn't make them any less valid.
