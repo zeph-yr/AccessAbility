@@ -1,13 +1,16 @@
 ﻿{
-  "$schema": "https://raw.githubusercontent.com/bsmg/BSIPA-MetadataFileSchema/master/Schema.json",
-  "id": "AccessAbility",
-  "name": "AccessAbility",
-  "author": "Zephyr",
-  "version": "1.0.0",
-  "gameVersion": "1.18.3",
-  "dependsOn": {
-  "BSIPA": "^4.2.0",
-  "BS Utils": "^1.11.0",
-  "BeatSaberMarkupLanguage": "^1.5.11"
-  }
+    "$schema": "https://raw.githubusercontent.com/bsmg/BSIPA-MetadataFileSchema/master/Schema.json",
+    "id": "AccessAbility",
+    "name": "AccessAbility",
+    "author": "Zephyr",
+    "version": "1.0.0",
+    "gameVersion": "1.18.3",
+    "dependsOn": {
+        "BSIPA": "^4.2.0",
+        "BS Utils": "^1.11.0",
+        "BeatSaberMarkupLanguage": "^1.5.11"
+    },
+    "links": {
+        "donate": "paypal.me/zeph3yr"
+    }
 }
