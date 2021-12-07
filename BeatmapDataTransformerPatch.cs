@@ -4,6 +4,23 @@ using System.Collections.Generic;
 
 namespace AccessAbility
 {
+    /*[HarmonyPatch(typeof(AudioTimeSyncController))]
+    [HarmonyPatch("StartSong")]
+    class AudioTimeSyncControllerPatch
+    {
+        static void Postfix(AudioTimeSyncController __instance)
+        {
+            if (Plugin.access != null)
+            {
+                Plugin.Log.Debug("In Patch Postfix");
+                AccessAbilityController.audioTimeSyncController = __instance;
+                Plugin.Log.Debug("Song EndTime: " + __instance.songEndTime.ToString());
+            }
+            Plugin.Log.Debug("End Patch Postfix");
+        }
+    }*/
+
+
     /// <summary>
     /// This patches ClassToPatch.MethodToPatch(Parameter1Type arg1, Parameter2Type arg2)
     /// </summary>
@@ -11,7 +28,7 @@ namespace AccessAbility
         
     internal class BeatmapDataTransformerPatch
     {
-
+        
         /// <summary>
         /// This code is run before the original code in MethodToPatch is run.
         /// </summary>
@@ -39,28 +56,27 @@ namespace AccessAbility
         ///     added three _ to the beginning to reference it in the patch. Adding ref means we can change it.</param>
         static IReadonlyBeatmapData Postfix(IReadonlyBeatmapData __result)
         {
-            // If left handed
-
             Plugin.Log.Debug("In PostFix");
 
-            IReadonlyBeatmapData copy = __result.GetCopy();
+            //Plugin.Log.Debug("Song End Time: " + AccessAbilityController.audioTimeSyncController.songEndTime);
 
-            Plugin.Log.Debug("Map Lines:" + copy.numberOfLines);
+            //float end_time = AccessAbilityController.audioTimeSyncController.songEndTime + 10f;
 
-            using (IEnumerator<BeatmapObjectData> enumerator = copy.beatmapObjectsData.GetEnumerator())
+            using (IEnumerator<BeatmapObjectData> enumerator = __result.beatmapObjectsData.GetEnumerator())
             {
                 while (enumerator.MoveNext())
                 {
                     NoteData noteData;
                     if ((noteData = (enumerator.Current as NoteData)) != null && noteData.colorType == ColorType.ColorB)
                     {
-                        noteData.MoveTime(20f);
+                        // POC Test Case
+                        noteData.MoveTime(-1f);
 
                         Plugin.Log.Debug("Delete block");
                     }
                 }
             }
-            return copy;
+            return __result;
         }
     }
 }

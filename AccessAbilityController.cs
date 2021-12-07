@@ -11,14 +11,13 @@ namespace AccessAbility
 {
     public class AccessAbilityController : MonoBehaviour
     {
-        public static AccessAbilityController Instance { get; private set; }
+        internal static AccessAbilityController Instance { get; private set; }
 
-        // These methods are automatically called by Unity, you should remove any you aren't using.
+        internal static AudioTimeSyncController audioTimeSyncController;
+
 
         private void Awake()
         {
-            // For this particular MonoBehaviour, we only want one instance to exist at any time, so store a reference to it in a static property
-            //   and destroy any that are created while one already exists.
             if (Instance != null)
             {
                 Plugin.Log?.Warn($"Instance of {GetType().Name} already exists, destroying.");
@@ -28,23 +27,15 @@ namespace AccessAbility
             GameObject.DontDestroyOnLoad(this); // Don't destroy this object on scene changes
             Instance = this;
             Plugin.Log?.Debug($"{name}: Awake()");
+
+            audioTimeSyncController = Resources.FindObjectsOfTypeAll<AudioTimeSyncController>().LastOrDefault();
+
+            Plugin.Log.Debug("Audio Time:" + audioTimeSyncController.songEndTime);
         }
 
         private void Start()
         {
-
-        }
-
-
-        private void Update()
-        {
-
-        }
-
-
-        private void LateUpdate()
-        {
-
+            
         }
 
 

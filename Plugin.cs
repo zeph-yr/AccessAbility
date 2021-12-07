@@ -22,7 +22,8 @@ namespace AccessAbility
 
         internal static Plugin Instance { get; private set; }
         internal static IPALogger Log { get; private set; }
-        internal static AccessAbilityController PluginController { get { return AccessAbilityController.Instance; } }
+        //internal static AccessAbilityController PluginController { get { return AccessAbilityController.Instance; } }
+        internal static GameObject access;
 
         [Init]
         /// <summary>
@@ -58,8 +59,18 @@ namespace AccessAbility
         [OnEnable]
         public void OnEnable()
         {
-            new GameObject("AccessAbilityController").AddComponent<AccessAbilityController>();
+            BS_Utils.Utilities.BSEvents.gameSceneLoaded += BSEvents_gameSceneLoaded;
+
             ApplyHarmonyPatches();
+        }
+
+        private void BSEvents_gameSceneLoaded()
+        {
+            Plugin.Log.Debug("Game Scene Loaded");
+
+            access = new GameObject("AccessAbilityController");
+            access.AddComponent<AccessAbilityController>();
+            GameObject.DontDestroyOnLoad(access);
         }
 
         /// <summary>
@@ -70,8 +81,6 @@ namespace AccessAbility
         [OnDisable]
         public void OnDisable()
         {
-            if (PluginController != null)
-                GameObject.Destroy(PluginController);
             RemoveHarmonyPatches();
         }
 
