@@ -1,4 +1,4 @@
-# ACCessAbility
+# AccessAbility
 Not all of us can play with two hands or arms, but that shouldn't stop any of us from being able to enjoy the game!
 
 This mod allows you to play the original map with the block-color of your choice turned off. 
@@ -17,3 +17,11 @@ For those who like to still see the other-color blocks but not be bombarded with
 
 ## Play One Handed Dodge-Cube
 - Set the Disappearing Distance slider to 0. This means the other color blocks *will* reach you, so try not to hit the wrong color!
+
+## Demo
+<img src="https://github.com/zeph-yr/AccessAbility/blob/master/Screenshots/AccessAbility_screenshot_1_small.png" width="700" height=""/>
+<img src="https://github.com/zeph-yr/AccessAbility/blob/master/Screenshots/AccessAbility_screenshot_2_small.png" width="700" height="450"/>
+<b>Map with Red blocks turned off. In-map score is for your desired-color</b>
+<img src="https://github.com/zeph-yr/AccessAbility/blob/master/Screenshots/AccessAbility_screenshot_3A_small.png" width="700" height="450"/>
+<b>Final score will be as if you missed all of the other color blocks</b>
+<img src="https://github.com/zeph-yr/AccessAbility/blob/master/Screenshots/AccessAbility_screenshot_4_small.png" width="700" height=""/>
