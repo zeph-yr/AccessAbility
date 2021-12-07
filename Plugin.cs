@@ -1,13 +1,9 @@
-﻿using IPA;
+﻿using AccessAbility.Configuration;
+using IPA;
 using IPA.Config;
 using IPA.Config.Stores;
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
-using System.Threading.Tasks;
-using UnityEngine;
 using IPALogger = IPA.Logging.Logger;
 
 namespace AccessAbility
@@ -15,15 +11,14 @@ namespace AccessAbility
     [Plugin(RuntimeOptions.DynamicInit)]
     public class Plugin
     {
-        // TODO: If using Harmony, uncomment and change YourGitHub to the name of your GitHub account, or use the form "com.company.project.product"
-        //       You must also add a reference to the Harmony assembly in the Libs folder.
+        internal static Plugin Instance { get; private set; }
+        internal static IPALogger Log { get; private set; }
+
         public const string HarmonyId = "com.zephyr.BeatSaber.AccessAbility";
         internal static readonly HarmonyLib.Harmony harmony = new HarmonyLib.Harmony(HarmonyId);
 
-        internal static Plugin Instance { get; private set; }
-        internal static IPALogger Log { get; private set; }
         //internal static AccessAbilityController PluginController { get { return AccessAbilityController.Instance; } }
-        internal static GameObject access;
+        //internal static GameObject access;
 
         [Init]
         /// <summary>
@@ -31,24 +26,14 @@ namespace AccessAbility
         /// [Init] methods that use a Constructor or called before regular methods like InitWithConfig.
         /// Only use [Init] with one Constructor.
         /// </summary>
-        public Plugin(IPALogger logger)
+        public Plugin(IPALogger logger, Config config)
         {
             Instance = this;
             Plugin.Log = logger;
             Plugin.Log?.Debug("Logger initialized.");
-        }
 
-        #region BSIPA Config
-        //Uncomment to use BSIPA's config
-        /*
-        [Init]
-        public void InitWithConfig(Config conf)
-        {
-            Configuration.PluginConfig.Instance = conf.Generated<Configuration.PluginConfig>();
-            Plugin.Log?.Debug("Config loaded");
+            PluginConfig.Instance = config.Generated<PluginConfig>();
         }
-        */
-        #endregion
 
 
         #region Disableable
@@ -62,15 +47,22 @@ namespace AccessAbility
             BS_Utils.Utilities.BSEvents.gameSceneLoaded += BSEvents_gameSceneLoaded;
 
             ApplyHarmonyPatches();
+
+            BeatSaberMarkupLanguage.GameplaySetup.GameplaySetup.instance.AddTab("AccessAbility", "AccessAbility.ModifierUI.bsml", ModifierUI.instance);
         }
 
         private void BSEvents_gameSceneLoaded()
         {
             Plugin.Log.Debug("Game Scene Loaded");
 
-            access = new GameObject("AccessAbilityController");
-            access.AddComponent<AccessAbilityController>();
-            GameObject.DontDestroyOnLoad(access);
+            //access = new GameObject("AccessAbilityController");
+            //access.AddComponent<AccessAbilityController>();
+            //GameObject.DontDestroyOnLoad(access);
+
+            if ((PluginConfig.Instance.delete_blue || PluginConfig.Instance.delete_red) && PluginConfig.Instance.neversubmit_enabled)
+            {
+                BS_Utils.Gameplay.ScoreSubmission.DisableSubmission("AccessAbility");
+            }
         }
 
         /// <summary>
@@ -109,7 +101,7 @@ namespace AccessAbility
             try
             {
                 Plugin.Log?.Debug("Applying Harmony patches.");
-                harmony.PatchAll(System.Reflection.Assembly.GetExecutingAssembly());
+                harmony.PatchAll(Assembly.GetExecutingAssembly());
             }
             catch (Exception ex)
             {

@@ -1,4 +1,5 @@
-﻿using System;
+﻿/*using AccessAbility.Configuration;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -29,13 +30,12 @@ namespace AccessAbility
             Plugin.Log?.Debug($"{name}: Awake()");
 
             audioTimeSyncController = Resources.FindObjectsOfTypeAll<AudioTimeSyncController>().LastOrDefault();
-
             Plugin.Log.Debug("Audio Time:" + audioTimeSyncController.songEndTime);
         }
 
         private void Start()
         {
-            
+
         }
 
 
@@ -59,4 +59,4 @@ namespace AccessAbility
 
         }
     }
-}
+}*/
