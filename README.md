@@ -2,7 +2,7 @@
 Not all of us can play with two hands or arms, but that shouldn't stop any of us from being able to enjoy the game!
 
 This mod allows you to play the original map with the block-color of your choice turned off. 
-Works for both Left and Right Hand modes.
+Works for both Left and Right Hand modes, Multiplayer and OST / DLC.
 
 ## How Is This Different From Alternative Play?
 This mod *does not convert* the blocks of the other color to the desired color, which can make a map difficult or unpleasant to play single-handedly.
