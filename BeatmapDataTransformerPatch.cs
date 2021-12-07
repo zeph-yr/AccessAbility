@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace AccessAbility
 {
-    [HarmonyPatch(typeof(BeatmapDataTransformHelper), "CreateTransformedBeatmapData")]        
+    [HarmonyPatch(typeof(BeatmapDataTransformHelper), "CreateTransformedBeatmapData")]
     internal class BeatmapDataTransformerPatch
     {
         static IReadonlyBeatmapData Postfix(IReadonlyBeatmapData __result) //, bool leftHanded)
@@ -29,7 +29,7 @@ namespace AccessAbility
                 {
                     NoteData noteData;
 
-                    if((noteData = (enumerator.Current as NoteData)) != null)
+                    if ((noteData = (enumerator.Current as NoteData)) != null)
                     {
                         if (noteData.colorType == ColorType.ColorB && PluginConfig.Instance.delete_blue)
                         {
@@ -47,6 +47,19 @@ namespace AccessAbility
             }
 
             return __result;
+        }
+    }
+
+
+    [HarmonyPatch(typeof(NoteController), "Update")]
+    internal class NoteControllerPatch
+    {
+        static void Postfix(NoteController __instance)//, NoteMovement ___noteMovement)
+        {
+            Plugin.Log.Debug("NoteController PostFix");
+
+            Plugin.Log.Debug("Note z position:" + __instance.noteTransform.position.z);
+
         }
     }
 }

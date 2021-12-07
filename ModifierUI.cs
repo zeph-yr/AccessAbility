@@ -18,8 +18,12 @@ namespace AccessAbility
             }
         }
 
-        private string blue_text = "Turn Off <#0000FF>Blue";
-        private string red_text = "Turn Off <#FF0000>Red";
+        //private string blue_text = "Turn Off <#0000FF>Blue";
+        //private string red_text = "Turn Off <#FF0000>Red";
+
+        // Color might be too confusing
+        private string blue_text = "Turn Off Blue";
+        private string red_text = "Turn Off Red";
 
         [UIValue("delete_blue")]
         public bool Delete_Blue
