@@ -58,7 +58,14 @@ namespace AccessAbility
         {
             Plugin.Log.Debug("NoteController PostFix");
 
-            Plugin.Log.Debug("Note z position:" + __instance.noteTransform.position.z);
+            //Plugin.Log.Debug("Note z position:" + __instance.noteTransform.position.z);
+            if (__instance.noteData.colorType == ColorType.ColorA)
+            {
+                if (__instance.noteTransform.position.z <= 6)
+                {
+                    __instance.Dissolve(0.001f);
+                }
+            }
 
         }
     }
