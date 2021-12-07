@@ -2,12 +2,12 @@
   "$schema": "https://raw.githubusercontent.com/bsmg/BSIPA-MetadataFileSchema/master/Schema.json",
   "id": "AccessAbility",
   "name": "AccessAbility",
-  "author": "",
-  "version": "0.0.1",
-  "description": "",
-  "gameVersion": "1.11.1",
+  "author": "Zephyr",
+  "version": "1.0.0",
+  "gameVersion": "1.18.3",
   "dependsOn": {
-    "BSIPA": "^4.0.5"
-  },
-  "features": []
+  "BSIPA": "^4.2.0",
+  "BS Utils": "^1.11.0",
+  "BeatSaberMarkupLanguage": "^1.5.11"
+  }
 }
