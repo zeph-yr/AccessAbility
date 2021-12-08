@@ -7,7 +7,7 @@ This mod allows you to play the original map with the Red / Blue blocks (or both
 Works for both Left and Right Hand playersettings, Multiplayer, OST / DLC and Practice Mode.
 
 ## How Is This Different From AlternativePlay?
-This mod *does not convert* the blocks of the other color to the desired color or to dot blocks, which can make a map difficult or unpleasant to play single-handed.
+This mod *does not convert* all the blocks to one color or to dot blocks, which can make a map difficult or unpleasant to play single-handed.
 AccessAbility *removes the blocks* mapped in the other color and thus accurately represents playing the original map with only one hand.
 
 For those who would like to still see the other-color blocks without the Miss texts and sounds, AccessAbility has the option to display those blocks and have them disappear without being counted as Misses.
@@ -23,7 +23,7 @@ For those who would like to still see the other-color blocks without the Miss te
 ## Demo
 <img src="https://github.com/zeph-yr/AccessAbility/blob/master/Screenshots/AccessAbility_screenshot_1_small.png" width="700" height=""/>
 <img src="https://github.com/zeph-yr/AccessAbility/blob/master/Screenshots/AccessAbility_screenshot_2_small.png" width="700" height="450"/>
-<b>Map with Red blocks turned off. In-map score is for your desired-color</b>
+<b>Map with Red blocks turned off. In-map score is for the color you are playing</b>
 <img src="https://github.com/zeph-yr/AccessAbility/blob/master/Screenshots/AccessAbility_screenshot_3A_small.png" width="700" height="450"/>
 <b>Final score will be as if you missed all of the other color blocks</b>
 <img src="https://github.com/zeph-yr/AccessAbility/blob/master/Screenshots/AccessAbility_screenshot_4_small.png" width="700" height=""/>
