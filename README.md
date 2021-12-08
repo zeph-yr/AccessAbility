@@ -1,7 +1,7 @@
 # AccessAbility
 **Not all of us can play with two hands or arms, but that shouldn't stop any of us from being able to enjoy the game!**
 
-**A true one-hand mod. Play any map. With only the blocks of your color-choice. In its original form.**
+**A true one-hand mod. Play any map. With only the blocks of your color-choice. In their original patterns.**
 
 This mod allows you to play the original map with the Red / Blue blocks (or both) turned off. 
 Works for both Left and Right Hand modes, Multiplayer and OST / DLC.
