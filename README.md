@@ -6,8 +6,8 @@
 This mod allows you to play the original map with the Red / Blue blocks (or both) turned off. 
 Works for both Left and Right Hand modes, Multiplayer and OST / DLC.
 
-## How Is This Different From Alternative Play?
-This mod *does not convert* the blocks of the other color to the desired color, which can make a map difficult or unpleasant to play single-handedly.
+## How Is This Different From AlternativePlay?
+This mod *does not convert* the blocks of the other color to the desired color or to dot blocks, which can make a map difficult or unpleasant to play single-handedly.
 AccessAbility *removes the blocks* mapped in the other color and thus accurately represents playing the original map with only one hand.
 
 For those who like to still see the other-color blocks but not be bombarded with Miss texts and sounds, AccessAbility has the option to display them and have them disappear without being counted as Misses.
