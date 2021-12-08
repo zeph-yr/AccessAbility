@@ -15,7 +15,7 @@ For those who like to still see the other-color blocks but not be bombarded with
 ## How To Use
 - Place AccessAbility.dll in your Plugins folder
 - The toggles stack, so use your judgement to enable a combination that is meaningful (or don't and have some fun LOL)
-- Scores submitted with be as if you missed all the other color blocks. You can disable score submission and still keep your BeatSavior and SliceVisualizer Data
+- Scores submitted will be as if you missed all the other color blocks. You can disable score submission and still keep your BeatSavior and SliceVisualizer Data
 
 ## Play One Handed Dodge-Cube
 - Set the Disappearing Distance slider to 0. This means the other color blocks *will* reach you, so try not to hit the wrong color!
