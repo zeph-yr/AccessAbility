@@ -4,13 +4,13 @@
 **A true one-hand mod. Play any map. With only the blocks of your color-choice. In their original patterns.**
 
 This mod allows you to play the original map with the Red / Blue blocks (or both) turned off. 
-Works for both Left and Right Hand modes, Multiplayer and OST / DLC.
+Works for both Left and Right Hand playersettings, Multiplayer, OST / DLC and Practice Mode.
 
 ## How Is This Different From AlternativePlay?
-This mod *does not convert* the blocks of the other color to the desired color or to dot blocks, which can make a map difficult or unpleasant to play single-handedly.
+This mod *does not convert* the blocks of the other color to the desired color or to dot blocks, which can make a map difficult or unpleasant to play single-handed.
 AccessAbility *removes the blocks* mapped in the other color and thus accurately represents playing the original map with only one hand.
 
-For those who like to still see the other-color blocks but not be bombarded with Miss texts and sounds, AccessAbility has the option to display them and have them disappear without being counted as Misses.
+For those who would like to still see the other-color blocks without the Miss texts and sounds, AccessAbility has the option to display those blocks and have them disappear without being counted as Misses.
 
 ## How To Use
 - Place AccessAbility.dll in your Plugins folder
