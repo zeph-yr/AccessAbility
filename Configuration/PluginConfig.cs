@@ -15,9 +15,7 @@ namespace AccessAbility.Configuration
         public virtual bool dissolve_red { get; set; } = false;
 
         public virtual float dissolve_distance { get; set; } = 6;
-        
         public virtual bool neversubmit_enabled { get; set; } = true;
-
 
 
         public virtual void OnReload()
@@ -25,12 +23,10 @@ namespace AccessAbility.Configuration
             // Do stuff after config is read from disk.
         }
 
-
         public virtual void Changed()
         {
             // Do stuff when the config is changed.
         }
-
 
         public virtual void CopyFrom(PluginConfig other)
         {

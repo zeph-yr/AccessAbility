@@ -7,7 +7,7 @@ namespace AccessAbility
 {
     class ModifierUI : NotifiableSingleton<ModifierUI>
     {
-        private string disable_col;
+        /*private string disable_col;
 
         [UIValue("disable_color")]
         public string Disable_Color
@@ -17,14 +17,8 @@ namespace AccessAbility
             {
                 NotifyPropertyChanged();
             }
-        }
+        }*/
 
-        //private string blue_text = "Turn Off <#0000FF>Blue";
-        //private string red_text = "Turn Off <#FF0000>Red";
-
-        // Color might be too confusing
-        private string blue_text = "Turn Off Blue";
-        private string red_text = "Turn Off Red";
 
         [UIValue("delete_blue")]
         public bool Delete_Blue
@@ -121,7 +115,7 @@ namespace AccessAbility
         void Set_Never_Enabled(bool value)
         {
             Neversubmit_Enabled = value;
-            if (value)
+            /*if (value)
             {
                 disable_col = "<#ff0000>Disable Score Submission";
                 Disable_Color = "changed";
@@ -131,7 +125,7 @@ namespace AccessAbility
             {
                 disable_col = "<#ffffff>Disable Score Submission";
                 Disable_Color = "changed";
-            }
+            }*/
         }
     }
 }

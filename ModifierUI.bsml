@@ -1,5 +1,5 @@
 ﻿<bg xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xsi:schemaLocation='https://monkeymanboy.github.io/BSML-Docs/ https://raw.githubusercontent.com/monkeymanboy/BSML-Docs/gh-pages/BSMLSchema.xsd'>
-	<settings-container child-control-width='true' child-expand-width='true' size-delta-y='-5'>
+	<settings-container child-control-width='true' child-expand-width='false' size-delta-y='-5'>
 		<checkbox-setting value='delete_blue' on-change='set_delete_blue' text='No Blue' font-color='#4d4dffff' hover-hint='Play original red patterns only'></checkbox-setting>
 		<checkbox-setting value='dissolve_blue' on-change='set_dissolve_blue' text='Disappearing Blue' font-color='#4d4dff' hover-hint='Play original red patterns with disappearing blue blocks'></checkbox-setting>
 		
@@ -16,7 +16,7 @@
 		
 		<slider-setting id='dissolve_slider' value ='dissolve_distance' on-change='set_dissolve_distance' text='Disappearing Distance' increment='0.5' min='0' max='10' hover-hint='How near or far the blocks will disappear'></slider-setting>
 
-		<checkbox-setting value='neversubmit_enabled' on-change='set_neversubmit_enabled' text='Disable Score Submission' hover-hint='Submitted score is a fraction of the whole-map maximum score'></checkbox-setting>
+		<checkbox-setting value='neversubmit_enabled' on-change='set_neversubmit_enabled' text='Disable Score Submission' hover-hint='Submitted score is a fraction of the two-handed maximum score'></checkbox-setting>
 	</settings-container>
 		<vertical pad-top='50'>
 			<horizontal child-expand-width='true'>

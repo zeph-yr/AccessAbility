@@ -16,12 +16,12 @@ namespace AccessAbility
                 return __result;
             }
 
-            //ColorType to_delete = ColorType.ColorA; // A: Red, B: Blue
 
-            //if (leftHanded)
-            //{
-            //    to_delete = ColorType.ColorB;
-            //}
+            /*ColorType to_delete = ColorType.ColorA; // A: Red, B: Blue
+            if (leftHanded)
+            {
+                to_delete = ColorType.ColorB;
+            }*/
 
             using (IEnumerator<BeatmapObjectData> enumerator = __result.beatmapObjectsData.GetEnumerator())
             {
@@ -57,7 +57,6 @@ namespace AccessAbility
         static void Postfix(NoteController __instance)
         {
             //Plugin.Log.Debug("NoteController PostFix");
-
             //Plugin.Log.Debug("Note z position:" + __instance.noteTransform.position.z);
 
             /*if (PluginConfig.Instance.delete_blue || PluginConfig.Instance.delete_red)
