@@ -29,7 +29,7 @@ If you want to see the whole map but play only one color without the barrage of 
 <img src="https://github.com/zeph-yr/AccessAbility/blob/master/Screenshots/AccessAbility_screenshot_2_small.png" width="700" height="450"/>
 <b>Map with Red blocks turned off. In-map score is for the color you are playing</b>
 <img src="https://github.com/zeph-yr/AccessAbility/blob/master/Screenshots/AccessAbility_screenshot_3A_small.png" width="700" height="450"/>
-<b>Map with Disappearing Red blocks</b>
+<b>Map set to Disappearing Red. Only the blue blocks are being played and scored</b>
 <img src="https://github.com/zeph-yr/AccessAbility/blob/master/Screenshots/AccessAbility_screenshot_5_small.png" width="700" height="450"/>
 <b>Final score will be as if you missed all of the other color blocks</b>
 <img src="https://github.com/zeph-yr/AccessAbility/blob/master/Screenshots/AccessAbility_screenshot_4_small.png" width="700" height=""/>
