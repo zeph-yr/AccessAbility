@@ -10,7 +10,7 @@ Supports Left and Right Hand playersettings, Multiplayer, OST / DLC, Practice Mo
 This mod *does not convert* all the blocks to one color or to dot blocks, which can make a map difficult or unpleasant to play single-handed.
 AccessAbility *removes the blocks* mapped in the other color and thus accurately represents playing the original map with only one hand.
 
-For those who would like to still see the color they aren't playing without the Miss texts and sounds, AccessAbility has the option to display those blocks and have them disappear without being counted as Misses during the map.
+If you want to see the whole map but play only one color without the barrage of Miss texts and sounds, AccessAbility can set one color to disappear near striking distance without being counted as Misses during your play.
 
 ## How To Use
 - Place AccessAbility.dll in your Plugins folder
