@@ -19,7 +19,7 @@ If you want to see the whole map but play only one color without the barrage of 
 
 ## Scores
 - **In-Map:** Score is only for the color you are playing
-- **Results Page and Submission:** If submitting, score will be as if you missed all the other color blocks. You can disable score submission and still keep your BeatSavior and SliceVisualizer Data
+- **Results Page and Submission:** If submitting, score will be a pass as if you missed all the other color blocks. You can disable score submission and still keep your BeatSavior and SliceVisualizer Data but local scores and replays will not be saved.
 
 ## Play One Handed Dodge-Cube
 - Set Disappearing Distance to 0. This means the other color blocks *will* reach you, so try not to hit the wrong color!
