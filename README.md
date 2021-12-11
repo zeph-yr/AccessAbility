@@ -27,9 +27,9 @@ If you want to see the whole map but play only one color without the barrage of 
 ## Demo
 <img src="https://github.com/zeph-yr/AccessAbility/blob/master/Screenshots/AccessAbility_screenshot_1_small.png" width="700" height=""/>
 <img src="https://github.com/zeph-yr/AccessAbility/blob/master/Screenshots/AccessAbility_screenshot_2_small.png" width="700" height="450"/>
-<b>Map with Red blocks turned off. In-map score is for the color you are playing</b>
+<b>Map with red blocks turned off. In-map score is for the color you are playing</b>
 <img src="https://github.com/zeph-yr/AccessAbility/blob/master/Screenshots/AccessAbility_screenshot_3A_small.png" width="700" height="450"/>
-<b>Map played with Disappearing Red blocks. Only the blue blocks are being played and scored</b>
+<b>Map played with disappearing red blocks. Only the blue blocks are being played and scored</b>
 <img src="https://github.com/zeph-yr/AccessAbility/blob/master/Screenshots/AccessAbility_screenshot_5_small.png" width="700" height="450"/>
 <b>Final score will be as if you missed all of the other color blocks but otherwise passed (ignore the disabled score text, it's from another mod)</b>
 <img src="https://github.com/zeph-yr/AccessAbility/blob/master/Screenshots/AccessAbility_screenshot_4_small.png" width="700" height=""/>
