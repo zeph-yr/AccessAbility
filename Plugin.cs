@@ -43,12 +43,13 @@ namespace AccessAbility
         {
             Plugin.Log.Debug("Game Scene Loaded");
 
-            //access = new GameObject("AccessAbilityController");
-            //access.AddComponent<AccessAbilityController>();
-            //GameObject.DontDestroyOnLoad(access);
-
             if ((PluginConfig.Instance.delete_blue || PluginConfig.Instance.delete_red ||
                 PluginConfig.Instance.dissolve_blue || PluginConfig.Instance.dissolve_red) && PluginConfig.Instance.neversubmit_enabled)
+            {
+                BS_Utils.Gameplay.ScoreSubmission.DisableSubmission("AccessAbility");
+            }
+
+            else if ((PluginConfig.Instance.dissolve_blue || PluginConfig.Instance.dissolve_red) && PluginConfig.Instance.dissolve_distance <= 3)
             {
                 BS_Utils.Gameplay.ScoreSubmission.DisableSubmission("AccessAbility");
             }
