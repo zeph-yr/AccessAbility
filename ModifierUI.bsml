@@ -1,26 +1,23 @@
 ﻿<bg xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xsi:schemaLocation='https://monkeymanboy.github.io/BSML-Docs/ https://raw.githubusercontent.com/monkeymanboy/BSML-Docs/gh-pages/BSMLSchema.xsd'>
 	<settings-container child-control-width='true' child-expand-width='false' size-delta-y='-5'>
-		<checkbox-setting value='delete_blue' on-change='set_delete_blue' text='No Blue' font-color='#4d4dffff' hover-hint='Play original red patterns only'></checkbox-setting>
-		<checkbox-setting value='dissolve_blue' on-change='set_dissolve_blue' text='Disappearing Blue' font-color='#4d4dff' hover-hint='Play original red patterns with disappearing blue blocks'></checkbox-setting>
+		<increment-setting value='increment_value_blue' apply-on-change='true' bind-value='true' text='Blue Blocks' font-color='#4d4dffff' integer-only='true' min='0' max='2' formatter='increment_formatter_blue' hover-hint='Play original red patterns only, or with disappearing blue blocks'/>
+		<increment-setting value='increment_value_red' apply-on-change='true' bind-value='true' text='Red Blocks' font-color='#ff4d4dff' integer-only='true' min='0' max='2' formatter='increment_formatter_red' hover-hint='Play original blue patterns only, or with disappearing red blocks'/>
 		
 		<horizontal>
-			<text text='------------------' font-color='#00000000' font-size='1'></text>
+			<text text = '------------------' font-color = '#00000000' font-size = '2' ></text>
 		</horizontal>
 		
-		<checkbox-setting value='delete_red' on-change='set_delete_red' text='No Red' font-color='#ff4d4dff' hover-hint='Play original blue patterns only'></checkbox-setting>
-		<checkbox-setting value='dissolve_red' on-change='set_dissolve_red' text='Disappearing Red' font-color='#ff4d4dff' hover-hint='Play original blue patterns with disappearing red blocks'></checkbox-setting>
-
+		<slider-setting id='dissolve_slider' value ='dissolve_distance' on-change='set_dissolve_distance' text='Disappearing Distance' increment='0.5' min='0' max='10' hover-hint='How close the blocks will disappear. Scores will not submit at 3 and below'></slider-setting>
+		
 		<horizontal>
-			<text text='------------------' font-color='#00000000' font-size='1'></text>
+			<text text = '------------------' font-color = '#00000000' font-size = '2' ></text>
 		</horizontal>
 		
-		<slider-setting id='dissolve_slider' value ='dissolve_distance' on-change='set_dissolve_distance' text='Disappearing Distance' increment='0.5' min='0' max='10' hover-hint='How near or far the blocks will disappear. Score submission is disabled at 3 or below'></slider-setting>
-
-		<checkbox-setting value='neversubmit_enabled' on-change='set_neversubmit_enabled' text='Disable Score Submission' hover-hint='Submitted score is a fraction of the two-handed maximum score'></checkbox-setting>
+		<checkbox-setting value='neversubmit_enabled' on-change='set_neversubmit_enabled' text='Turn Off Score Submission' hover-hint='Submitted score is a fraction of the two-handed maximum score'></checkbox-setting>
 	</settings-container>
 		<vertical pad-top='50'>
 			<horizontal child-expand-width='true'>
-				<text text='AccessAbility v1.0.1 by Zephyr#9125' font-color='#ff0080ff' font-size='3' align='Center'></text>
+				<text text='AccessAbility v1.1.1 by Zephyr#9125' font-color='#ff0080ff' font-size='3' align='Center'></text>
 			</horizontal>
 		</vertical>
 </bg>

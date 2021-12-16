@@ -8,11 +8,14 @@ namespace AccessAbility.Configuration
     {
         public static PluginConfig Instance { get; set; }
 
-        public virtual bool delete_blue { get; set; } = false;
-        public virtual bool dissolve_blue { get; set; } = false;
-        
-        public virtual bool delete_red { get; set; } = false;
-        public virtual bool dissolve_red { get; set; } = false;
+        public virtual int blue_mode { get; set; } = 0;
+        public virtual int red_mode { get; set; } = 0;
+
+        //public virtual bool delete_blue { get; set; } = false;
+        //public virtual bool dissolve_blue { get; set; } = false;
+
+        //public virtual bool delete_red { get; set; } = false;
+        //public virtual bool dissolve_red { get; set; } = false;
 
         public virtual float dissolve_distance { get; set; } = 6;
         public virtual bool neversubmit_enabled { get; set; } = true;
