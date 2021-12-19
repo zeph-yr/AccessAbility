@@ -12,8 +12,9 @@ namespace AccessAbility.Configuration
         public virtual int red_mode { get; set; } = 0;
         public virtual float dissolve_distance { get; set; } = 6;
         
-        public virtual bool yeet_walls { get; set; } = true;
-        public virtual bool neversubmit_enabled { get; set; } = true;
+        public virtual bool yeet_walls { get; set; } = false;
+        public virtual bool yeet_duck_walls { get; set; } = false;
+        public virtual bool neversubmit_enabled { get; set; } = false;
 
 
         public virtual void OnReload()

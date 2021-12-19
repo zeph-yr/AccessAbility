@@ -1,17 +1,16 @@
 ﻿using AccessAbility.Configuration;
 using HarmonyLib;
 using System.Collections.Generic;
-using System.Linq;
-using UnityEngine;
+
 
 namespace AccessAbility
 {
     [HarmonyPatch(typeof(BeatmapDataTransformHelper), "CreateTransformedBeatmapData")]
-    internal class BeatmapDataTransformerPatch
+    internal class HarmonyPatches
     {
         static IReadonlyBeatmapData Postfix(IReadonlyBeatmapData __result)
         {
-            if (PluginConfig.Instance.blue_mode == 0 && PluginConfig.Instance.red_mode == 0)
+            if (PluginConfig.Instance.blue_mode == 0 && PluginConfig.Instance.red_mode == 0 && PluginConfig.Instance.yeet_duck_walls == false)
             {
                 return __result;
             }
@@ -39,6 +38,18 @@ namespace AccessAbility
                             //Plugin.Log.Debug("Delete red");
                         }
                     }
+
+                    ObstacleData obstacleData;
+
+                    if ((obstacleData = (enumerator.Current as ObstacleData)) != null && PluginConfig.Instance.yeet_duck_walls)
+                    {
+                        if (obstacleData.obstacleType == ObstacleType.Top)
+                        {
+                            obstacleData.MoveTime(-1f);
+                            //Plugin.Log.Debug("Delete duck wall");
+                        }
+                    }
+                         
                 }
             }
 
@@ -87,14 +98,12 @@ namespace AccessAbility
     {
         static List<GameplayModifierParamsSO> Postfix(List<GameplayModifierParamsSO> __result, ref GameplayModifiers gameplayModifiers, ref GameplayModifiersModelSO __instance)
         {
-            if (PluginConfig.Instance.yeet_walls)
+            if (PluginConfig.Instance.yeet_walls || PluginConfig.Instance.yeet_duck_walls)
             {
-                // This never evaluates to true even when NO is on in-game
-                //if (gameplayModifiers.demoNoObstacles)
-                //{
-                //    Plugin.Log.Debug("Base Game No Walls");
-                //    return __result;
-                //}
+                if ((int)gameplayModifiers.enabledObstacleType == 2)
+                {
+                    return __result;
+                }
 
                 //Plugin.Log.Debug("Add NO modifier");
 

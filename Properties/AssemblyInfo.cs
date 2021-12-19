@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("AccessAbility")]
-[assembly: AssemblyCopyright("Copyright ©  2021 Zephyr")]
+[assembly: AssemblyCopyright("Copyright ©  2021-2022 Zephyr")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
