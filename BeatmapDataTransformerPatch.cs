@@ -1,6 +1,7 @@
 ﻿using AccessAbility.Configuration;
 using HarmonyLib;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace AccessAbility
 {
@@ -72,6 +73,46 @@ namespace AccessAbility
             if (PluginConfig.Instance.blue_mode == 2 /*PluginConfig.Instance.dissolve_blue*/ && __instance.noteData.colorType == ColorType.ColorB && __instance.noteTransform.position.z <= PluginConfig.Instance.dissolve_distance)
             {
                     __instance.Dissolve(0.001f);
+            }
+        }
+    }
+
+
+    /*[HarmonyPatch(typeof(PlayerHeadAndObstacleInteraction), "Init")]
+    internal class ObstacleDataPatch
+    {
+        static void Prefix(ref ObstacleData obstacleData)
+        {
+            if (PluginConfig.Instance.yeet_walls)
+            {
+                Plugin.Log.Debug("yeeting walls");
+                Plugin.Log.Debug("width: " + obstacleData.width);
+
+
+                float time = obstacleData.time;
+                int line = obstacleData.lineIndex;
+                ObstacleType type = obstacleData.obstacleType;
+                float duration = obstacleData.duration;
+                int width = obstacleData.width;
+
+                ObstacleData fake_wall = new ObstacleData(time, line, type, duration, width * -1);
+                obstacleData = fake_wall;
+
+                Plugin.Log.Debug("width: " + fake_wall.width);
+            }
+        }
+    }*/
+
+    [HarmonyPatch(typeof(PlayerHeadAndObstacleInteraction), "GetObstaclesContainingPoint")]
+    internal class ObstacleDataPatch
+    {
+        static void Postfix(List<ObstacleController> obstacleControllers)
+        {
+            if (PluginConfig.Instance.yeet_walls)
+            {
+                //Plugin.Log.Debug("Yeeting walls");
+
+                obstacleControllers.Clear();
             }
         }
     }
