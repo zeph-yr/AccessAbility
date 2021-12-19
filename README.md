@@ -25,7 +25,7 @@ If you want to see the whole map but play only one color without the barrage of 
 ## Scores
 - **In-Map:** Score is for the color you are playing :)
 - **Results Page and Submission:** If submitting, score will be a pass as if you missed all the turned-off or disappearing color blocks. You can turn off score submission and still keep your BeatSavior and SliceVisualizer Data but local scores and replays will not be saved. `Friendly Walls` or `Turn Off Crouch Walls` subtracts 5% from score following the base game No Obstacles modifier.
-- **`Turn Off Score Submission`** only applies when _at least one color is set to "OFF" or "Disappear"_. If you want to turn off score submission unconditionally, see my other mod [PlayFirstSubmitLater](https://github.com/zeph-yr/PlayFirstSubmitLater)
+- **`Turn Off Score Submission`** only applies when _at least one color is set to "OFF" or "Disappear"_. If you want to turn off score submission across your game, see my other mod [PlayFirstSubmitLater](https://github.com/zeph-yr/PlayFirstSubmitLater)
 
 ## Play One Handed Dodge-Cube
 - Set `Disappearing Distance` to 0. This means the disappearing color blocks *will* reach you, so try not to hit them! ^^
