@@ -105,7 +105,7 @@ namespace AccessAbility
                     return __result;
                 }
 
-                //Plugin.Log.Debug("Add NO modifier");
+                Plugin.Log.Debug("Add NO modifier");
 
                 __result.Add(__instance.GetGameplayModifierParams((GameplayModifierMask)8));
             }

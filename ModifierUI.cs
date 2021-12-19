@@ -46,6 +46,25 @@ namespace AccessAbility
         }
 
 
+        [UIValue("yeet_duck_walls")]
+        public bool Yeet_Duck_Walls
+        {
+            get => PluginConfig.Instance.yeet_duck_walls;
+            set
+            {
+                PluginConfig.Instance.yeet_duck_walls = value;
+            }
+        }
+        [UIAction("set_yeet_duck_walls")]
+        void Set_Yeet_Duck_Walls(bool value)
+        {
+            Yeet_Duck_Walls = value;
+
+            GameplayModifiersPanelController gameplayModifiersPanelController = Resources.FindObjectsOfTypeAll<GameplayModifiersPanelController>().FirstOrDefault();
+            gameplayModifiersPanelController.RefreshTotalMultiplierAndRankUI();
+        }
+
+
         [UIValue("neversubmit_enabled")]
         public bool Neversubmit_Enabled
         {
