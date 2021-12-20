@@ -1,6 +1,6 @@
 # AccessAbility
 **Not all of us can play with two hands or arms, or dive under a wall, but that shouldn't stop any of us from being able to enjoy the game!**
-**A true one-hand mod. Play any map. With only the blocks of your color-choice. In their original patterns. Turn off wall-damage or remove crouch walls!**
+**A true one-hand and sitting-friendly mod. Play any map. With only the blocks of your color-choice. In their original patterns. Turn off wall-damage, even remove crouch walls!**
 
 This mod allows you to play the original map with the Red, Blue, or all blocks turned off. 
 Supports Left and Right Hand playersettings, Multiplayer, OST and DLC, Practice Mode, Custom and Base Campaigns. For BS 1.18.3+
@@ -12,19 +12,19 @@ AccessAbility *removes the blocks* mapped in the other color and thus accurately
 If you want to see the whole map but play only one color without the barrage of misses, AccessAbility can set one color to disappear near striking distance without being counted as misses during your play.
 
 **1.19.0 Update**
-- Friendly Walls: Play with the visual, audio and haptic effects of walls without needing to physically avoid them to pass.
-- No Crouch Walls: Play with only full-height walls. All crouch-height walls are removed regardless if crouching is necessary to avoid them.
+- **Friendly Walls:** Play with the visual, audio and haptic effects of walls without needing to physically avoid them to pass.
+- **No Crouch Walls:** Play with only full-height walls. All crouch-height walls are removed regardless if crouching is necessary to avoid them.
 - You can use both of these wall features together.
 
 ## How To Use
 - Place AccessAbility.dll in your Plugins folder
-- Set the toggles to what works for you and have fun!
-- Adjust the `Disappearing Distance` slider for how close you want the blocks to come before they disappear. 6.0 keeps them out of saber-reach. 3.0 and below automatically prevents score submission.
+- Set the toggles to what is comfortable for you and have fun!
+- Adjust the `Disappearing Distance` slider for how close you want the blocks to come before they disappear. 6.0 keeps them out of saber-reach. At 3.0 and below, score submission is automatically turned off.
 - Requires BSML and BS Utils
 
 ## Scores
 - **In-Map:** Score is for the color you are playing :)
-- **Results Page and Submission:** If submitting, score will be a pass as if you missed all the turned-off or disappearing color blocks. You can turn off score submission and still keep your BeatSavior and SliceVisualizer Data but local scores and replays will not be saved. `Friendly Walls` or `Turn Off Crouch Walls` subtracts 5% from score following the base game No Obstacles modifier.
+- **Results Page and Submission:** If submitting, score will be a pass as if you missed all the turned-off or disappearing color blocks. You can turn off score submission and still keep your BeatSavior and SliceVisualizer Data but local scores and replays will not be saved. `Friendly Walls` or `Turn Off Crouch Walls` subtracts 5% from score like the base game No Obstacles modifier.
 - **`Turn Off Score Submission`** only applies when _at least one color is set to "OFF" or "Disappear"_. If you want to turn off score submission across your game, see my other mod [PlayFirstSubmitLater](https://github.com/zeph-yr/PlayFirstSubmitLater)
 
 ## Play One Handed Dodge-Cube
