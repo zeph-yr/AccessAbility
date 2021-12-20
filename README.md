@@ -1,6 +1,6 @@
 # AccessAbility
 **Not all of us can play with two hands or arms, or dive under a wall, but that shouldn't stop any of us from being able to enjoy the game!**
-**A true one-hand and sitting-friendly mod. Play any map. With only the blocks of your color-choice. In their original patterns. Turn off wall-damage, even remove crouch walls!**
+**A true one-hand and sitting-friendly mod. Play any map. With only the blocks of your color-choice. In their original patterns. Turn off wall-damage. Remove crouch walls.**
 
 This mod allows you to play the original map with the Red, Blue, or all blocks turned off. 
 Supports Left and Right Hand playersettings, Multiplayer, OST and DLC, Practice Mode, Custom and Base Campaigns. For BS 1.18.3+
@@ -12,7 +12,7 @@ AccessAbility *removes the blocks* mapped in the other color and thus accurately
 If you want to see the whole map but play only one color without the barrage of misses, AccessAbility can set one color to disappear near striking distance without being counted as misses during your play.
 
 **1.19.0 Update**
-- **Friendly Walls:** Play with the visual, audio and haptic effects of walls without needing to physically avoid them to pass.
+- **Friendly Walls:** Play with the visual, audio and haptic effects of walls without needing to physically avoid them.
 - **No Crouch Walls:** Play with only full-height walls. All crouch-height walls are removed regardless if crouching is necessary to avoid them.
 - You can use both of these wall features together.
 
