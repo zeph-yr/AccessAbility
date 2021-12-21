@@ -3,9 +3,9 @@
     "id": "AccessAbility",
     "name": "AccessAbility",
     "author": "Zephyr",
-    "version": "2.0.1",
+    "version": "2.0.0",
     "description": "",
-    "gameVersion": "1.19.0",
+    "gameVersion": "1.18.3",
     "dependsOn": {
         "BSIPA": "^4.2.0",
         "BS Utils": "^1.11.0",

@@ -17,7 +17,6 @@ namespace AccessAbility
         public const string HarmonyId = "com.zephyr.BeatSaber.AccessAbility";
         internal static readonly HarmonyLib.Harmony harmony = new HarmonyLib.Harmony(HarmonyId);
 
-        //internal static GameObject access;
 
         [Init]
         public Plugin(IPALogger logger, Config config)
@@ -43,14 +42,11 @@ namespace AccessAbility
         {
             Plugin.Log.Debug("Game Scene Loaded");
 
-            /*if ((PluginConfig.Instance.delete_blue || PluginConfig.Instance.delete_red ||
-                PluginConfig.Instance.dissolve_blue || PluginConfig.Instance.dissolve_red) && PluginConfig.Instance.neversubmit_enabled)*/
             if ((PluginConfig.Instance.blue_mode != 0 || PluginConfig.Instance.red_mode != 0) && PluginConfig.Instance.neversubmit_enabled)
             {
                 BS_Utils.Gameplay.ScoreSubmission.DisableSubmission("AccessAbility");
             }
 
-            //else if ((PluginConfig.Instance.dissolve_blue || PluginConfig.Instance.dissolve_red) && PluginConfig.Instance.dissolve_distance <= 3)
             else if ((PluginConfig.Instance.blue_mode == 2 || PluginConfig.Instance.red_mode == 2) && PluginConfig.Instance.dissolve_distance <= 3)
             {
                 BS_Utils.Gameplay.ScoreSubmission.DisableSubmission("AccessAbility");
