@@ -18,7 +18,7 @@
 	</settings-container>
 		<vertical pad-top='50'>
 			<horizontal child-expand-width='true'>
-				<text text='AccessAbility v1.1.1 by Zephyr#9125' font-color='#ff0080ff' font-size='3' align='Center'></text>
+				<text text='AccessAbility v2.0.0 by Zephyr#9125' font-color='#ff0080ff' font-size='3' align='Center'></text>
 			</horizontal>
 		</vertical>
 </bg>
