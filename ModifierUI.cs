@@ -115,7 +115,7 @@ namespace AccessAbility
     public enum Mode_Enum
     {
         On = 0,
-        Off = 1,
+        NoBlocks = 1,
         Disappear = 2
     }
 }
