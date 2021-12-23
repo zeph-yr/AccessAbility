@@ -9,6 +9,37 @@ namespace AccessAbility
 {
     class ModifierUI : NotifiableSingleton<ModifierUI>
     {
+        internal static GameplayModifiersPanelController gameplayModifiersPanelController;
+
+
+        [UIValue("increment_value_blue")]
+        private int Increment_Value_Blue
+        {
+            get => PluginConfig.Instance.blue_mode;
+            set
+            {
+                PluginConfig.Instance.blue_mode = value;
+                NotifyPropertyChanged(nameof(Increment_Value_Blue));
+            }
+        }
+        [UIAction("increment_formatter_blue")]
+        private string Increment_Formatter_Blue(int value) => ((Mode_Enum)value).ToString();
+
+
+        [UIValue("increment_value_red")]
+        private int Increment_Value_Red
+        {
+            get => PluginConfig.Instance.red_mode;
+            set
+            {
+                PluginConfig.Instance.red_mode = value;
+                NotifyPropertyChanged(nameof(Increment_Value_Red));
+            }
+        }
+        [UIAction("increment_formatter_red")]
+        private string Increment_Formatter_Red(int value) => ((Mode_Enum)value).ToString();
+
+
         [UIComponent("dissolve_slider")]
         public SliderSetting Dissolve_Slider;
         [UIValue("dissolve_distance")]
@@ -41,7 +72,7 @@ namespace AccessAbility
         {
             Yeet_Walls = value;
 
-            GameplayModifiersPanelController gameplayModifiersPanelController = Resources.FindObjectsOfTypeAll<GameplayModifiersPanelController>().FirstOrDefault();
+            gameplayModifiersPanelController = Resources.FindObjectsOfTypeAll<GameplayModifiersPanelController>().FirstOrDefault();
             gameplayModifiersPanelController.RefreshTotalMultiplierAndRankUI();
         }
 
@@ -60,7 +91,7 @@ namespace AccessAbility
         {
             Yeet_Duck_Walls = value;
 
-            GameplayModifiersPanelController gameplayModifiersPanelController = Resources.FindObjectsOfTypeAll<GameplayModifiersPanelController>().FirstOrDefault();
+            gameplayModifiersPanelController = Resources.FindObjectsOfTypeAll<GameplayModifiersPanelController>().FirstOrDefault();
             gameplayModifiersPanelController.RefreshTotalMultiplierAndRankUI();
         }
 
@@ -79,36 +110,6 @@ namespace AccessAbility
         {
             Neversubmit_Enabled = value;
         }
-
-
-        [UIValue("increment_value_blue")]
-        private int Increment_Value_Blue
-        {
-            get => PluginConfig.Instance.blue_mode;
-            set
-            {
-                PluginConfig.Instance.blue_mode = value;
-                NotifyPropertyChanged(nameof(Increment_Value_Blue));
-            }
-        }
-
-        [UIAction("increment_formatter_blue")]
-        private string Increment_Formatter_Blue(int value) => ((Mode_Enum)value).ToString();
-
-
-        [UIValue("increment_value_red")]
-        private int Increment_Value_Red
-        {
-            get => PluginConfig.Instance.red_mode;
-            set
-            {
-                PluginConfig.Instance.red_mode = value;
-                NotifyPropertyChanged(nameof(Increment_Value_Red));
-            }
-        }
-
-        [UIAction("increment_formatter_red")]
-        private string Increment_Formatter_Red(int value) => ((Mode_Enum)value).ToString();
     }
 
 

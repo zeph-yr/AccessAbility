@@ -6,7 +6,7 @@ using System.Collections.Generic;
 namespace AccessAbility
 {
     [HarmonyPatch(typeof(BeatmapDataTransformHelper), "CreateTransformedBeatmapData")]
-    internal class HarmonyPatches
+    internal class BeatmapDataTransformPatch
     {
         static IReadonlyBeatmapData Postfix(IReadonlyBeatmapData __result)
         {
@@ -15,7 +15,7 @@ namespace AccessAbility
                 return __result;
             }
 
-            Plugin.Log.Debug("Delete Blocks");
+            Plugin.Log.Debug("Delete Blocks or Duck Walls");
 
 
             using (IEnumerator<BeatmapObjectData> enumerator = __result.beatmapObjectsData.GetEnumerator())
@@ -49,7 +49,6 @@ namespace AccessAbility
                             //Plugin.Log.Debug("Delete duck wall");
                         }
                     }
-                         
                 }
             }
 
