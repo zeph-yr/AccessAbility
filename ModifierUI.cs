@@ -58,6 +58,25 @@ namespace AccessAbility
         }
 
 
+        [UIValue("yeet_bombs")]
+        public bool Yeet_Bombs
+        {
+            get => PluginConfig.Instance.yeet_bombs;
+            set
+            {
+                PluginConfig.Instance.yeet_bombs = value;
+            }
+        }
+        [UIAction("set_yeet_bombs")]
+        void Set_Yeet_Bombs(bool value)
+        {
+            Yeet_Bombs = value;
+
+            gameplayModifiersPanelController = Resources.FindObjectsOfTypeAll<GameplayModifiersPanelController>().FirstOrDefault();
+            gameplayModifiersPanelController.RefreshTotalMultiplierAndRankUI();
+        }
+
+
         [UIValue("yeet_walls")]
         public bool Yeet_Walls
         {

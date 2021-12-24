@@ -105,11 +105,30 @@ namespace AccessAbility
                 }
 
                 Plugin.Log.Debug("Add NO modifier");
-
                 __result.Add(__instance.GetGameplayModifierParams((GameplayModifierMask)8));
             }
 
+            if (PluginConfig.Instance.yeet_bombs)
+            {
+                if (gameplayModifiers.noBombs)
+                {
+                    return __result;
+                }
+
+                Plugin.Log.Debug("Add no bombs modifier");
+                __result.Add(__instance.GetGameplayModifierParams((GameplayModifierMask)16));
+            }
+
             return __result;
+        }
+    }
+
+    [HarmonyPatch(typeof(BombNoteController), "Init")]
+    internal class BombNoteControllerPatch
+    {
+        static void Postfix(ref BombNoteController __instance)
+        {
+            __instance.GetComponentInChildren<CuttableBySaber>().canBeCut = false;
         }
     }
 }
