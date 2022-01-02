@@ -3,10 +3,7 @@ using IPA;
 using IPA.Config;
 using IPA.Config.Stores;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
-using UnityEngine;
 using IPALogger = IPA.Logging.Logger;
 
 namespace AccessAbility

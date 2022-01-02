@@ -1,8 +1,8 @@
 ﻿using AccessAbility.Configuration;
 using HarmonyLib;
-using System;
 using System.Collections.Generic;
-
+using System.Linq;
+using UnityEngine;
 
 namespace AccessAbility
 {
@@ -155,22 +155,12 @@ namespace AccessAbility
         {
             if ((PluginConfig.Instance.yeet_walls || PluginConfig.Instance.yeet_duck_walls) && gameplayModifiers.enabledObstacleType == GameplayModifiers.EnabledObstacleType.All)
             {
-                /*if ((int)gameplayModifiers.enabledObstacleType == 2)
-                {
-                    return __result;
-                }*/
-
                 //Plugin.Log.Debug("Add no obstacles modifier");
                 __result.Add(__instance.GetGameplayModifierParams((GameplayModifierMask)8));
             }
 
             if (PluginConfig.Instance.yeet_bombs && gameplayModifiers.noBombs == false)
             {
-                /*if (gameplayModifiers.noBombs)
-                {
-                    return __result;
-                }*/
-
                 //Plugin.Log.Debug("Add no bombs modifier");
                 __result.Add(__instance.GetGameplayModifierParams((GameplayModifierMask)16));
             }
@@ -178,31 +168,6 @@ namespace AccessAbility
             return __result;
         }
     }
-
-
-    // Keep this note: Don't try to edit modifiers by patching this function
-    // Causes problems when user clicks those modifiers in panel. States get all messed up
-
-    /*[HarmonyPatch(typeof(GameplayModifiersModelSO), "CreateGameplayModifiers")] 
-    internal class GameplayModifiersPatch_2
-    {
-        static GameplayModifiers Postfix(GameplayModifiers __result, ref Func<GameplayModifierParamsSO, bool> valueGetter, ref GameplayModifiersModelSO __instance)
-        {
-            GameplayModifiers.EnabledObstacleType no_obstacles = GameplayModifiers.EnabledObstacleType.All;
-            if (PluginConfig.Instance.yeet_walls || PluginConfig.Instance.yeet_duck_walls)
-            {
-                no_obstacles = GameplayModifiers.EnabledObstacleType.NoObstacles;
-
-                Plugin.Log.Debug("Create NO modifier");
-            }
-
-            bool no_bombs = PluginConfig.Instance.yeet_bombs;
-            Plugin.Log.Debug("Create no bombs modifier");
-
-
-            return new GameplayModifiers(__result.demoNoFail, __result.demoNoObstacles, __result.energyType, __result.noFailOn0Energy, __result.instaFail, false, no_obstacles, no_bombs, __result.fastNotes, __result.strictAngles, __result.disappearingArrows, __instance.GetSongSpeedFromValueGetter(valueGetter), __result.noArrows, __result.ghostNotes, __result.proMode, __result.zenMode, __result.smallCubes);
-        }
-    }*/
 
 
     [HarmonyPatch(typeof(StandardLevelScenesTransitionSetupDataSO), "Init")]
@@ -248,18 +213,3 @@ namespace AccessAbility
         }
     }
 }
-
-
-
-    /*[HarmonyPatch(typeof(GameplayModifiers))] // Doesnt work to patch constructor
-    [HarmonyPatch(new Type[] { })]
-    class Patch
-    {
-        static void Prefix(ref GameplayModifiers.EnabledObstacleType enabledObstacleType, bool noBomb)
-        {
-            enabledObstacleType = GameplayModifiers.EnabledObstacleType.NoObstacles;
-            noBomb = true;
-
-            Plugin.Log.Debug("GameplayModifiers Patch");
-        }
-    }*/

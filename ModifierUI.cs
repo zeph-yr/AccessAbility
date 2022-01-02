@@ -72,14 +72,7 @@ namespace AccessAbility
         {
             Yeet_Bombs = value;
 
-
-            //V2: Does it truly turn it on or is it just the menu's UI?
-            gameplayModifiersPanelController = Resources.FindObjectsOfTypeAll<GameplayModifiersPanelController>().FirstOrDefault();
-
-            //GameplayModifiersModelSO gameplayModifiersModelSO = Resources.FindObjectsOfTypeAll<GameplayModifiersModelSO>().FirstOrDefault();
-            //gameplayModifiersPanelController.SetToggleValueWithGameplayModifierParams(gameplayModifiersModelSO.GetGameplayModifierParams((GameplayModifierMask)16), value);
-
-            gameplayModifiersPanelController.RefreshTotalMultiplierAndRankUI();
+            Refresh_Modifier_UI();
         }
 
 
@@ -97,14 +90,7 @@ namespace AccessAbility
         {
             Yeet_Walls = value;
 
-            
-            gameplayModifiersPanelController = Resources.FindObjectsOfTypeAll<GameplayModifiersPanelController>().FirstOrDefault();
-
-            //GameplayModifiersModelSO gameplayModifiersModelSO = Resources.FindObjectsOfTypeAll<GameplayModifiersModelSO>().FirstOrDefault();
-            //gameplayModifiersPanelController.SetToggleValueWithGameplayModifierParams(gameplayModifiersModelSO.GetGameplayModifierParams((GameplayModifierMask)8), value);
-
-            gameplayModifiersPanelController.RefreshTotalMultiplierAndRankUI();
-            
+            Refresh_Modifier_UI();
         }
 
 
@@ -122,14 +108,7 @@ namespace AccessAbility
         {
             Yeet_Duck_Walls = value;
 
-            
-            gameplayModifiersPanelController = Resources.FindObjectsOfTypeAll<GameplayModifiersPanelController>().FirstOrDefault();
-
-            //GameplayModifiersModelSO gameplayModifiersModelSO = Resources.FindObjectsOfTypeAll<GameplayModifiersModelSO>().FirstOrDefault();
-            //gameplayModifiersPanelController.SetToggleValueWithGameplayModifierParams(gameplayModifiersModelSO.GetGameplayModifierParams((GameplayModifierMask)8), value);
-
-            gameplayModifiersPanelController.RefreshTotalMultiplierAndRankUI();
-            
+            Refresh_Modifier_UI();
         }
 
 
@@ -147,9 +126,16 @@ namespace AccessAbility
         {
             Neversubmit_Enabled = value;
         }
+
+
+        internal void Refresh_Modifier_UI()
+        {
+            gameplayModifiersPanelController = Resources.FindObjectsOfTypeAll<GameplayModifiersPanelController>().FirstOrDefault();
+            gameplayModifiersPanelController.RefreshTotalMultiplierAndRankUI();
+        }
     }
 
-
+    
     public enum Mode_Enum
     {
         On = 0,
