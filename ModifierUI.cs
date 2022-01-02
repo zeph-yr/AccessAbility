@@ -72,7 +72,13 @@ namespace AccessAbility
         {
             Yeet_Bombs = value;
 
+
+            //V2: Does it truly turn it on or is it just the menu's UI?
             gameplayModifiersPanelController = Resources.FindObjectsOfTypeAll<GameplayModifiersPanelController>().FirstOrDefault();
+
+            //GameplayModifiersModelSO gameplayModifiersModelSO = Resources.FindObjectsOfTypeAll<GameplayModifiersModelSO>().FirstOrDefault();
+            //gameplayModifiersPanelController.SetToggleValueWithGameplayModifierParams(gameplayModifiersModelSO.GetGameplayModifierParams((GameplayModifierMask)16), value);
+
             gameplayModifiersPanelController.RefreshTotalMultiplierAndRankUI();
         }
 
@@ -91,8 +97,14 @@ namespace AccessAbility
         {
             Yeet_Walls = value;
 
+            
             gameplayModifiersPanelController = Resources.FindObjectsOfTypeAll<GameplayModifiersPanelController>().FirstOrDefault();
+
+            //GameplayModifiersModelSO gameplayModifiersModelSO = Resources.FindObjectsOfTypeAll<GameplayModifiersModelSO>().FirstOrDefault();
+            //gameplayModifiersPanelController.SetToggleValueWithGameplayModifierParams(gameplayModifiersModelSO.GetGameplayModifierParams((GameplayModifierMask)8), value);
+
             gameplayModifiersPanelController.RefreshTotalMultiplierAndRankUI();
+            
         }
 
 
@@ -110,8 +122,14 @@ namespace AccessAbility
         {
             Yeet_Duck_Walls = value;
 
+            
             gameplayModifiersPanelController = Resources.FindObjectsOfTypeAll<GameplayModifiersPanelController>().FirstOrDefault();
+
+            //GameplayModifiersModelSO gameplayModifiersModelSO = Resources.FindObjectsOfTypeAll<GameplayModifiersModelSO>().FirstOrDefault();
+            //gameplayModifiersPanelController.SetToggleValueWithGameplayModifierParams(gameplayModifiersModelSO.GetGameplayModifierParams((GameplayModifierMask)8), value);
+
             gameplayModifiersPanelController.RefreshTotalMultiplierAndRankUI();
+            
         }
 
 
