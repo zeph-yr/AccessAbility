@@ -190,6 +190,16 @@ namespace AccessAbility
     }
 
 
+    [HarmonyPatch(typeof(MissionLevelScenesTransitionSetupDataSO), "Init")]
+    internal class MissionLevelScenesTransitionPatch
+    {
+        static void Prefix(ref GameplayModifiers gameplayModifiers)
+        {
+            gameplayModifiers = AccessAbility_Modifiers.Set_AccessAbility_Modifiers(gameplayModifiers);
+        }
+    }
+
+
     internal class AccessAbility_Modifiers
     {
         internal static GameplayModifiers Set_AccessAbility_Modifiers(GameplayModifiers gameplayModifiers)
