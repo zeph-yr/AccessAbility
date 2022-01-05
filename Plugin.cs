@@ -32,22 +32,11 @@ namespace AccessAbility
         public void OnEnable()
         {
             BS_Utils.Utilities.BSEvents.gameSceneLoaded += BSEvents_gameSceneLoaded;
-            //BS_Utils.Utilities.BSEvents.levelCleared += BSEvents_levelCleared;
 
             ApplyHarmonyPatches();
 
             BeatSaberMarkupLanguage.GameplaySetup.GameplaySetup.instance.AddTab("AccessAbility", "AccessAbility.ModifierUI.bsml", ModifierUI.instance);
         }
-
-        /*private void BSEvents_levelCleared(StandardLevelScenesTransitionSetupDataSO arg1, LevelCompletionResults arg2)
-        {
-            Plugin.Log.Debug("GPM - noBombs: " + arg2.gameplayModifiers.noBombs);
-            Plugin.Log.Debug("GPM - enabledObstacleType: " + arg2.gameplayModifiers.enabledObstacleType);
-            Plugin.Log.Debug("GPM - rawScore: " + arg2.rawScore);
-            Plugin.Log.Debug("GPM - modifiedScore: " + arg2.modifiedScore);
-            Plugin.Log.Debug("GPM - rank: " + arg2.rank);
-            Plugin.Log.Debug("GPM - iswithoutmodifiers: " + arg2.gameplayModifiers.IsWithoutModifiers());
-        }*/
 
         private void BSEvents_gameSceneLoaded()
         {

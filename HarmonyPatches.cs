@@ -1,8 +1,6 @@
 ﻿using AccessAbility.Configuration;
 using HarmonyLib;
 using System.Collections.Generic;
-using System.Linq;
-using UnityEngine;
 
 namespace AccessAbility
 {
@@ -39,17 +37,6 @@ namespace AccessAbility
                             //Plugin.Log.Debug("Delete red");
                         }
                     }
-
-                    /*ObstacleData obstacleData;
-
-                    if ((obstacleData = (enumerator.Current as ObstacleData)) != null && PluginConfig.Instance.yeet_duck_walls)
-                    {
-                        if (obstacleData.obstacleType == ObstacleType.Top)
-                        {
-                            obstacleData.MoveTime(-1f);
-                            //Plugin.Log.Debug("Delete duck wall");
-                        }
-                    }*/
                 }
             }
 
@@ -131,7 +118,6 @@ namespace AccessAbility
             if (PluginConfig.Instance.yeet_walls)
             {
                 //Plugin.Log.Debug("Yeeting walls");
-
                 obstacleControllers.Clear();
             }
         }
