@@ -19,7 +19,7 @@
 	</settings-container>
 		<vertical pad-top='50'>
 			<horizontal child-expand-width='true'>
-				<text text='AccessAbility v3.0.0 by Zephyr#9125' font-color='#ff0080ff' font-size='3' align='Center' hover-hint='Not all disabilities are visible. And that does not make them any less valid.'></text>
+				<text text='AccessAbility v3.0.1 by Zephyr#9125' font-color='#ff0080ff' font-size='3' align='Center' hover-hint='Not all disabilities are visible. And that does not make them any less valid.'></text>
 			</horizontal>
 		</vertical>
 </bg>

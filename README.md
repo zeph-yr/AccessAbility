@@ -43,4 +43,4 @@ If you want to see the whole map but play only one color without the barrage of 
 <img src="https://github.com/zeph-yr/AccessAbility/blob/master/Screenshots/AccessAbility_2.0.0_screenshot_3.png" width="700" height="450"/>
 
 ## About
-Not all disabilities are visible or obvious. And that doesn't make them any less valid. Don't let someone else's opinion define you.'
+Not all disabilities are visible or obvious. And that doesn't make them any less valid. Don't let others define you.'
