@@ -42,7 +42,9 @@ namespace AccessAbility
         {
             Plugin.Log.Debug("Game Scene Loaded");
 
-            if ((PluginConfig.Instance.blue_mode != 0 || PluginConfig.Instance.red_mode != 0) && PluginConfig.Instance.neversubmit_enabled)
+            if (PluginConfig.Instance.neversubmit_enabled && 
+               (PluginConfig.Instance.blue_mode != 0 || PluginConfig.Instance.red_mode != 0 || 
+                PluginConfig.Instance.yeet_bombs || PluginConfig.Instance.yeet_walls || PluginConfig.Instance.yeet_duck_walls))
             {
                 BS_Utils.Gameplay.ScoreSubmission.DisableSubmission("AccessAbility");
             }

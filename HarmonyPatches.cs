@@ -129,7 +129,10 @@ namespace AccessAbility
     {
         static void Postfix(ref BombNoteController __instance)
         {
-            __instance.GetComponentInChildren<CuttableBySaber>().canBeCut = false;
+            if (PluginConfig.Instance.yeet_bombs)
+            {
+                __instance.GetComponentInChildren<CuttableBySaber>().canBeCut = false;
+            }
         }
     }
 
