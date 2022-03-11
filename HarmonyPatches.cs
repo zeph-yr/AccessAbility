@@ -36,6 +36,23 @@ namespace AccessAbility
                         //Plugin.Log.Debug("Delete red");
                     }
                 }
+
+                ObstacleData obstacleData;
+                if ((obstacleData = (beatmapDataItem as ObstacleData)) != null)
+                {
+                    result_2.AddBeatmapObjectData(obstacleData);
+                }
+
+                BeatmapEventData beatmapEventData;
+                if ((beatmapEventData = (beatmapDataItem as BeatmapEventData)) != null)
+                {
+                    result_2.InsertBeatmapEventData(beatmapEventData);
+                }                
+            }
+
+            foreach (string keyword in __result.specialBasicBeatmapEventKeywords)
+            {
+                result_2.AddSpecialBasicBeatmapEventKeyword(keyword);
             }
 
             return result_2;
@@ -50,35 +67,53 @@ namespace AccessAbility
         {
             //Plugin.Log.Debug("NoteController PostFix");
 
+            /*(if (PluginConfig.Instance.red_mode == 1 && __instance.noteData.colorType == ColorType.ColorA)
+            {
+                __instance.gameObject.SetActive(false); // very bad
+                //GameObject.Destroy(__instance); // Not good, causes errors with other mods or basegame
+                return;
+            }
+
+            if (PluginConfig.Instance.blue_mode == 1 && __instance.noteData.colorType == ColorType.ColorB)
+            {
+                //GameObject.Destroy(__instance);
+                //__instance.gameObject.SetActive(false);
+                return;
+            }*/
+
+
             if (PluginConfig.Instance.red_mode == 2 && __instance.noteData.colorType == ColorType.ColorA && __instance.noteTransform.position.z <= PluginConfig.Instance.dissolve_distance)
             {
                 __instance.Dissolve(0.001f);
+                return;
             }
 
             if (PluginConfig.Instance.blue_mode == 2 && __instance.noteData.colorType == ColorType.ColorB && __instance.noteTransform.position.z <= PluginConfig.Instance.dissolve_distance)
             {
                 __instance.Dissolve(0.001f);
+                return;
             }
         }
     }
 
 
-    /*[HarmonyPatch(typeof(BeatmapDataObstaclesAndBombsTransform), "ShouldUseBeatmapObject")]
+    [HarmonyPatch(typeof(BeatmapDataObstaclesAndBombsTransform), "ShouldUseBeatmapDataItem")]
     internal class BeatmapDataObstaclesAndBombsTransformPatch
     {
-        static bool Postfix(bool __result, BeatmapObjectData beatmapObjectData, GameplayModifiers.EnabledObstacleType enabledObstaclesType, bool noBombs)
+        static bool Postfix(bool __result, BeatmapDataItem beatmapDataItem, GameplayModifiers.EnabledObstacleType enabledObstaclesType, bool noBombs)
         {
-            if (beatmapObjectData.beatmapObjectType == BeatmapObjectType.Obstacle)
+            if (beatmapDataItem is ObstacleData)
             {
                 if (enabledObstaclesType == GameplayModifiers.EnabledObstacleType.FullHeightOnly || PluginConfig.Instance.yeet_duck_walls)
                 {
-                    ObstacleData obstacleData;
-                    if ((obstacleData = (beatmapObjectData as ObstacleData)) != null && obstacleData.obstacleType == ObstacleType.Top)
+                    ObstacleData obstacleData = beatmapDataItem as ObstacleData;
+                    if (obstacleData.height == 3)
                     {
                         return false;
+                        //return true;
                     }
-
                     return true;
+                    //return false;
                 }
 
                 if (enabledObstaclesType == GameplayModifiers.EnabledObstacleType.NoObstacles)
@@ -92,7 +127,7 @@ namespace AccessAbility
                 }
             }
 
-            else if (beatmapObjectData.beatmapObjectType == BeatmapObjectType.Note && ((NoteData)beatmapObjectData).colorType == ColorType.None)
+            else if (beatmapDataItem is NoteData && ((NoteData)beatmapDataItem).colorType == ColorType.None)
             {
                 if (PluginConfig.Instance.yeet_bombs)
                 {
@@ -108,16 +143,18 @@ namespace AccessAbility
 
 
 
-    [HarmonyPatch(typeof(PlayerHeadAndObstacleInteraction), "GetObstaclesContainingPoint")]
+    [HarmonyPatch(typeof(PlayerHeadAndObstacleInteraction), "Update")]
     internal class ObstacleInteractionPatch
     {
-        static void Postfix(List<ObstacleController> obstacleControllers)
+        static bool Prefix()
         {
             if (PluginConfig.Instance.yeet_walls)
             {
                 //Plugin.Log.Debug("Yeeting walls");
-                obstacleControllers.Clear();
+                return false;
             }
+
+            return true;
         }
     }
 
@@ -209,5 +246,5 @@ namespace AccessAbility
             return gameplayModifiers.CopyWith(null, null, null, null, walls_modifier, bombs_modifier, null, null, null, null, null, null, null);
             //return gameplayModifiers.CopyWith(null, null, null, null, null, null, walls_modifier, bombs_modifier, null, null, null, null, null, null, null, null, null);
         }
-    }*/
+    }
 }
