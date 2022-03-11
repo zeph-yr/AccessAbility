@@ -1,6 +1,7 @@
 ﻿using AccessAbility.Configuration;
 using HarmonyLib;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace AccessAbility
 {
@@ -9,38 +10,35 @@ namespace AccessAbility
     {
         static IReadonlyBeatmapData Postfix(IReadonlyBeatmapData __result)
         {
-            if (PluginConfig.Instance.blue_mode == 0 && PluginConfig.Instance.red_mode == 0 && PluginConfig.Instance.yeet_duck_walls == false)
+            if (PluginConfig.Instance.blue_mode == 0 && PluginConfig.Instance.red_mode == 0)
             {
                 return __result;
             }
 
-            Plugin.Log.Debug("Delete Blocks or Duck Walls");
+            //Plugin.Log.Debug("Delete Blocks or Duck Walls");
 
+            BeatmapData result_2 = new BeatmapData(__result.numberOfLines);
 
-            using (IEnumerator<BeatmapObjectData> enumerator = __result.beatmapObjectsData.GetEnumerator())
+            foreach (BeatmapDataItem beatmapDataItem in __result.allBeatmapDataItems)
             {
-                while (enumerator.MoveNext())
+                NoteData noteData;
+                if ((noteData = (beatmapDataItem as NoteData)) != null)
                 {
-                    NoteData noteData;
-
-                    if ((noteData = (enumerator.Current as NoteData)) != null)
+                    if (noteData.colorType == ColorType.ColorB && PluginConfig.Instance.blue_mode != 1)
                     {
-                        if (noteData.colorType == ColorType.ColorB && PluginConfig.Instance.blue_mode == 1)
-                        {
-                            noteData.MoveTime(-1f);
-                            //Plugin.Log.Debug("Delete blue");
-                        }
+                        result_2.AddBeatmapObjectData(noteData);
+                        //Plugin.Log.Debug("Delete blue");
+                    }
 
-                        if (noteData.colorType == ColorType.ColorA && PluginConfig.Instance.red_mode == 1)
-                        {
-                            noteData.MoveTime(-1f);
-                            //Plugin.Log.Debug("Delete red");
-                        }
+                    if (noteData.colorType == ColorType.ColorA && PluginConfig.Instance.red_mode != 1)
+                    {
+                        result_2.AddBeatmapObjectData(noteData);
+                        //Plugin.Log.Debug("Delete red");
                     }
                 }
             }
 
-            return __result;
+            return result_2;
         }
     }
 
@@ -65,7 +63,7 @@ namespace AccessAbility
     }
 
 
-    [HarmonyPatch(typeof(BeatmapDataObstaclesAndBombsTransform), "ShouldUseBeatmapObject")]
+    /*[HarmonyPatch(typeof(BeatmapDataObstaclesAndBombsTransform), "ShouldUseBeatmapObject")]
     internal class BeatmapDataObstaclesAndBombsTransformPatch
     {
         static bool Postfix(bool __result, BeatmapObjectData beatmapObjectData, GameplayModifiers.EnabledObstacleType enabledObstaclesType, bool noBombs)
@@ -208,7 +206,8 @@ namespace AccessAbility
                 Plugin.Log.Debug("Set no bombs modifier");
             }
 
-            return gameplayModifiers.CopyWith(null, null, null, null, null, null, walls_modifier, bombs_modifier, null, null, null, null, null, null, null, null, null);
+            return gameplayModifiers.CopyWith(null, null, null, null, walls_modifier, bombs_modifier, null, null, null, null, null, null, null);
+            //return gameplayModifiers.CopyWith(null, null, null, null, null, null, walls_modifier, bombs_modifier, null, null, null, null, null, null, null, null, null);
         }
-    }
+    }*/
 }
