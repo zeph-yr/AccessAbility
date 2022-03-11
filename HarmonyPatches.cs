@@ -1,7 +1,6 @@
 ﻿using AccessAbility.Configuration;
 using HarmonyLib;
 using System.Collections.Generic;
-using UnityEngine;
 
 namespace AccessAbility
 {
@@ -35,6 +34,11 @@ namespace AccessAbility
                         result_2.AddBeatmapObjectData(noteData);
                         //Plugin.Log.Debug("Delete red");
                     }
+
+                    if (noteData.colorType == ColorType.None)
+                    {
+                        result_2.AddBeatmapObjectData(noteData);
+                    }
                 }
 
                 ObstacleData obstacleData;
@@ -67,21 +71,6 @@ namespace AccessAbility
         {
             //Plugin.Log.Debug("NoteController PostFix");
 
-            /*(if (PluginConfig.Instance.red_mode == 1 && __instance.noteData.colorType == ColorType.ColorA)
-            {
-                __instance.gameObject.SetActive(false); // very bad
-                //GameObject.Destroy(__instance); // Not good, causes errors with other mods or basegame
-                return;
-            }
-
-            if (PluginConfig.Instance.blue_mode == 1 && __instance.noteData.colorType == ColorType.ColorB)
-            {
-                //GameObject.Destroy(__instance);
-                //__instance.gameObject.SetActive(false);
-                return;
-            }*/
-
-
             if (PluginConfig.Instance.red_mode == 2 && __instance.noteData.colorType == ColorType.ColorA && __instance.noteTransform.position.z <= PluginConfig.Instance.dissolve_distance)
             {
                 __instance.Dissolve(0.001f);
@@ -110,10 +99,9 @@ namespace AccessAbility
                     if (obstacleData.height == 3)
                     {
                         return false;
-                        //return true;
                     }
+
                     return true;
-                    //return false;
                 }
 
                 if (enabledObstaclesType == GameplayModifiers.EnabledObstacleType.NoObstacles)
@@ -244,7 +232,6 @@ namespace AccessAbility
             }
 
             return gameplayModifiers.CopyWith(null, null, null, null, walls_modifier, bombs_modifier, null, null, null, null, null, null, null);
-            //return gameplayModifiers.CopyWith(null, null, null, null, null, null, walls_modifier, bombs_modifier, null, null, null, null, null, null, null, null, null);
         }
     }
 }
