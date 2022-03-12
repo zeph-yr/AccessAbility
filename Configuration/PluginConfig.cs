@@ -15,6 +15,7 @@ namespace AccessAbility.Configuration
         public virtual bool yeet_walls { get; set; } = false;
         public virtual bool yeet_duck_walls { get; set; } = false;
         public virtual bool neversubmit_enabled { get; set; } = false;
+        public virtual bool play_without_modifiers { get; set; } = false;
 
 
         public virtual void OnReload()

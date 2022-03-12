@@ -1,5 +1,6 @@
 ﻿using AccessAbility.Configuration;
 using HarmonyLib;
+using System;
 using System.Collections.Generic;
 
 namespace AccessAbility
@@ -14,7 +15,7 @@ namespace AccessAbility
                 return __result;
             }
 
-            //Plugin.Log.Debug("Delete Blocks or Duck Walls");
+            //Plugin.Log.Debug("Delete Blocks");
 
             BeatmapData result_2 = new BeatmapData(__result.numberOfLines);
 
@@ -193,11 +194,17 @@ namespace AccessAbility
     }
 
 
+
     [HarmonyPatch(typeof(GameplayModifiersModelSO), "CreateModifierParamsList")]
     internal class GameplayModifiersPatch
     {
         static List<GameplayModifierParamsSO> Postfix(List<GameplayModifierParamsSO> __result, ref GameplayModifiers gameplayModifiers, ref GameplayModifiersModelSO __instance)
         {
+            if (PluginConfig.Instance.play_without_modifiers && Plugin.ss_installed == false)
+            {
+                return __result;
+            }
+
             if ((PluginConfig.Instance.yeet_walls || PluginConfig.Instance.yeet_duck_walls) && gameplayModifiers.enabledObstacleType == GameplayModifiers.EnabledObstacleType.All)
             {
                 //Plugin.Log.Debug("Add no obstacles modifier");
@@ -249,6 +256,11 @@ namespace AccessAbility
     {
         internal static GameplayModifiers Set_AccessAbility_Modifiers(GameplayModifiers gameplayModifiers)
         {
+            if (PluginConfig.Instance.play_without_modifiers && Plugin.ss_installed == false)
+            {
+                return gameplayModifiers;
+            }
+
             GameplayModifiers.EnabledObstacleType? walls_modifier = null;
             bool? bombs_modifier = null;
 
@@ -267,4 +279,37 @@ namespace AccessAbility
             return gameplayModifiers.CopyWith(null, null, null, null, walls_modifier, bombs_modifier, null, null, null, null, null, null, null);
         }
     }
+
+
+    [HarmonyPatch(typeof(PlatformLeaderboardsModel), "UploadScore")]
+    [HarmonyPatch(new Type[] { typeof(LeaderboardScoreUploader.ScoreData), typeof(PlatformLeaderboardsModel.UploadScoreCompletionHandler) })]
+    internal class PlatformLeaderboardsModelPatch_1
+    {
+        internal static bool Prefix()
+        {
+            if (PluginConfig.Instance.play_without_modifiers)
+            {
+                return false;
+            }
+
+            return true;
+        }
+    }
+
+
+    [HarmonyPatch(typeof(PlatformLeaderboardsModel), "UploadScore")]
+    [HarmonyPatch(new Type[] { typeof(IDifficultyBeatmap), typeof(int), typeof(int), typeof(int), typeof(bool), typeof(int), typeof(int), typeof(int), typeof(int), typeof(float), typeof(GameplayModifiers) })]
+    internal class PlatformLeaderboardsModelPatch_2
+    {
+        internal static bool Prefix()
+        {
+            if (PluginConfig.Instance.play_without_modifiers)
+            {
+                return false;
+            }
+
+            return true;
+        }
+    }
+
 }

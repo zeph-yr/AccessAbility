@@ -112,6 +112,22 @@ namespace AccessAbility
         }
 
 
+        [UIValue("play_without_modifiers")]
+        public bool Play_Without_Modifiers
+        {
+            get => PluginConfig.Instance.play_without_modifiers;
+            set
+            {
+                PluginConfig.Instance.play_without_modifiers = value;
+            }
+        }
+        [UIAction("set_play_without_modifiers")]
+        void Set_Play_Without_Modifiers(bool value)
+        {
+            Play_Without_Modifiers = value;
+        }
+
+
         [UIValue("neversubmit_enabled")]
         public bool Neversubmit_Enabled
         {
