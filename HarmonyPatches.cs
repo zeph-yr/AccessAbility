@@ -23,13 +23,13 @@ namespace AccessAbility
                 NoteData noteData;
                 if ((noteData = (beatmapDataItem as NoteData)) != null)
                 {
-                    if (noteData.colorType == ColorType.ColorB && PluginConfig.Instance.blue_mode != 1)
+                    if (PluginConfig.Instance.blue_mode != 1 && noteData.colorType == ColorType.ColorB)
                     {
                         result_2.AddBeatmapObjectData(noteData);
                         //Plugin.Log.Debug("Delete blue");
                     }
 
-                    if (noteData.colorType == ColorType.ColorA && PluginConfig.Instance.red_mode != 1)
+                    if (PluginConfig.Instance.red_mode != 1 && noteData.colorType == ColorType.ColorA)
                     {
                         result_2.AddBeatmapObjectData(noteData);
                         //Plugin.Log.Debug("Delete red");
@@ -38,6 +38,20 @@ namespace AccessAbility
                     if (noteData.colorType == ColorType.None)
                     {
                         result_2.AddBeatmapObjectData(noteData);
+                    }
+                }
+
+                SliderData sliderData;
+                if ((sliderData = (beatmapDataItem as SliderData)) != null)
+                {
+                    if (PluginConfig.Instance.blue_mode != 1 && sliderData.colorType == ColorType.ColorB)
+                    {
+                        result_2.AddBeatmapObjectData(sliderData);
+                    }
+                    
+                    if (PluginConfig.Instance.red_mode != 1 && sliderData.colorType == ColorType.ColorA)
+                    {
+                        result_2.AddBeatmapObjectData(sliderData);
                     }
                 }
 
@@ -78,6 +92,25 @@ namespace AccessAbility
             }
 
             if (PluginConfig.Instance.blue_mode == 2 && __instance.noteData.colorType == ColorType.ColorB && __instance.noteTransform.position.z <= PluginConfig.Instance.dissolve_distance)
+            {
+                __instance.Dissolve(0.001f);
+                return;
+            }
+        }
+    }
+
+    [HarmonyPatch(typeof(SliderController), "Update")]
+    internal class SliderControllerPatch
+    {
+        static void Postfix(SliderController __instance)
+        {
+            if (PluginConfig.Instance.red_mode == 2 && __instance.sliderData.colorType == ColorType.ColorA && __instance.transform.position.z <= PluginConfig.Instance.dissolve_distance)
+            {
+                __instance.Dissolve(0.001f);
+                return;
+            }
+
+            if (PluginConfig.Instance.blue_mode == 2 && __instance.sliderData.colorType == ColorType.ColorB && __instance.transform.position.z <= PluginConfig.Instance.dissolve_distance)
             {
                 __instance.Dissolve(0.001f);
                 return;
