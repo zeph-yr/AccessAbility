@@ -2,6 +2,8 @@
 using HarmonyLib;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
 
 namespace AccessAbility
 {
@@ -311,5 +313,4 @@ namespace AccessAbility
             return true;
         }
     }
-
 }

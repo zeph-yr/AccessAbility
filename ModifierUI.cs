@@ -125,6 +125,8 @@ namespace AccessAbility
         void Set_Play_Without_Modifiers(bool value)
         {
             Play_Without_Modifiers = value;
+
+            Refresh_Modifier_UI();
         }
 
 

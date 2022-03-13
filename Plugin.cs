@@ -19,7 +19,7 @@ namespace AccessAbility
         public const string HarmonyId = "com.zephyr.BeatSaber.AccessAbility";
         internal static readonly HarmonyLib.Harmony harmony = new HarmonyLib.Harmony(HarmonyId);
         
-        internal static bool ss_installed;
+        internal static bool ss_installed = true;
 
 
         [Init]

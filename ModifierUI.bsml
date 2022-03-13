@@ -14,7 +14,7 @@
 		<horizontal>
 			<text text = '------------------' font-color = '#00000000' font-size = '2' ></text>
 		</horizontal>
-		<checkbox-setting value='play_without_modifiers' on-change='set_play_without_modifiers' text='No Score Modifiers 🙂' hover-hint='SS needs to be uninstalled for this to apply. Upload to online base leaderboards is also turned off.'></checkbox-setting>
+		<checkbox-setting value='play_without_modifiers' on-change='set_play_without_modifiers' text='Unmodified Local Scores 🙂' hover-hint='No score deduction for Wall and Bomb features on Local saved scores. SS needs to be uninstalled for this to apply. Upload to online base leaderboards is also turned off.'></checkbox-setting>
 		<checkbox-setting value='neversubmit_enabled' on-change='set_neversubmit_enabled' text='Turn Off Score Submission' hover-hint='Submitted score is a fraction of the two-handed unmodified maximum score'></checkbox-setting>
 	</settings-container>
 		<vertical pad-top='50'>
