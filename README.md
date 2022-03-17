@@ -7,6 +7,8 @@ I want to make this game as accessible and enjoyable for as many of us as possib
 
 Supports Left and Right Hand playersettings, Multiplayer, OST and DLC, Practice Mode, Custom and Base Campaigns. For BS 1.18.3+
 
+<br><img src="https://github.com/zeph-yr/AccessAbility/blob/master/Screenshots/AccessAbility_4.0.0_menu_1.png" width="700" height="450"/><br>
+
 ## How Is This Different From AlternativePlay?
 This mod *does not convert* all the blocks to one color or to dot blocks, which can make a map difficult or unpleasant to play single-handed.
 AccessAbility *removes the blocks* mapped in the other color and thus accurately represents playing the original map with only one hand.
@@ -40,15 +42,18 @@ If you want to see the whole map but play only one color, AccessAbility can set 
 - Set `Disappearing Distance` to 0. This means the disappearing color blocks *will* reach you, so try not to hit them! ^^
 
 ## Demo
-<img src="https://github.com/zeph-yr/AccessAbility/blob/master/Screenshots/AccessAbility_2.0.0_screenshot_4.png" width="700" height="450"/>
-<b>Map played with red blocks turned off. In-map score is for the color you are playing</b>
-<img src="https://github.com/zeph-yr/AccessAbility/blob/master/Screenshots/AccessAbility_screenshot_3A_small.png" width="700" height="450"/>
-<b>Map played with disappearing red blocks. Only the blue blocks are being scored</b>
-<img src="https://github.com/zeph-yr/AccessAbility/blob/master/Screenshots/AccessAbility_screenshot_5_small.png" width="700" height="450"/>
-<b>Final score is as if you missed all of the turned off or disappearing blocks but otherwise passed</b>
-<img src="https://github.com/zeph-yr/AccessAbility/blob/master/Screenshots/AccessAbility_screenshot_4_small.png" width="700" height=""/>
-<b>Modifiers are applied when using bomb and wall features when SS or CC are installed</b>
-<img src="https://github.com/zeph-yr/AccessAbility/blob/master/Screenshots/AccessAbility_2.0.0_screenshot_3.png" width="700" height="450"/>
+<b>Scoring Options</b><br>
+<img src="https://github.com/zeph-yr/AccessAbility/blob/master/Screenshots/AccessAbility_4.0.0_menu_2.png" width="700" height="450"/><br><br>
+<b>Map played with red blocks turned off. In-map score is for the color you are playing</b><br>
+<img src="https://github.com/zeph-yr/AccessAbility/blob/master/Screenshots/AccessAbility_screenshot_3A_small.png" width="700" height="450"/><br><br>
+<b>Map played with disappearing red blocks. Only the blue blocks are being scored</b><br>
+<img src="https://github.com/zeph-yr/AccessAbility/blob/master/Screenshots/AccessAbility_screenshot_5_small.png" width="700" height="450"/><br><br>
+<b>Final score is as if you missed all of the turned off or disappearing blocks but otherwise passed</b><br>
+<img src="https://github.com/zeph-yr/AccessAbility/blob/master/Screenshots/AccessAbility_screenshot_4_small.png" width="700" height=""/><br><br>
+<b>Modifiers are applied when using bomb and wall features when SS or CC are installed</b><br>
+<img src="https://github.com/zeph-yr/AccessAbility/blob/master/Screenshots/AccessAbility_2.0.0_screenshot_3.png" width="700" height="450"/><br><br>
+<b>Unmodified Score played with Indestructible Bombs and Friendly Walls, with no SS and CC installed</b><br>
+<img src="https://github.com/zeph-yr/AccessAbility/blob/master/Screenshots/AccessAbility_4.0.0_score_2.png" width="700" height="450"><br>
 
 ## About
 Not all disabilities are visible or obvious. And that doesn't make them any less valid. 💖 Don't let others define you.
