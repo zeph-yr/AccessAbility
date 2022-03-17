@@ -20,6 +20,7 @@ namespace AccessAbility
         internal static readonly HarmonyLib.Harmony harmony = new HarmonyLib.Harmony(HarmonyId);
         
         internal static bool ss_installed = true;
+        internal static bool cc_installed = true;
 
 
         [Init]
@@ -35,14 +36,14 @@ namespace AccessAbility
         [OnEnable]
         public void OnEnable()
         {
-            CheckForSS();
+            CheckForMods();
             BS_Utils.Utilities.BSEvents.gameSceneLoaded += BSEvents_gameSceneLoaded;
             ApplyHarmonyPatches();
 
             BeatSaberMarkupLanguage.GameplaySetup.GameplaySetup.instance.AddTab("AccessAbility", "AccessAbility.ModifierUI.bsml", ModifierUI.instance);
         }
 
-        private void CheckForSS()
+        private void CheckForMods()
         {
             try
             {
@@ -54,7 +55,18 @@ namespace AccessAbility
                 ss_installed = false;
             }
 
+            try
+            {
+                var metadatas = PluginManager.EnabledPlugins.Where(x => x.Id == "CustomCampaigns");
+                cc_installed = metadatas.Count() > 0;
+            }
+            catch (Exception)
+            {
+                cc_installed = false;
+            }
+
             Plugin.Log.Debug("SS install: " + ss_installed);
+            Plugin.Log.Debug("CC install: " + cc_installed);
         }
 
 
@@ -69,7 +81,7 @@ namespace AccessAbility
                 BS_Utils.Gameplay.ScoreSubmission.DisableSubmission("AccessAbility");
             }
 
-            else if (ss_installed && (PluginConfig.Instance.blue_mode == 2 || PluginConfig.Instance.red_mode == 2) && PluginConfig.Instance.dissolve_distance <= 3)
+            else if ((ss_installed || cc_installed) && (PluginConfig.Instance.blue_mode == 2 || PluginConfig.Instance.red_mode == 2) && PluginConfig.Instance.dissolve_distance <= 3)
             {
                 BS_Utils.Gameplay.ScoreSubmission.DisableSubmission("AccessAbility");
             }

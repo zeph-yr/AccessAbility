@@ -1,8 +1,10 @@
-# AccessAbility
+﻿# AccessAbility
 **Not all of us can play with two hands or arms, or dive to avoid walls, but that shouldn't stop any of us from being able to enjoy the game!**
-**A true one-hand and sitting-friendly mod. Play any map. With only the blocks of your color-choice. In their original patterns. Turn off wall-damage. Remove crouch walls. Unbreakable bombs.**
+**A true one-hand and sitting-friendly mod. Play any map. With only the blocks of your color-choice in their original patterns. Turn off wall-damage. Remove crouch walls. Unbreakable bombs.**
 
-This mod allows you to play the original map with the Red, Blue, or all blocks turned off. 
+This mod allows you to play the original map with the Red, Blue, or all blocks and other elements turned off without forced score reduction.
+I want to make this game as accessible and enjoyable for as many of us as possible. It's your game, your ability, and your definition of skill and fun :)
+
 Supports Left and Right Hand playersettings, Multiplayer, OST and DLC, Practice Mode, Custom and Base Campaigns. For BS 1.18.3+
 
 ## How Is This Different From AlternativePlay?
@@ -11,7 +13,10 @@ AccessAbility *removes the blocks* mapped in the other color and thus accurately
 
 If you want to see the whole map but play only one color without the barrage of misses, AccessAbility can set one color to disappear near striking distance without being counted as misses during your play.
 
-**v3.0.0 BS 1.19.0 Update** (Compatible with BS 1.18.3)
+**v4.0.0 BS 1.20.0+ only**
+- **Unmodified Scores:** Play using the bomb and wall features without score deduction for local, party and campaign scores.
+
+**v3.0.0 BS 1.19.0** (Compatible with BS 1.18.3)
 - **Indestructible Bombs:** Play with the visual effects of bombs without needing to avoid them.
 - **Friendly Walls:** Play with the visual and haptic effects of walls without needing to physically avoid them.
 - **No Crouch Walls:** Play with only full-height walls. All crouch-height walls are removed regardless if crouching is necessary to avoid them.
@@ -21,6 +26,7 @@ If you want to see the whole map but play only one color without the barrage of 
 - Place AccessAbility.dll in your Plugins folder
 - Set the toggles to what is comfortable for you and have fun!
 - Adjust the `Disappearing Distance` slider for how close you want the blocks to come before they disappear. 6.0 keeps them out of saber-reach. At 3.0 and below, score submission is automatically turned off.
+- To play without score deductions, toggle on `Unmodified Scores`. Upload to base game online leaderboards will be turned off. This feature will only activate (even if toggled ON) if ScoreSaber and CustomCampaigns are not installed.
 - Requires BSML and BS Utils
 
 ## Scores
@@ -43,4 +49,4 @@ If you want to see the whole map but play only one color without the barrage of 
 <img src="https://github.com/zeph-yr/AccessAbility/blob/master/Screenshots/AccessAbility_2.0.0_screenshot_3.png" width="700" height="450"/>
 
 ## About
-Not all disabilities are visible or obvious. And that doesn't make them any less valid. Don't let others define you.'
+Not all disabilities are visible or obvious. And that doesn't make them any less valid. 💖 Don't let others define you.

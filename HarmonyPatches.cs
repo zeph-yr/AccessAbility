@@ -2,8 +2,6 @@
 using HarmonyLib;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using UnityEngine;
 
 namespace AccessAbility
 {
@@ -86,8 +84,6 @@ namespace AccessAbility
     {
         static void Postfix(NoteController __instance)
         {
-            //Plugin.Log.Debug("NoteController PostFix");
-
             if (PluginConfig.Instance.red_mode == 2 && __instance.noteData.colorType == ColorType.ColorA && __instance.noteTransform.position.z <= PluginConfig.Instance.dissolve_distance)
             {
                 __instance.Dissolve(0.001f);
@@ -174,7 +170,6 @@ namespace AccessAbility
         {
             if (PluginConfig.Instance.yeet_walls)
             {
-                //Plugin.Log.Debug("Yeeting walls");
                 return false;
             }
 
@@ -202,7 +197,7 @@ namespace AccessAbility
     {
         static List<GameplayModifierParamsSO> Postfix(List<GameplayModifierParamsSO> __result, ref GameplayModifiers gameplayModifiers, ref GameplayModifiersModelSO __instance)
         {
-            if (PluginConfig.Instance.play_without_modifiers && Plugin.ss_installed == false)
+            if (PluginConfig.Instance.play_without_modifiers && Plugin.ss_installed == false && Plugin.cc_installed == false)
             {
                 return __result;
             }
@@ -234,8 +229,8 @@ namespace AccessAbility
     }
 
 
-    [HarmonyPatch(typeof(MultiplayerLevelScenesTransitionSetupDataSO), "Init")]
-    internal class MultiplayerLevelScenesTransitionPatch
+    [HarmonyPatch(typeof(MissionLevelScenesTransitionSetupDataSO), "Init")]
+    internal class MissionLevelScenesTransitionPatch
     {
         static void Prefix(ref GameplayModifiers gameplayModifiers)
         {
@@ -244,8 +239,8 @@ namespace AccessAbility
     }
 
 
-    [HarmonyPatch(typeof(MissionLevelScenesTransitionSetupDataSO), "Init")]
-    internal class MissionLevelScenesTransitionPatch
+    [HarmonyPatch(typeof(MultiplayerLevelScenesTransitionSetupDataSO), "Init")]
+    internal class MultiplayerLevelScenesTransitionPatch
     {
         static void Prefix(ref GameplayModifiers gameplayModifiers)
         {
@@ -258,7 +253,7 @@ namespace AccessAbility
     {
         internal static GameplayModifiers Set_AccessAbility_Modifiers(GameplayModifiers gameplayModifiers)
         {
-            if (PluginConfig.Instance.play_without_modifiers && Plugin.ss_installed == false)
+            if (PluginConfig.Instance.play_without_modifiers && Plugin.ss_installed == false && Plugin.cc_installed == false)
             {
                 return gameplayModifiers;
             }
