@@ -34,7 +34,7 @@ If you want to see the whole map but play only one color, AccessAbility can set 
 
 ## Scores
 - **In-Map:** Score is for the color you are playing :)
-- **Unmodified Scores:** Local, party and multiplayer scores will be affected by `Friendly Walls`, `Turn Off Crouch Walls`, or `Indestructable Bombs`. Score % will be as if the turned-off blocks were missed, however FC and Rank are not affected :)
+- **Unmodified Scores:** Local, party and multiplayer scores will not be affected by `Friendly Walls`, `Turn Off Crouch Walls`, or `Indestructable Bombs`. Score % will be as if the turned-off blocks were missed, however FC and Rank are not affected :)
 - **Results Page and Submission:** If submitting, your passing score % will be as if you missed all the turned-off and disappearing blocks. You can turn off score submission and still keep your BeatSavior and SliceVisualizer Data but local scores and replays will not be saved. `Friendly Walls` or `Turn Off Crouch Walls` subtracts 5% from score like the base game No Obstacles modifier. `Indestructable Bombs` subtracts 10%.
 - **`Turn Off Score Submission`** only applies when _at least one mod feature is enabled_. If you want to turn off score submission across your game, see my other mod [PlayFirstSubmitLater](https://github.com/zeph-yr/PlayFirstSubmitLater)
 
