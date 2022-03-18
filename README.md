@@ -15,7 +15,7 @@ Supports Left and Right hand playersettings, Multiplayer, OST/DLC, Custom and Ba
 This mod *does not convert* all the blocks to one color or to dot blocks, which can make a map difficult or unpleasant to play single-handed.
 AccessAbility *deletes the blocks* of a color and thus accurately represents playing the original map with only one hand.
 
-If you want to see the whole map but play only one color, AccessAbility can set one color to disappear near striking distance without being counted as misses during your play.
+If you want to see the whole map but play only one color, AccessAbility can set a color to vanish without counting them as misses.
 
 ## New Features
 **v4.0.0** (BS 1.20.0+ only)
@@ -41,7 +41,7 @@ If you want to see the whole map but play only one color, AccessAbility can set 
 - **`Turn Off Score Submission`** only applies when _at least one mod feature is enabled_. If you want to turn off submission across your game, see my other mod [PlayFirstSubmitLater](https://github.com/zeph-yr/PlayFirstSubmitLater)
 
 ## Play One Handed Dodge-Cube
-- Set `Disappearing Distance` to 0 for the color you don't want to play, then try not to hit those blocks as you play the color you want! ^^
+- Set `Disappearing Distance` to 0 for the color you're not playing, then try not to hit those blocks as you play the color you want! ^^
 
 ## Demo
 <b>Scoring Options</b><br>
@@ -59,3 +59,4 @@ If you want to see the whole map but play only one color, AccessAbility can set 
 
 ## About
 Not all disabilities are visible or obvious. And that doesn't make them any less valid. 💖 Don't let others define you.
+<br>Thank you to all of you who shared your stories and appreciation with me. It means a lot to know this mod has brought joy to others.
