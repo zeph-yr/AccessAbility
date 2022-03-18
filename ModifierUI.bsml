@@ -14,12 +14,13 @@
 		<horizontal>
 			<text text = '------------------' font-color = '#00000000' font-size = '2' ></text>
 		</horizontal>
+		<checkbox-setting value='yeet_nofail' on-change='set_yeet_nofail' text='Infinite Energy' hover-hint='Energy cant drop to zero and you can regain energy. SS and CC need to be uninstalled. Upload to online base leaderboards is also turned off'></checkbox-setting>
 		<checkbox-setting value='play_without_modifiers' on-change='set_play_without_modifiers' text='Unmodified Scores 🙂' hover-hint='No score deduction for Wall and Bomb features on Local and Party saved scores. SS and CC need to be uninstalled for this to apply. Upload to online base leaderboards is also turned off'></checkbox-setting>
 		<checkbox-setting value='neversubmit_enabled' on-change='set_neversubmit_enabled' text='Turn Off Score Submission' hover-hint='Submitted score is a fraction of the two-handed unmodified maximum score'></checkbox-setting>
 	</settings-container>
 	<vertical pad-top='50'>
 		<horizontal child-expand-width='true'>
-			<text text='AccessAbility v4.0.0 by Zephyr#9125' font-color='#ff0080ff' font-size='3' align='Center' hover-hint='Not all disabilities are visible. And that does not make them any less valid.'></text>
+			<text text='AccessAbility v4.1.0 by Zephyr#9125' font-color='#ff0080ff' font-size='3' align='Center' hover-hint='Not all disabilities are visible. And that does not make them any less valid.'></text>
 		</horizontal>
 	</vertical>
 </bg>

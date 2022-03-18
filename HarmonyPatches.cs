@@ -121,7 +121,7 @@ namespace AccessAbility
     [HarmonyPatch(typeof(BeatmapDataObstaclesAndBombsTransform), "ShouldUseBeatmapDataItem")]
     internal class BeatmapDataObstaclesAndBombsTransformPatch
     {
-        static bool Postfix(bool __result, BeatmapDataItem beatmapDataItem, GameplayModifiers.EnabledObstacleType enabledObstaclesType, bool noBombs)
+        static bool Postfix(BeatmapDataItem beatmapDataItem, GameplayModifiers.EnabledObstacleType enabledObstaclesType, bool noBombs)
         {
             if (beatmapDataItem is ObstacleData)
             {
@@ -187,6 +187,25 @@ namespace AccessAbility
             {
                 __instance.GetComponentInChildren<CuttableBySaber>().canBeCut = false;
             }
+        }
+    }
+
+    [HarmonyPatch(typeof(GameEnergyCounter), "ProcessEnergyChange")]
+    internal class GameEnergyCounterPatch
+    {
+        static bool Prefix(float energyChange, GameEnergyCounter __instance)
+        {
+            Plugin.Log.Debug("Energy: " + __instance.energy);
+            Plugin.Log.Debug("Change: " + energyChange);
+
+            if (PluginConfig.Instance.yeet_nofail && __instance.energy + energyChange <= 0 && Plugin.ss_installed == false && Plugin.cc_installed == false)
+            {
+                Plugin.Log.Debug("Saved from failing");
+
+                return false;
+            }
+
+            return true;
         }
     }
 
@@ -300,7 +319,7 @@ namespace AccessAbility
     {
         internal static bool Prefix()
         {
-            if (PluginConfig.Instance.play_without_modifiers)
+            if (PluginConfig.Instance.play_without_modifiers || PluginConfig.Instance.yeet_nofail)
             {
                 return false;
             }

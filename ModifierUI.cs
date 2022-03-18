@@ -130,6 +130,24 @@ namespace AccessAbility
         }
 
 
+        [UIValue("yeet_nofail")]
+        public bool Yeet_NoFail
+        {
+            get => PluginConfig.Instance.yeet_nofail;
+            set
+            {
+                PluginConfig.Instance.yeet_nofail = value;
+            }
+        }
+        [UIAction("set_yeet_nofail")]
+        void Set_Yeet_NoFail(bool value)
+        {
+            Yeet_NoFail = value;
+
+            Refresh_Modifier_UI();
+        }
+
+
         [UIValue("neversubmit_enabled")]
         public bool Neversubmit_Enabled
         {
