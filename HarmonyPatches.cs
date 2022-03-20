@@ -121,7 +121,7 @@ namespace AccessAbility
     [HarmonyPatch(typeof(BeatmapDataObstaclesAndBombsTransform), "ShouldUseBeatmapDataItem")]
     internal class BeatmapDataObstaclesAndBombsTransformPatch
     {
-        static bool Postfix(BeatmapDataItem beatmapDataItem, GameplayModifiers.EnabledObstacleType enabledObstaclesType, bool noBombs)
+        static bool Postfix(bool __result, BeatmapDataItem beatmapDataItem, GameplayModifiers.EnabledObstacleType enabledObstaclesType, bool noBombs)
         {
             if (beatmapDataItem is ObstacleData)
             {
@@ -160,7 +160,6 @@ namespace AccessAbility
             return true;
         }
     }
-
 
 
     [HarmonyPatch(typeof(PlayerHeadAndObstacleInteraction), "Update")]
