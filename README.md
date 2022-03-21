@@ -9,7 +9,7 @@ I want to make this game as accessible and enjoyable for as many of us as possib
 
 Supports Left and Right hand playersettings, Multiplayer, OST/DLC, Custom and Base Campaigns, Party, Practice, and ScoreSaber Submission! For BS 1.18.3+
 
-<p><img src="https://github.com/zeph-yr/AccessAbility/blob/master/Screenshots/AccessAbility_4.0.0_menu_1.png"/></p>
+<p><img src="https://github.com/zeph-yr/AccessAbility/blob/master/Screenshots/AccessAbility_4.0.0_menu_1.png" width="600"/></p>
 
 ## How Is This Different From AlternativePlay?
 This mod *does not convert* all the blocks to one color or to dot blocks, which can make a map difficult or unpleasant to play single-handed.
@@ -19,7 +19,7 @@ If you want to see the whole map but play only one color, AccessAbility can set 
 
 ## New Features
 **v4.0.0** (BS 1.20.0+ only)
-- **Unmodified Scores:** Play using the bomb and wall features without score deduction for local, party, multiplayer and base campaign scores
+- **Unmodified Scores:** Play using the bomb and wall features without score deduction for local, party, multiplayer and base campaign scores. Play MP alongside your friends, not looking up from a mile below.
 
 **v3.0.0** (≤BS 1.19.0)
 - **Indestructible Bombs:** Enjoy the visual effect of bombs
@@ -31,12 +31,12 @@ If you want to see the whole map but play only one color, AccessAbility can set 
 - Place AccessAbility.dll in your Plugins folder
 - Set the toggles to what is comfortable for you and have fun!
 - Adjust the `Disappearing Distance` slider for how near the blocks are to you when they vanish. 6.0 keeps them out of saber-reach. At 3.0 and below, score submission is automatically turned off (only if SS or CC installed)
-- To play without score deductions, toggle on `Unmodified Scores`. Upload to base game online leaderboards will be turned off. This feature will only activate (even if toggled on) if ScoreSaber and CustomCampaigns are not installed
+- Choose how you want your scores to be counted. **ScoreSaber submission is on by default (see below)**
 - Requires BSML and BS Utils
 
 ## Scores
 - **In-Map:** Only the color you are playing will be scored :)
-- **Unmodified Scores:** Local, party and multiplayer scores will not be affected by `Friendly Walls`, `Turn Off Crouch Walls`, or `Indestructable Bombs`
+- **`Unmodified Scores`** Local, party and multiplayer scores will not be affected by `Friendly Walls`, `Turn Off Crouch Walls`, or `Indestructable Bombs`. Upload to online OST/DLC leaderboards is turned off. This feature will only activate (even if toggled on) if ScoreSaber and CustomCampaigns are not installed.
 - **Results Page and Submission:** If submitting, your passing score % will be as if the turned-off or disappearing blocks were 0's, FC and Rank are not affected :) You can turn off submission and keep your BeatSavior and SliceVisualizer Data but local scores and replays will not be saved. `Friendly Walls` or `Turn Off Crouch Walls` subtracts 5% from score like the base game No Obstacles modifier. `Indestructable Bombs` subtracts 10%.
 - **`Turn Off Score Submission`** only applies when _at least one mod feature is enabled_. If you want to turn off submission across your game, see my other mod [PlayFirstSubmitLater](https://github.com/zeph-yr/PlayFirstSubmitLater)
 
@@ -45,17 +45,17 @@ If you want to see the whole map but play only one color, AccessAbility can set 
 
 ## Demo
 <b>Scoring Options</b><br>
-<img src="https://github.com/zeph-yr/AccessAbility/blob/master/Screenshots/AccessAbility_4.0.0_menu_2.png" width="700" height="450"/><br><br>
+<img src="https://github.com/zeph-yr/AccessAbility/blob/master/Screenshots/AccessAbility_4.0.0_menu_2.png" width="600"/><br><br>
 <b>Map played with red blocks turned off. Only the blue blocks are being scored</b><br>
-<img src="https://github.com/zeph-yr/AccessAbility/blob/master/Screenshots/AccessAbility_screenshot_3A_small.png" width="700" height="450"/><br><br>
+<img src="https://github.com/zeph-yr/AccessAbility/blob/master/Screenshots/AccessAbility_screenshot_3A_small.png" width="600"/><br><br>
 <b>Map played with disappearing red blocks. Again, only the blue blocks are being scored</b><br>
-<img src="https://github.com/zeph-yr/AccessAbility/blob/master/Screenshots/AccessAbility_screenshot_5_small.png" width="700" height="450"/><br><br>
+<img src="https://github.com/zeph-yr/AccessAbility/blob/master/Screenshots/AccessAbility_screenshot_5_small.png" width="600"/><br><br>
 <b>Final score counts turned off and disappearing blocks as 0's but FC and letter Rank is not affected</b><br>(disabled score is from another mod and irrelevant to the example)<br>
-<img src="https://github.com/zeph-yr/AccessAbility/blob/master/Screenshots/AccessAbility_screenshot_4_small.png" width="700" height=""/><br><br>
+<img src="https://github.com/zeph-yr/AccessAbility/blob/master/Screenshots/AccessAbility_screenshot_4_small.png" width="600"/><br><br>
 <b>Modifiers are applied when using bomb and wall features when SS or CC are installed</b><br>
-<img src="https://github.com/zeph-yr/AccessAbility/blob/master/Screenshots/AccessAbility_2.0.0_screenshot_3.png" width="700" height="450"/><br><br>
+<img src="https://github.com/zeph-yr/AccessAbility/blob/master/Screenshots/AccessAbility_2.0.0_screenshot_3.png" width="600"/><br><br>
 <b>Unmodified Score played with Indestructible Bombs and Friendly Walls, without SS or CC installed. There are no wall and bomb modifiers registered and score was not affected</b><br>
-<img src="https://github.com/zeph-yr/AccessAbility/blob/master/Screenshots/AccessAbility_4.0.0_score_2.png" width="700" height="450"><br>
+<img src="https://github.com/zeph-yr/AccessAbility/blob/master/Screenshots/AccessAbility_4.0.0_score_2.png" width="600"/><br>
 
 ## About
 Not all disabilities are visible or obvious. And that doesn't make them any less valid. 💖 Don't let others define you.
