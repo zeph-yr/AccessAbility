@@ -194,12 +194,13 @@ namespace AccessAbility
     {
         static bool Prefix(float energyChange, GameEnergyCounter __instance)
         {
-            Plugin.Log.Debug("Energy: " + __instance.energy);
-            Plugin.Log.Debug("Change: " + energyChange);
+            //Plugin.Log.Debug("Energy: " + __instance.energy);
+            //Plugin.Log.Debug("Change: " + energyChange);
 
-            if (PluginConfig.Instance.yeet_nofail && __instance.energy + energyChange <= 0 && Plugin.ss_installed == false && Plugin.cc_installed == false)
+            if (PluginConfig.Instance.yeet_nofail && __instance.energy + energyChange <= 0 && 
+               ((Plugin.ss_installed == false && Plugin.cc_installed == false) || BS_Utils.Gameplay.Gamemode.IsPartyActive || Plugin.is_multiplayer_active))
             {
-                Plugin.Log.Debug("Saved from failing");
+                //Plugin.Log.Debug("Saved from failing");
 
                 return false;
             }
@@ -215,7 +216,8 @@ namespace AccessAbility
     {
         static List<GameplayModifierParamsSO> Postfix(List<GameplayModifierParamsSO> __result, ref GameplayModifiers gameplayModifiers, ref GameplayModifiersModelSO __instance)
         {
-            if (PluginConfig.Instance.play_without_modifiers && Plugin.ss_installed == false && Plugin.cc_installed == false)
+            if (PluginConfig.Instance.play_without_modifiers && 
+                ((Plugin.ss_installed == false && Plugin.cc_installed == false) || BS_Utils.Gameplay.Gamemode.IsPartyActive|| Plugin.is_multiplayer_active))
             {
                 return __result;
             }
@@ -271,7 +273,8 @@ namespace AccessAbility
     {
         internal static GameplayModifiers Set_AccessAbility_Modifiers(GameplayModifiers gameplayModifiers)
         {
-            if (PluginConfig.Instance.play_without_modifiers && Plugin.ss_installed == false && Plugin.cc_installed == false)
+            if (PluginConfig.Instance.play_without_modifiers &&
+                ((Plugin.ss_installed == false && Plugin.cc_installed == false) || BS_Utils.Gameplay.Gamemode.IsPartyActive || Plugin.is_multiplayer_active))
             {
                 return gameplayModifiers;
             }
