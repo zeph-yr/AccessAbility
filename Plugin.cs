@@ -71,7 +71,6 @@ namespace AccessAbility
         private void Multiplayer_2_didFinishEvent(MultiplayerModeSelectionViewController arg1, MultiplayerModeSelectionViewController.MenuButton arg2)
         {
             Plugin.Log.Debug("MultiplayerModeSelectionViewController didFinish");
-
             is_multiplayer_active = true;
         }
 
@@ -80,8 +79,7 @@ namespace AccessAbility
             if (obj != null)
             {
                 Plugin.Log.Debug("MultiplayerModeSelectionFlowController didFinish");
-
-                //is_multiplayer_active = false; // They exited MP
+                is_multiplayer_active = false; // Leaving MP
             }
         }
 
