@@ -2,11 +2,8 @@
 using IPA;
 using IPA.Config;
 using IPA.Config.Stores;
-using IPA.Loader;
 using System;
-using System.Linq;
 using System.Reflection;
-using UnityEngine;
 using IPALogger = IPA.Logging.Logger;
 
 namespace AccessAbility
@@ -20,14 +17,7 @@ namespace AccessAbility
         public const string HarmonyId = "com.zephyr.BeatSaber.AccessAbility";
         internal static readonly HarmonyLib.Harmony harmony = new HarmonyLib.Harmony(HarmonyId);
         
-        internal static bool ss_installed = true;
-        internal static bool cc_installed = true;
-
-        internal static MultiplayerModeSelectionFlowCoordinator multiplayer_1;
-        internal static MultiplayerModeSelectionViewController multiplayer_2;
-        internal static bool is_multiplayer_active = false;
-
-
+        
         [Init]
         public Plugin(IPALogger logger, Config config)
         {
@@ -41,109 +31,14 @@ namespace AccessAbility
         [OnEnable]
         public void OnEnable()
         {
-            CheckForMods();
+            ScoreUtils.CheckForMods();
 
-            BS_Utils.Utilities.BSEvents.gameSceneLoaded += BSEvents_gameSceneLoaded;
-            BS_Utils.Utilities.BSEvents.menuSceneActive += BSEvents_menuSceneActive;
+            BS_Utils.Utilities.BSEvents.gameSceneLoaded += ScoreUtils.BSEvents_gameSceneLoaded;
+            BS_Utils.Utilities.BSEvents.menuSceneActive += ScoreUtils.BSEvents_menuSceneActive;
 
             ApplyHarmonyPatches();
 
             BeatSaberMarkupLanguage.GameplaySetup.GameplaySetup.instance.AddTab("AccessAbility", "AccessAbility.ModifierUI.bsml", ModifierUI.instance);
-        }
-
-        private void BSEvents_menuSceneActive()
-        {
-            multiplayer_1 = Resources.FindObjectsOfTypeAll<MultiplayerModeSelectionFlowCoordinator>().FirstOrDefault();
-            if (multiplayer_1 != null)
-            {
-                Plugin.Log.Debug("Found MultiplayerModeSelectionFlowCoordinator");
-                multiplayer_1.didFinishEvent += Multiplayer_1_didFinishEvent;
-            }
-
-            multiplayer_2 = Resources.FindObjectsOfTypeAll<MultiplayerModeSelectionViewController>().FirstOrDefault();
-            if (multiplayer_2 != null)
-            {
-                Plugin.Log.Debug("Found MultiplayerModeSelectionViewController");
-                multiplayer_2.didFinishEvent += Multiplayer_2_didFinishEvent;
-            }
-        }
-
-        private void Multiplayer_2_didFinishEvent(MultiplayerModeSelectionViewController arg1, MultiplayerModeSelectionViewController.MenuButton arg2)
-        {
-            Plugin.Log.Debug("MultiplayerModeSelectionViewController didFinish");
-            is_multiplayer_active = true;
-        }
-
-        private void Multiplayer_1_didFinishEvent(MultiplayerModeSelectionFlowCoordinator obj)
-        {
-            if (obj != null)
-            {
-                Plugin.Log.Debug("MultiplayerModeSelectionFlowController didFinish");
-                is_multiplayer_active = false; // Leaving MP
-            }
-        }
-
-        private void Multiplayer_2_didActivateEvent(bool firstActivation, bool addedToHierarchy, bool screenSystemEnabling)
-        {
-            is_multiplayer_active = true;
-        }
-
-
-        private void CheckForMods()
-        {
-            try
-            {
-                var metadatas  = PluginManager.EnabledPlugins.Where(x => x.Id == "ScoreSaber");
-                ss_installed = metadatas.Count() > 0;
-            }
-            catch (Exception)
-            {
-                ss_installed = false;
-            }
-
-            try
-            {
-                var metadatas = PluginManager.EnabledPlugins.Where(x => x.Id == "CustomCampaigns");
-                cc_installed = metadatas.Count() > 0;
-            }
-            catch (Exception)
-            {
-                cc_installed = false;
-            }
-
-            Plugin.Log.Debug("SS install: " + ss_installed);
-            Plugin.Log.Debug("CC install: " + cc_installed);
-        }
-
-
-        private void BSEvents_gameSceneLoaded()
-        {
-            Plugin.Log.Debug("Game Scene Loaded");
-
-            if (PluginConfig.Instance.neversubmit_enabled && 
-               (PluginConfig.Instance.blue_mode != 0 || PluginConfig.Instance.red_mode != 0 || 
-                PluginConfig.Instance.yeet_bombs || PluginConfig.Instance.yeet_walls || PluginConfig.Instance.yeet_duck_walls))
-            {
-                BS_Utils.Gameplay.ScoreSubmission.DisableSubmission("AccessAbility");
-            }
-
-            else if ((ss_installed || cc_installed) && (PluginConfig.Instance.blue_mode == 2 || PluginConfig.Instance.red_mode == 2) && PluginConfig.Instance.dissolve_distance <= 3)
-            {
-                BS_Utils.Gameplay.ScoreSubmission.DisableSubmission("AccessAbility");
-            }
-        }
-
-
-        private void MainMenuViewController_didFinishEvent(MainMenuViewController arg1, MainMenuViewController.MenuButton arg2)
-        {
-            if (arg2 == MainMenuViewController.MenuButton.Multiplayer)
-            {
-                is_multiplayer_active = true;
-            }
-            else
-            {
-                is_multiplayer_active = false;
-            }
         }
 
 
