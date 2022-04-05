@@ -130,21 +130,19 @@ namespace AccessAbility
         }
 
 
-        [UIValue("yeet_nofail")]
-        public bool Yeet_NoFail
+        [UIValue("yeet_fail")]
+        public bool Yeet_Fail
         {
-            get => PluginConfig.Instance.yeet_nofail;
+            get => PluginConfig.Instance.yeet_fail;
             set
             {
-                PluginConfig.Instance.yeet_nofail = value;
+                PluginConfig.Instance.yeet_fail = value;
             }
         }
-        [UIAction("set_yeet_nofail")]
-        void Set_Yeet_NoFail(bool value)
+        [UIAction("set_yeet_fail")]
+        void Set_Yeet_Fail(bool value)
         {
-            Yeet_NoFail = value;
-
-            Refresh_Modifier_UI();
+            Yeet_Fail = value;
         }
 
 

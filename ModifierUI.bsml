@@ -2,20 +2,18 @@
 	<settings-container child-control-width='true' child-expand-width='false' size-delta-y='-5'>
 		<increment-setting value='increment_value_blue' apply-on-change='true' bind-value='true' text='Blue Blocks' font-color='#4d4dffff' integer-only='true' min='0' max='2' formatter='increment_formatter_blue' hover-hint='Play original red patterns only, or with disappearing blue blocks'/>
 		<increment-setting value='increment_value_red' apply-on-change='true' bind-value='true' text='Red Blocks' font-color='#ff4d4dff' integer-only='true' min='0' max='2' formatter='increment_formatter_red' hover-hint='Play original blue patterns only, or with disappearing red blocks'/>
-		
-		<slider-setting id='dissolve_slider' value ='dissolve_distance' on-change='set_dissolve_distance' text='Disappearing Distance' increment='0.5' min='0' max='10' hover-hint='How close the blocks will disappear. Scores will not submit at 3 and below if SS or CC are installed'></slider-setting>
-		
+		<slider-setting id='dissolve_slider' value ='dissolve_distance' on-change='set_dissolve_distance' text='Distance' increment='0.5' min='0' max='10' hover-hint='How close the blocks will disappear. Scores will not submit at 3 and below if SS or CC are installed'></slider-setting>
 		<horizontal>
-			<text text = '------------------' font-color = '#00000000' font-size = '2' ></text>
+			<text text = '------------------' font-color = '#00000000' font-size = '1' ></text>
 		</horizontal>
 		<checkbox-setting value='yeet_bombs' on-change='set_yeet_bombs' text='Indestructible Bombs' hover-hint='Bombs will not explode when cut'></checkbox-setting>
-		<checkbox-setting value='yeet_walls' on-change='set_yeet_walls' text='Friendly Walls' hover-hint='Walls will not take away energy'></checkbox-setting>
+		<checkbox-setting value='yeet_walls' on-change='set_yeet_walls' text='Friendly Walls'  hover-hint='Walls will not take away energy'></checkbox-setting>
 		<checkbox-setting value='yeet_duck_walls' on-change='set_yeet_duck_walls' text='No Crouch Walls' hover-hint='Play without upper row walls'></checkbox-setting>
-		<checkbox-setting value='play_without_modifiers' on-change='set_play_without_modifiers' text='Unmodified Scores 🙂' hover-hint='No score deduction for Wall and Bomb features in Party and MP. SS and CC need to be uninstalled for this to activate in Local. Upload to online base leaderboards is also turned off'></checkbox-setting>
 		<horizontal>
-			<text text = '------------------' font-color = '#00000000' font-size = '2' ></text>
+			<text text = '------------------' font-color = '#00000000' font-size = '1' ></text>
 		</horizontal>
-		<checkbox-setting value='yeet_nofail' on-change='set_yeet_nofail' text='Regain Energy On Zero' hover-hint='NoFail++ in Party and MP. SS and CC need to be uninstalled for this to activate in Local. Upload to online base leaderboards is also turned off'></checkbox-setting>
+		<checkbox-setting value='yeet_fail' on-change='set_yeet_fail' text='NoFail++' hover-hint='Recover from zero energy in Party and MP. To activate in Local, SS and CC need to be uninstalled. Upload to online base leaderboards is also turned off'></checkbox-setting>
+		<checkbox-setting value='play_without_modifiers' on-change='set_play_without_modifiers' text='Turn Off Score Modifiers 🙂' hover-hint='No score deduction for Wall and Bomb features in Party and MP. To activate in Local, SS and CC need to be uninstalled. Upload to online base leaderboards is also turned off'></checkbox-setting>
 		<checkbox-setting value='neversubmit_enabled' on-change='set_neversubmit_enabled' text='Turn Off Score Submission' hover-hint='Submitted score is a fraction of the two-handed unmodified maximum score'></checkbox-setting>
 	</settings-container>
 	<vertical pad-top='50'>

@@ -66,14 +66,14 @@ namespace AccessAbility
             multiplayer_1 = Resources.FindObjectsOfTypeAll<MultiplayerModeSelectionFlowCoordinator>().FirstOrDefault();
             if (multiplayer_1 != null)
             {
-                Plugin.Log.Debug("Found MultiplayerModeSelectionFlowCoordinator");
+                //Plugin.Log.Debug("Found MultiplayerModeSelectionFlowCoordinator");
                 multiplayer_1.didFinishEvent += Multiplayer_1_didFinishEvent;
             }
 
             multiplayer_2 = Resources.FindObjectsOfTypeAll<MultiplayerModeSelectionViewController>().FirstOrDefault();
             if (multiplayer_2 != null)
             {
-                Plugin.Log.Debug("Found MultiplayerModeSelectionViewController");
+                //Plugin.Log.Debug("Found MultiplayerModeSelectionViewController");
                 multiplayer_2.didFinishEvent += Multiplayer_2_didFinishEvent;
             }
         }
@@ -82,33 +82,17 @@ namespace AccessAbility
         {
             if (obj != null)
             {
-                Plugin.Log.Debug("MultiplayerModeSelectionFlowController didFinish");
-                is_multiplayer_active = false; // Leaving MP
+                //Plugin.Log.Debug("MultiplayerModeSelectionFlowController didFinish");
+                Plugin.Log.Debug("Exit MP");
+                is_multiplayer_active = false;
             }
         }
 
         private static void Multiplayer_2_didFinishEvent(MultiplayerModeSelectionViewController arg1, MultiplayerModeSelectionViewController.MenuButton arg2)
         {
-            Plugin.Log.Debug("MultiplayerModeSelectionViewController didFinish");
+            //Plugin.Log.Debug("MultiplayerModeSelectionViewController didFinish");
+            Plugin.Log.Debug("In MP");
             is_multiplayer_active = true;
         }
-
-
-        /*private void Multiplayer_2_didActivateEvent(bool firstActivation, bool addedToHierarchy, bool screenSystemEnabling)
-        {
-            is_multiplayer_active = true;
-        }
-
-        private void MainMenuViewController_didFinishEvent(MainMenuViewController arg1, MainMenuViewController.MenuButton arg2)
-        {
-            if (arg2 == MainMenuViewController.MenuButton.Multiplayer)
-            {
-                is_multiplayer_active = true;
-            }
-            else
-            {
-                is_multiplayer_active = false;
-            }
-        }*/
     }
 }

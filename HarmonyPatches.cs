@@ -197,7 +197,7 @@ namespace AccessAbility
             //Plugin.Log.Debug("Energy: " + __instance.energy);
             //Plugin.Log.Debug("Change: " + energyChange);
 
-            if (PluginConfig.Instance.yeet_nofail && __instance.energy + energyChange <= 0 && 
+            if (PluginConfig.Instance.yeet_fail && __instance.energy + energyChange <= 0.05 && 
                ((ScoreUtils.ss_installed == false && ScoreUtils.cc_installed == false) || BS_Utils.Gameplay.Gamemode.IsPartyActive || ScoreUtils.is_multiplayer_active))
             {
                 //Plugin.Log.Debug("Saved from failing");
@@ -305,7 +305,7 @@ namespace AccessAbility
     {
         internal static bool Prefix()
         {
-            if (PluginConfig.Instance.play_without_modifiers || PluginConfig.Instance.yeet_nofail)
+            if (PluginConfig.Instance.play_without_modifiers || PluginConfig.Instance.yeet_fail)
             {
                 return false;
             }
@@ -321,7 +321,7 @@ namespace AccessAbility
     {
         internal static bool Prefix()
         {
-            if (PluginConfig.Instance.play_without_modifiers || PluginConfig.Instance.yeet_nofail)
+            if (PluginConfig.Instance.play_without_modifiers || PluginConfig.Instance.yeet_fail)
             {
                 return false;
             }
