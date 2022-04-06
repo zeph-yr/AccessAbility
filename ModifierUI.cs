@@ -58,6 +58,43 @@ namespace AccessAbility
         }
 
 
+        // BS 1.21.0 Addition
+        [UIValue("yeet_arcs")]
+        public bool Yeet_Arcs
+        {
+            get => PluginConfig.Instance.yeet_arcs;
+            set
+            {
+                PluginConfig.Instance.yeet_arcs = value;
+            }
+        }
+        [UIAction("set_yeet_arcs")]
+        void Set_Yeet_Arcs(bool value)
+        {
+            Yeet_Arcs = value;
+
+            Refresh_Modifier_UI();
+        }
+
+
+        [UIValue("yeet_chains")]
+        public bool Yeet_Chains
+        {
+            get => PluginConfig.Instance.yeet_chains;
+            set
+            {
+                PluginConfig.Instance.yeet_chains = value;
+            }
+        }
+        [UIAction("set_yeet_chains")]
+        void Set_Yeet_Chains(bool value)
+        {
+            Yeet_Chains = value;
+
+            Refresh_Modifier_UI();
+        }
+
+
         [UIValue("yeet_bombs")]
         public bool Yeet_Bombs
         {
