@@ -67,7 +67,7 @@ namespace AccessAbility
                     BS_Utils.Gameplay.ScoreSubmission.DisableSubmission("AccessAbility");
                 }
 
-                if (PluginConfig.Instance.yeet_arcs || PluginConfig.Instance.yeet_chains || PluginConfig.Instance.yeet_fail)
+                if (PluginConfig.Instance.yeet_arcs || PluginConfig.Instance.yeet_chains)
                 {
                     BS_Utils.Gameplay.ScoreSubmission.DisableSubmission("AccsesAbility");
                 }
