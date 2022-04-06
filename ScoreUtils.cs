@@ -49,14 +49,28 @@ namespace AccessAbility
 
             if (PluginConfig.Instance.neversubmit_enabled &&
                (PluginConfig.Instance.blue_mode != 0 || PluginConfig.Instance.red_mode != 0 ||
+                PluginConfig.Instance.yeet_arcs || PluginConfig.Instance.yeet_chains || PluginConfig.Instance.yeet_fail ||
                 PluginConfig.Instance.yeet_bombs || PluginConfig.Instance.yeet_walls || PluginConfig.Instance.yeet_duck_walls))
             {
                 BS_Utils.Gameplay.ScoreSubmission.DisableSubmission("AccessAbility");
             }
 
-            else if ((ss_installed || cc_installed) && (PluginConfig.Instance.blue_mode == 2 || PluginConfig.Instance.red_mode == 2) && PluginConfig.Instance.dissolve_distance <= 3)
+            if (BS_Utils.Gameplay.Gamemode.IsPartyActive || is_multiplayer_active)
             {
-                BS_Utils.Gameplay.ScoreSubmission.DisableSubmission("AccessAbility");
+                return;
+            }
+
+            if (ss_installed || cc_installed)
+            {
+                if ((PluginConfig.Instance.blue_mode == 2 || PluginConfig.Instance.red_mode == 2) && PluginConfig.Instance.dissolve_distance <= 3)
+                {
+                    BS_Utils.Gameplay.ScoreSubmission.DisableSubmission("AccessAbility");
+                }
+
+                if (PluginConfig.Instance.yeet_arcs || PluginConfig.Instance.yeet_chains || PluginConfig.Instance.yeet_fail)
+                {
+                    BS_Utils.Gameplay.ScoreSubmission.DisableSubmission("AccsesAbility");
+                }
             }
         }
 
