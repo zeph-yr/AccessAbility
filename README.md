@@ -1,15 +1,15 @@
-﻿# AccessAbility
+# AccessAbility
 **Not all of us can play with two hands or arms, or dive to avoid walls, but that shouldn't stop any of us from being able to enjoy the game!**
-**A true one-hand and sitting-friendly mod. Play any map. With only the blocks of your color-choice in their original patterns. Turn off wall-damage, Remove crouch walls, arcs and chains, Unbreakable bombs.**
+**A true one-hand and sitting-friendly mod. Play any map. With only the blocks of your color-choice in their original patterns. Turn off wall-damage, Delete crouch walls, arcs and chains, Unbreakable bombs. Play MP alongside your friends, not looking up from a mile below.**
 
 **And still keep your scores.**
 
 This mod allows you to play the original map with blocks and other elements turned off _without forced score deduction or NF_.
-I want to make this game as accessible and enjoyable for as many of us as possible. It's your game, your ability, and your definition of skill and fun :) Play MP alongside your friends, not looking up from a mile below.
+I want to make this game as accessible and enjoyable for as many of us as possible. It's your game, your ability, and your definition of skill and fun :) 
 
 Supports Left and Right hand playersettings, Multiplayer, OST/DLC, Custom and Base Campaigns, Party, Practice, and ScoreSaber Submission! For BS 1.18.3+
 
-<p><img src="https://github.com/zeph-yr/AccessAbility/blob/master/Screenshots/AccessAbility_4.0.0_menu_1.png" width="600"/></p>
+<p><img src="https://github.com/zeph-yr/AccessAbility/blob/master/Screenshots/AccessAbility_5.1.0_screenshot_1.png" width="600"/></p>
 
 ## How Is This Different From AlternativePlay?
 This mod *does not convert* all the blocks to one color or to dot blocks, which can make a map difficult or unpleasant to play single-handed.
@@ -23,7 +23,7 @@ If you want to see the whole map but play only one color, AccessAbility can set 
 - **No Chains:** Chains are converted into single blocks
 - **NoFail++:** Play with ability to regain energy from zero. Overrides base game NF modifier
 - **No Score Modifiers:** Play using bomb and wall features without -5% and -10%
-- Toggle for Mod: Keep your settings and quickly turn them all on or off at once
+- **Toggle for Mod:** Keep your settings and quickly turn them all on or off at once
 - In Multiplayer and Party, all features can be used without affecting scores regardless if ScoreSaber or CustomCampaigns are installed.
 - In Local, score submission is turned off for `No Arcs` and `No Chains`. `NoFail++` and `No Score Modifiers` will not activate if SS/CC are installed. Upload to online OST/DLC leaderboard is turned off. To save scores or activate these features in Local, uninstall SS/CC.
 
