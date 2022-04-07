@@ -12,6 +12,24 @@ namespace AccessAbility
         internal static GameplayModifiersPanelController gameplayModifiersPanelController;
 
 
+        // BS 1.21.0 Addition
+        [UIValue("enabled")]
+        public bool Enabled
+        {
+            get => PluginConfig.Instance.enabled;
+            set
+            {
+                PluginConfig.Instance.enabled = value;
+            }
+        }
+        [UIAction("set_enabled")]
+        void Set_Enabled(bool value)
+        {
+            Enabled = value;
+            Refresh_Modifier_UI();
+        }
+
+
         [UIValue("increment_value_blue")]
         private int Increment_Value_Blue
         {
@@ -72,7 +90,6 @@ namespace AccessAbility
         void Set_Yeet_Arcs(bool value)
         {
             Yeet_Arcs = value;
-
             Refresh_Modifier_UI();
         }
 
@@ -90,7 +107,6 @@ namespace AccessAbility
         void Set_Yeet_Chains(bool value)
         {
             Yeet_Chains = value;
-
             Refresh_Modifier_UI();
         }
 
@@ -108,7 +124,6 @@ namespace AccessAbility
         void Set_Yeet_Bombs(bool value)
         {
             Yeet_Bombs = value;
-
             Refresh_Modifier_UI();
         }
 
@@ -126,7 +141,6 @@ namespace AccessAbility
         void Set_Yeet_Walls(bool value)
         {
             Yeet_Walls = value;
-
             Refresh_Modifier_UI();
         }
 
@@ -144,7 +158,6 @@ namespace AccessAbility
         void Set_Yeet_Duck_Walls(bool value)
         {
             Yeet_Duck_Walls = value;
-
             Refresh_Modifier_UI();
         }
 
@@ -162,7 +175,6 @@ namespace AccessAbility
         void Set_Play_Without_Modifiers(bool value)
         {
             Play_Without_Modifiers = value;
-
             Refresh_Modifier_UI();
         }
 

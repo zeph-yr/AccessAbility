@@ -47,6 +47,13 @@ namespace AccessAbility
         {
             Plugin.Log.Debug("Game Scene Loaded");
 
+            // BS 1.21.0
+            if (PluginConfig.Instance.enabled == false)
+            {
+                return;
+            }
+
+
             if (PluginConfig.Instance.neversubmit_enabled &&
                (PluginConfig.Instance.blue_mode != 0 || PluginConfig.Instance.red_mode != 0 ||
                 PluginConfig.Instance.yeet_arcs || PluginConfig.Instance.yeet_chains || PluginConfig.Instance.yeet_fail ||

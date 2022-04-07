@@ -8,6 +8,7 @@ namespace AccessAbility.Configuration
     {
         public static PluginConfig Instance { get; set; }
 
+        public virtual bool enabled { get; set; } = false;
         public virtual int blue_mode { get; set; } = 0;
         public virtual int red_mode { get; set; } = 0;
         public virtual float dissolve_distance { get; set; } = 6;

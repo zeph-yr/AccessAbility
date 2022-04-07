@@ -16,6 +16,13 @@ namespace AccessAbility
                 return __result;
             }*/
 
+            // BS 1.21.0
+            if (PluginConfig.Instance.enabled == false)
+            {
+                return __result;
+            }
+
+
             Plugin.Log.Debug("Delete Blocks");
 
             // To accomodate CJD in 1.21.0
@@ -224,6 +231,13 @@ namespace AccessAbility
     {
         static void Postfix(NoteController __instance)
         {
+            // BS 1.21.0
+            if (PluginConfig.Instance.enabled == false)
+            {
+                return;
+            }
+
+
             if (PluginConfig.Instance.red_mode == 2 && __instance.noteData.colorType == ColorType.ColorA && __instance.noteTransform.position.z <= PluginConfig.Instance.dissolve_distance)
             {
                 __instance.Dissolve(0.001f);
@@ -243,6 +257,13 @@ namespace AccessAbility
     {
         static void Postfix(SliderController __instance)
         {
+            // BS 1.21.0
+            if (PluginConfig.Instance.enabled == false)
+            {
+                return;
+            }
+
+
             if (PluginConfig.Instance.red_mode == 2 && __instance.sliderData.colorType == ColorType.ColorA && __instance.transform.position.z <= PluginConfig.Instance.dissolve_distance)
             {
                 __instance.Dissolve(0.001f);
@@ -263,6 +284,13 @@ namespace AccessAbility
     {
         static bool Postfix(bool __result, BeatmapDataItem beatmapDataItem, GameplayModifiers.EnabledObstacleType enabledObstaclesType, bool noBombs)
         {
+            // BS 1.21.0
+            if (PluginConfig.Instance.enabled == false)
+            {
+                return true;
+            }
+
+
             if (beatmapDataItem is ObstacleData)
             {
                 if (enabledObstaclesType == GameplayModifiers.EnabledObstacleType.FullHeightOnly || PluginConfig.Instance.yeet_duck_walls)
@@ -307,6 +335,13 @@ namespace AccessAbility
     {
         static bool Prefix()
         {
+            // BS 1.21.0
+            if (PluginConfig.Instance.enabled == false)
+            {
+                return true;
+            }
+
+
             if (PluginConfig.Instance.yeet_walls)
             {
                 return false;
@@ -322,6 +357,13 @@ namespace AccessAbility
     {
         static void Postfix(ref BombNoteController __instance)
         {
+            // BS 1.21.0
+            if (PluginConfig.Instance.enabled == false)
+            {
+                return;
+            }
+
+
             if (PluginConfig.Instance.yeet_bombs)
             {
                 __instance.GetComponentInChildren<CuttableBySaber>().canBeCut = false;
@@ -334,6 +376,13 @@ namespace AccessAbility
     {
         static bool Prefix(float energyChange, GameEnergyCounter __instance)
         {
+            // BS 1.21.0
+            if (PluginConfig.Instance.enabled == false)
+            {
+                return true;
+            }
+
+
             //Plugin.Log.Debug("Energy: " + __instance.energy);
             //Plugin.Log.Debug("Change: " + energyChange);
 
@@ -356,6 +405,13 @@ namespace AccessAbility
     {
         static List<GameplayModifierParamsSO> Postfix(List<GameplayModifierParamsSO> __result, ref GameplayModifiers gameplayModifiers, ref GameplayModifiersModelSO __instance)
         {
+            // BS 1.21.0
+            if (PluginConfig.Instance.enabled == false)
+            {
+                return __result;
+            }
+
+
             if (PluginConfig.Instance.play_without_modifiers && 
                 ((ScoreUtils.ss_installed == false && ScoreUtils.cc_installed == false) || BS_Utils.Gameplay.Gamemode.IsPartyActive|| ScoreUtils.is_multiplayer_active))
             {
@@ -413,6 +469,13 @@ namespace AccessAbility
     {
         internal static GameplayModifiers Set_AccessAbility_Modifiers(GameplayModifiers gameplayModifiers)
         {
+            // BS 1.21.0
+            if (PluginConfig.Instance.enabled == false)
+            {
+                return gameplayModifiers;
+            }
+
+
             if (PluginConfig.Instance.play_without_modifiers &&
                 ((ScoreUtils.ss_installed == false && ScoreUtils.cc_installed == false) || BS_Utils.Gameplay.Gamemode.IsPartyActive || ScoreUtils.is_multiplayer_active))
             {
@@ -445,6 +508,13 @@ namespace AccessAbility
     {
         internal static bool Prefix()
         {
+            // BS 1.21.0
+            if (PluginConfig.Instance.enabled == false)
+            {
+                return true;
+            }
+
+
             if (PluginConfig.Instance.play_without_modifiers || PluginConfig.Instance.yeet_fail)
             {
                 return false;
@@ -461,6 +531,13 @@ namespace AccessAbility
     {
         internal static bool Prefix()
         {
+            // BS 1.21.0
+            if (PluginConfig.Instance.enabled == false)
+            {
+                return true;
+            }
+
+
             if (PluginConfig.Instance.play_without_modifiers || PluginConfig.Instance.yeet_fail)
             {
                 return false;
