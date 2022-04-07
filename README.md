@@ -1,6 +1,6 @@
 # AccessAbility
 **Not all of us can play with two hands or arms, or dive to avoid walls, but that shouldn't stop any of us from being able to enjoy the game!**
-**A true one-hand and sitting-friendly mod. Play any map. With only the blocks of your color-choice in their original patterns. Turn off wall-damage, Delete crouch walls, arcs and chains, Unbreakable bombs. Play MP alongside your friends, not looking up from a mile below.**
+**A true one-hand and sitting-friendly mod. Play any map. With only the blocks of your color-choice in their original patterns. Turn off wall-damage, Delete crouch walls, Unbreakable bombs.**
 
 **And still keep your scores.**
 
@@ -19,12 +19,12 @@ If you want to see the whole map but play only one color, AccessAbility can set 
 
 ## New Features
 **v5.0.0** (BS 1.20.0+ only)
-- **No Arcs:** Arcs are turned off visually
-- **No Chains:** Chains are converted into single blocks
+- **No Arcs:** Arcs are deleted
+- **No Chains:** Chains are seamlessly replaced by single blocks
 - **NoFail++:** Play with ability to regain energy from zero. Overrides base game NF modifier
 - **No Score Modifiers:** Play using bomb and wall features without -5% and -10%
 - **Toggle for Mod:** Keep your settings and quickly turn them all on or off at once
-- In Multiplayer and Party, all features can be used without affecting scores regardless if ScoreSaber or CustomCampaigns are installed.
+- In Multiplayer and Party, all features can be used without affecting scores regardless if ScoreSaber or CustomCampaigns are installed. Play MP alongside your friends, not looking up from a mile below.
 - In Local, score submission is turned off for `No Arcs` and `No Chains`. `NoFail++` and `No Score Modifiers` will not activate if SS/CC are installed. Upload to online OST/DLC leaderboard is turned off. To save scores or activate these features in Local, uninstall SS/CC.
 
 **v4.0.0** (BS 1.20.0+ only)
@@ -46,7 +46,7 @@ If you want to see the whole map but play only one color, AccessAbility can set 
 ## Scores
 - **In-Map:** Only the color you are playing will be scored :)
 - **`No Score Modifiers`**: Multiplayer and Party scores will not be affected by `Friendly Bombs`, `Friendly Walls`, or `No Crouch Walls`. Upload to online OST/DLC leaderboards is turned off. This feature will only activate (even if toggled on) if ScoreSaber and CustomCampaigns are not installed.
-- **Results Page and Submission:** If submitting, your passing score will be as if the turned-off or disappearing blocks were 0's. Acc%, Rank and FC is for the color you are playing :) You can turn off submission and keep your BeatSavior and SliceVisualizer Data but local scores and replays will not be saved. `Friendly Walls` or `Turn Off Crouch Walls` subtracts 5% from score like the base game No Obstacles modifier. `Indestructable Bombs` subtracts 10%.
+- **Results Page and Submission:** If submitting, your passing score will be as if the turned-off or disappearing blocks were 0's. Rank and FC is for the color you are playing :) You can turn off submission and keep your BeatSavior and SliceVisualizer Data but local scores and replays will not be saved. `Friendly Walls` or `Turn Off Crouch Walls` subtracts 5% from score like the base game No Obstacles modifier. `Indestructable Bombs` subtracts 10%.
 - **`Turn Off Score Submission`**: Only applies when _at least one mod feature is enabled_. If you want to turn off submission across your game, see my other mod [PlayFirstSubmitLater](https://github.com/zeph-yr/PlayFirstSubmitLater)
 
 ## Play One Handed Dodge-Cube
