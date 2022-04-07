@@ -18,11 +18,9 @@ namespace AccessAbility
 
             Plugin.Log.Debug("Delete Blocks");
 
-            BeatmapData result_2 = new BeatmapData(__result.numberOfLines);
-
-            foreach (BeatmapDataItem beatmapDataItem in __result.allBeatmapDataItems)
+            // To accomodate CJD in 1.21.0
+            __result = __result = __result.GetFilteredCopy(beatmapDataItem =>
             {
-                //Plugin.Log.Debug("Blocks");
                 NoteData noteData;
                 if ((noteData = (beatmapDataItem as NoteData)) != null)
                 {
@@ -32,7 +30,7 @@ namespace AccessAbility
                         {
                             noteData.ChangeToGameNote();
                         }
-                        result_2.AddBeatmapObjectData(noteData);
+                        return noteData;
                     }
 
                     if (PluginConfig.Instance.red_mode != 1 && noteData.colorType == ColorType.ColorA)
@@ -40,17 +38,16 @@ namespace AccessAbility
                         if (PluginConfig.Instance.yeet_chains && noteData.scoringType == NoteData.ScoringType.BurstSliderHead)
                         {
                             noteData.ChangeToGameNote();
-                        }    
-                        result_2.AddBeatmapObjectData(noteData);
+                        }
+                        return noteData;
                     }
 
                     if (noteData.colorType == ColorType.None)
                     {
-                        result_2.AddBeatmapObjectData(noteData);
+                        return noteData;
                     }
                 }
 
-                //Plugin.Log.Debug("Sliders");
                 SliderData sliderData;
                 if ((sliderData = (beatmapDataItem as SliderData)) != null)
                 {
@@ -59,11 +56,11 @@ namespace AccessAbility
                     {
                         if (PluginConfig.Instance.blue_mode != 1 && sliderData.colorType == ColorType.ColorB)
                         {
-                            result_2.AddBeatmapObjectData(sliderData);
+                            return sliderData;
                         }
                         if (PluginConfig.Instance.red_mode != 1 && sliderData.colorType == ColorType.ColorA)
                         {
-                            result_2.AddBeatmapObjectData(sliderData);
+                            return sliderData;
                         }
                     }
 
@@ -71,41 +68,132 @@ namespace AccessAbility
                     {
                         if (PluginConfig.Instance.blue_mode != 1 && sliderData.colorType == ColorType.ColorB)
                         {
-                            result_2.AddBeatmapObjectData(sliderData);
+                            return sliderData;
                         }
                         if (PluginConfig.Instance.red_mode != 1 && sliderData.colorType == ColorType.ColorA)
                         {
-                            result_2.AddBeatmapObjectData(sliderData);
+                            return sliderData;
                         }
                     }
-
-
-                    /*if (PluginConfig.Instance.blue_mode != 1 && sliderData.colorType == ColorType.ColorB)
-                    {
-                        if (PluginConfig.Instance.yeet_arcs == false && sliderData.sliderType == SliderData.Type.Normal)
-                        {
-                            result_2.AddBeatmapObjectData(sliderData);
-                        }
-                        if (PluginConfig.Instance.yeet_chains == false && sliderData.sliderType == SliderData.Type.Burst)
-                        {
-                            result_2.AddBeatmapObjectData(sliderData);
-                        }
-                    }
-                    
-                    if (PluginConfig.Instance.red_mode != 1 && sliderData.colorType == ColorType.ColorA)
-                    {
-                        if (PluginConfig.Instance.yeet_arcs == false && sliderData.sliderType == SliderData.Type.Normal)
-                        {
-                            result_2.AddBeatmapObjectData(sliderData);
-                        }
-                        if (PluginConfig.Instance.yeet_chains == false && sliderData.sliderType == SliderData.Type.Burst)
-                        {
-                            result_2.AddBeatmapObjectData(sliderData);
-                        }
-                    }*/
                 }
 
-                //Plugin.Log.Debug("Obstacles");
+                ObstacleData obstacleData;
+                if ((obstacleData = (beatmapDataItem as ObstacleData)) != null)
+                {
+                    return obstacleData;
+                }
+
+                BeatmapEventData beatmapEventData;
+                if ((beatmapEventData = (beatmapDataItem as BeatmapEventData)) != null)
+                {
+                    return beatmapEventData;
+                }
+
+                return null;
+            });
+
+            if (__result is BeatmapData)
+            {
+                foreach (string keyword in __result.specialBasicBeatmapEventKeywords)
+                {
+                    ((BeatmapData)__result).AddSpecialBasicBeatmapEventKeyword(keyword);
+                }
+            }
+
+            return __result;
+        }
+    }
+
+
+
+        /*BeatmapData result_2 = new BeatmapData(__result.numberOfLines);
+
+        foreach (BeatmapDataItem beatmapDataItem in __result.allBeatmapDataItems)
+        {
+            //Plugin.Log.Debug("Blocks");
+            NoteData noteData;
+            if ((noteData = (beatmapDataItem as NoteData)) != null)
+            {
+                if (PluginConfig.Instance.blue_mode != 1 && noteData.colorType == ColorType.ColorB)
+                {
+                    if (PluginConfig.Instance.yeet_chains && noteData.scoringType == NoteData.ScoringType.BurstSliderHead)
+                    {
+                        noteData.ChangeToGameNote();
+                    }
+                    result_2.AddBeatmapObjectData(noteData);
+                }
+
+                if (PluginConfig.Instance.red_mode != 1 && noteData.colorType == ColorType.ColorA)
+                {
+                    if (PluginConfig.Instance.yeet_chains && noteData.scoringType == NoteData.ScoringType.BurstSliderHead)
+                    {
+                        noteData.ChangeToGameNote();
+                    }    
+                    result_2.AddBeatmapObjectData(noteData);
+                }
+
+                if (noteData.colorType == ColorType.None)
+                {
+                    result_2.AddBeatmapObjectData(noteData);
+                }
+            }
+
+            //Plugin.Log.Debug("Sliders");
+            SliderData sliderData;
+            if ((sliderData = (beatmapDataItem as SliderData)) != null)
+            {
+                // v4.1.0 Option to yeet arcs and chains (v4.0.0 added them by default)
+                if (sliderData.sliderType == SliderData.Type.Normal && PluginConfig.Instance.yeet_arcs == false)
+                {
+                    if (PluginConfig.Instance.blue_mode != 1 && sliderData.colorType == ColorType.ColorB)
+                    {
+                        result_2.AddBeatmapObjectData(sliderData);
+                    }
+                    if (PluginConfig.Instance.red_mode != 1 && sliderData.colorType == ColorType.ColorA)
+                    {
+                        result_2.AddBeatmapObjectData(sliderData);
+                    }
+                }
+
+                if (sliderData.sliderType == SliderData.Type.Burst && PluginConfig.Instance.yeet_chains == false)
+                {
+                    if (PluginConfig.Instance.blue_mode != 1 && sliderData.colorType == ColorType.ColorB)
+                    {
+                        result_2.AddBeatmapObjectData(sliderData);
+                    }
+                    if (PluginConfig.Instance.red_mode != 1 && sliderData.colorType == ColorType.ColorA)
+                    {
+                        result_2.AddBeatmapObjectData(sliderData);
+                    }
+                }*/
+
+
+                /*if (PluginConfig.Instance.blue_mode != 1 && sliderData.colorType == ColorType.ColorB)
+                {
+                    if (PluginConfig.Instance.yeet_arcs == false && sliderData.sliderType == SliderData.Type.Normal)
+                    {
+                        result_2.AddBeatmapObjectData(sliderData);
+                    }
+                    if (PluginConfig.Instance.yeet_chains == false && sliderData.sliderType == SliderData.Type.Burst)
+                    {
+                        result_2.AddBeatmapObjectData(sliderData);
+                    }
+                }
+
+                if (PluginConfig.Instance.red_mode != 1 && sliderData.colorType == ColorType.ColorA)
+                {
+                    if (PluginConfig.Instance.yeet_arcs == false && sliderData.sliderType == SliderData.Type.Normal)
+                    {
+                        result_2.AddBeatmapObjectData(sliderData);
+                    }
+                    if (PluginConfig.Instance.yeet_chains == false && sliderData.sliderType == SliderData.Type.Burst)
+                    {
+                        result_2.AddBeatmapObjectData(sliderData);
+                    }
+                }*/
+        
+
+                /*//Plugin.Log.Debug("Obstacles");
                 ObstacleData obstacleData;
                 if ((obstacleData = (beatmapDataItem as ObstacleData)) != null)
                 {
@@ -127,13 +215,8 @@ namespace AccessAbility
             }
 
             return result_2;
-        }
-
-        /*private NoteData Convert_Slider(SliderData sliderData)
-        {
-            return new NoteData(sliderData.)
         }*/
-    }
+
 
 
     [HarmonyPatch(typeof(NoteController), "Update")]
