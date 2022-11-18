@@ -7,7 +7,7 @@
 This mod allows you to play the original map with blocks and other elements turned off _without forced score deduction or NF_.
 I want to make this game as accessible and enjoyable for as many of us as possible. It's your game, your ability, and your definition of skill and fun :) 
 
-Supports Left/Right playersettings, Multiplayer, OST/DLC, Custom and Base Campaigns, Party, Practice, and ScoreSaber Submission! For BS 1.18.3+
+Supports Left/Righthand playersettings, Multiplayer, OST/DLC, Custom and Base Campaigns, Party, Practice, and score submission! For BS 1.18.3+
 
 <p><img src="https://github.com/zeph-yr/AccessAbility/blob/master/Screenshots/AccessAbility_5.1.0_screenshot_1.png" width="600"/></p>
 
@@ -24,7 +24,7 @@ If you want to see the whole map but play only one color, AccessAbility can set 
 - **NoFail++:** Recover from zero energy. Overrides base game NF modifier
 - **No Score Modifiers:** Play using bomb and wall features without -5% and -10%
 - **Toggle for Mod:** Keep your settings and quickly turn them all on or off at once
-- In Multiplayer and Party, all features can be used without affecting scores regardless if ScoreSaber or CustomCampaigns are installed. Play MP alongside your friends, not looking up from a mile below.
+- In Multiplayer and Party, all features can be used without affecting scores regardless if leaderboards or CustomCampaigns are installed. Play MP alongside your friends, not looking up from a mile below.
 - In Local, score submission is turned off for `No Arcs` and `No Chains`. `NoFail++` and `No Score Modifiers` will not activate if SS/CC are installed. Upload to online OST/DLC leaderboard is turned off. To save scores or activate these features in Local, uninstall SS/CC.
 
 **v4.0.0** (BS 1.20.0+ only)
@@ -40,12 +40,12 @@ If you want to see the whole map but play only one color, AccessAbility can set 
 - Place AccessAbility.dll in your Plugins folder
 - Set the toggles to what is comfortable for you and have fun!
 - Adjust `Distance` slider for how near the blocks are to you when they vanish. 6.0 keeps them out of saber-reach. At 3.0 and below, score submission is automatically turned off in Local if SS or CC installed
-- Choose how you want your scores to be counted. **ScoreSaber submission is on by default (see below)**
+- Choose how you want your scores to be counted. **Score submission is on by default (see below)**
 - Requires BSML and BS Utils
 
 ## Scores
 - **In-Map:** Only the color you are playing will be scored :)
-- **`No Score Modifiers`**: Multiplayer and Party scores will not be affected by `Friendly Bombs`, `Friendly Walls`, or `No Crouch Walls`. Upload to online OST/DLC leaderboards is turned off. This feature will only activate in Local (even if toggled on) if ScoreSaber and CustomCampaigns are not installed.
+- **`No Score Modifiers`**: Multiplayer and Party scores will not be affected by `Friendly Bombs`, `Friendly Walls`, or `No Crouch Walls`. Upload to online OST/DLC leaderboards is turned off. This feature will only activate in Local (even if toggled on) if leaderboards and CustomCampaigns are not installed.
 - **Results Page and Submission:** If submitting, your passing score will be as if turned-off or disappearing blocks were 0's. Rank and FC is for the color you played :) You can turn off submission and keep your BeatSavior and SliceVisualizer Data but local scores and replays will not be saved. `Friendly Walls` or `Turn Off Crouch Walls` subtracts 5% from score like the base game No Obstacles modifier. `Indestructable Bombs` subtracts 10%.
 - **`Turn Off Score Submission`**: Only applies when _one or more mod features are enabled_. If you want to turn off submission across your game, see my other mod [PlayFirstSubmitLater](https://github.com/zeph-yr/PlayFirstSubmitLater)
 
