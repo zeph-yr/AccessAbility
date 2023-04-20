@@ -17,7 +17,7 @@
 			<vertical vertical-fit='PreferredSize' preferred-height='21' preferred-width='40'>
 				<checkbox-setting value='yeet_arcs' on-change='set_yeet_arcs' text='No Arcs' hover-hint='Convert to normal blocks in MP and Party. To save scores in Local, SS and CC need to be uninstalled. Upload to online base leaderboards is also turned off'></checkbox-setting>
 				<checkbox-setting value='yeet_chains' on-change='set_yeet_chains' text='No Chains' hover-hint='Convert to normal blocks in MP and Party. To save scores in Local, SS and CC need to be uninstalled. Upload to online base leaderboards is also turned off'></checkbox-setting>
-				<checkbox-setting value='yeet_fail' on-change='set_yeet_fail' text='NoFail++' hover-hint='Recover from zero energy in MP and Party. To activate in Local, SS and CC need to be uninstalled. Upload to online base leaderboards is also turned off'></checkbox-setting>
+				<checkbox-setting value='yeet_dots' on-change='set_yeet_dots' text='No Rotated Dots' hover-hint='Converts V3 rotated dots back to vanilla dots'></checkbox-setting>
 			</vertical>
 			<horizontal>
 				<text text = '-------' font-color = '#00000000' font-size = '4' ></text>
@@ -35,6 +35,7 @@
 
 		<horizontal child-expand-width='true'>
 			<vertical vertical-fit='PreferredSize' preferred-height='14' preferred-width='90'>
+				<checkbox-setting value='yeet_fail' on-change='set_yeet_fail' text='NoFail++' hover-hint='Recover from zero energy in MP and Party. To activate in Local, SS and CC need to be uninstalled. Upload to online base leaderboards is also turned off'></checkbox-setting>
 				<checkbox-setting value='play_without_modifiers' on-change='set_play_without_modifiers' text='No Score Modifiers 🙂' hover-hint='Wall and Bomb features will not lower score in MP and Party. To activate in Local, SS and CC need to be uninstalled. Upload to online base leaderboards is also turned off'></checkbox-setting>
 				<checkbox-setting value='neversubmit_enabled' on-change='set_neversubmit_enabled' text='Turn Off Score Submission' hover-hint='Submitted score is a fraction of the two-handed unmodified maximum score'></checkbox-setting>
 			</vertical>
@@ -42,7 +43,7 @@
 	</settings-container>
 	<vertical pad-top='53'>
 		<horizontal child-expand-width='true'>
-			<text text='AccessAbility v5.1.0 by Zephyr#9125' font-color='#ff0080ff' font-size='3' align='Center' hover-hint='Not all disabilities are visible. And that does not make them any less valid.'></text>
+			<text text='AccessAbility v5.2.0 by Zephyr#9125' font-color='#ff0080ff' font-size='3' align='Center' hover-hint='Not all disabilities are visible. And that does not make them any less valid.'></text>
 		</horizontal>
 	</vertical>
 </bg>

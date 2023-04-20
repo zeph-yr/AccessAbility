@@ -20,6 +20,7 @@ namespace AccessAbility.Configuration
         public virtual bool yeet_fail { get; set; } = false;
         public virtual bool yeet_arcs { get; set; } = false;
         public virtual bool yeet_chains { get; set; } = false;
+        public virtual bool yeet_dots { get; set; } = false;
 
 
         public virtual void OnReload()

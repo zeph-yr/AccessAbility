@@ -18,6 +18,12 @@ AccessAbility *deletes the blocks* of a color and thus accurately represents pla
 If you want to see the whole map but play only one color, AccessAbility can set a color to vanish without counting them as misses.
 
 ## New Features
+**v5.2.0** (BS 1.21.0+ only)
+- **No Rotated Dots:** Removes any rotation applied on Dot blocks in V2/V3 maps, returning them to vanilla format
+
+**v5.1.0** (BS.1.21.0+ only)
+- Compatibility update for CJD in 1.21.0
+
 **v5.0.0** (BS 1.20.0+ only)
 - **No Arcs:** Arcs are turned off visually
 - **No Chains:** Chains are converted into single blocks

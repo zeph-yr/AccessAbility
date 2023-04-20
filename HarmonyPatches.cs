@@ -23,14 +23,23 @@ namespace AccessAbility
             }
 
 
-            Plugin.Log.Debug("Delete Blocks");
+            Plugin.Log.Debug("Modifying Map");
 
             // To accomodate CJD in 1.21.0
-            __result = __result = __result.GetFilteredCopy(beatmapDataItem =>
+            __result = __result.GetFilteredCopy(beatmapDataItem =>
             {
                 NoteData noteData;
                 if ((noteData = (beatmapDataItem as NoteData)) != null)
                 {
+
+                    if (PluginConfig.Instance.yeet_dots && noteData.cutDirection == NoteCutDirection.Any)
+                    {
+                        //noteData.SetCutDirectionAngleOffset(UnityEngine.Random.Range(0,60));
+                        noteData.SetCutDirectionAngleOffset(0);
+                        return noteData;
+                    }
+
+
                     if (PluginConfig.Instance.blue_mode != 1 && noteData.colorType == ColorType.ColorB)
                     {
                         if (PluginConfig.Instance.yeet_chains && noteData.scoringType == NoteData.ScoringType.BurstSliderHead)

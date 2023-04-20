@@ -110,6 +110,23 @@ namespace AccessAbility
             Refresh_Modifier_UI();
         }
 
+        [UIValue("yeet_dots")]
+        public bool Yeet_Dots
+        {
+            get => PluginConfig.Instance.yeet_dots;
+            set
+            {
+                PluginConfig.Instance.yeet_dots = value;
+            }
+        }
+        [UIAction("set_yeet_dots")]
+        void Set_Yeet_Dots(bool value)
+        {
+            Yeet_Dots = value;
+            //Refresh_Modifier_UI();
+        }
+
+
 
         [UIValue("yeet_bombs")]
         public bool Yeet_Bombs
