@@ -22,7 +22,6 @@ namespace AccessAbility
                 return __result;
             }
 
-
             Plugin.Log.Debug("Modifying Map");
 
             // To accomodate CJD in 1.21.0
@@ -31,35 +30,40 @@ namespace AccessAbility
                 NoteData noteData;
                 if ((noteData = (beatmapDataItem as NoteData)) != null)
                 {
-
-                    if (PluginConfig.Instance.yeet_dots && noteData.cutDirection == NoteCutDirection.Any)
+                    if (noteData.colorType == ColorType.None)
                     {
-                        //noteData.SetCutDirectionAngleOffset(UnityEngine.Random.Range(0,60));
-                        noteData.SetCutDirectionAngleOffset(0);
                         return noteData;
                     }
 
-
                     if (PluginConfig.Instance.blue_mode != 1 && noteData.colorType == ColorType.ColorB)
                     {
-                        if (PluginConfig.Instance.yeet_chains && noteData.scoringType == NoteData.ScoringType.BurstSliderHead)
+                        // v5.2.0 Option to de-rotate dot blocks
+                        if (PluginConfig.Instance.yeet_dots && noteData.cutDirection == NoteCutDirection.Any)
+                        {
+                            noteData.SetCutDirectionAngleOffset(0);
+                            // Ok to use elseif: slider and burstslider have angleoffset of 0 as per base game
+                        }
+
+                        else if (PluginConfig.Instance.yeet_chains && noteData.scoringType == NoteData.ScoringType.BurstSliderHead)
                         {
                             noteData.ChangeToGameNote();
                         }
+
                         return noteData;
                     }
 
                     if (PluginConfig.Instance.red_mode != 1 && noteData.colorType == ColorType.ColorA)
                     {
-                        if (PluginConfig.Instance.yeet_chains && noteData.scoringType == NoteData.ScoringType.BurstSliderHead)
+                        if (PluginConfig.Instance.yeet_dots && noteData.cutDirection == NoteCutDirection.Any)
+                        {
+                            noteData.SetCutDirectionAngleOffset(0);
+                        }
+
+                        else if (PluginConfig.Instance.yeet_chains && noteData.scoringType == NoteData.ScoringType.BurstSliderHead)
                         {
                             noteData.ChangeToGameNote();
                         }
-                        return noteData;
-                    }
 
-                    if (noteData.colorType == ColorType.None)
-                    {
                         return noteData;
                     }
                 }

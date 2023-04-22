@@ -2,6 +2,8 @@
 using BeatSaberMarkupLanguage.Attributes;
 using BeatSaberMarkupLanguage.Components;
 using BeatSaberMarkupLanguage.Components.Settings;
+using BeatSaberMarkupLanguage.Parser;
+using System.ComponentModel;
 using System.Linq;
 using UnityEngine;
 
@@ -10,6 +12,7 @@ namespace AccessAbility
     class ModifierUI : NotifiableSingleton<ModifierUI>
     {
         internal static GameplayModifiersPanelController gameplayModifiersPanelController;
+        public event PropertyChangedEventHandler PropertyChanged;
 
 
         // BS 1.21.0 Addition
@@ -212,19 +215,19 @@ namespace AccessAbility
         }
 
 
-        [UIValue("neversubmit_enabled")]
-        public bool Neversubmit_Enabled
+        [UIValue("play_without_score")]
+        public bool Play_Without_Score
         {
-            get => PluginConfig.Instance.neversubmit_enabled;
+            get => PluginConfig.Instance.play_without_score;
             set
             {
-                PluginConfig.Instance.neversubmit_enabled = value;
+                PluginConfig.Instance.play_without_score = value;
             }
         }
-        [UIAction("set_neversubmit_enabled")]
-        void Set_Never_Enabled(bool value)
+        [UIAction("set_play_without_score")]
+        void Set_Play_Without_Score(bool value)
         {
-            Neversubmit_Enabled = value;
+            Play_Without_Score = value;
         }
 
 
@@ -233,6 +236,44 @@ namespace AccessAbility
             gameplayModifiersPanelController = Resources.FindObjectsOfTypeAll<GameplayModifiersPanelController>().FirstOrDefault();
             gameplayModifiersPanelController.RefreshTotalMultiplierAndRankUI();
         }
+
+
+        // v5.2.0 Addition
+        [UIValue("open_donate_text")]
+        private string Open_Donate_Text => Donate.donate_clickable_text;
+
+        [UIValue("open_donate_hint")]
+        private string Open_Donate_Hint => Donate.donate_clickable_hint;
+
+        [UIParams]
+        private BSMLParserParams parserParams;
+
+        [UIAction("open_donate_modal")]
+        private void Open_Donate_Modal()
+        {
+            parserParams.EmitEvent("hide_donate_modal");
+            Donate.Refresh_Text();
+            parserParams.EmitEvent("show_donate_modal");
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Donate_Modal_Text_Dynamic)));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Donate_Modal_Hint_Dynamic)));
+        }
+
+        private void Open_Donate_Browser()
+        {
+            Donate.Open_Donate_Browser();
+        }
+
+        [UIValue("donate_modal_text_static_1")]
+        private string Donate_Modal_Text_Static_1 => Donate.donate_modal_text_static_1;
+
+        [UIValue("donate_modal_text_static_2")]
+        private string Donate_Modal_Text_Static_2 => Donate.donate_modal_text_static_2;
+
+        [UIValue("donate_modal_text_dynamic")]
+        private string Donate_Modal_Text_Dynamic => Donate.donate_modal_text_dynamic;
+
+        [UIValue("donate_modal_hint_dynamic")]
+        private string Donate_Modal_Hint_Dynamic => Donate.donate_modal_hint_dynamic;
     }
 
     

@@ -39,6 +39,7 @@ namespace AccessAbility
             ApplyHarmonyPatches();
 
             BeatSaberMarkupLanguage.GameplaySetup.GameplaySetup.instance.AddTab("AccessAbility", "AccessAbility.ModifierUI.bsml", ModifierUI.instance);
+            Donate.Refresh_Text();
         }
 
 

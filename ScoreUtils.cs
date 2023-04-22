@@ -54,12 +54,13 @@ namespace AccessAbility
             }
 
 
-            if (PluginConfig.Instance.neversubmit_enabled &&
+            if (PluginConfig.Instance.play_without_score &&
                (PluginConfig.Instance.blue_mode != 0 || PluginConfig.Instance.red_mode != 0 ||
                 PluginConfig.Instance.yeet_arcs || PluginConfig.Instance.yeet_chains || PluginConfig.Instance.yeet_fail ||
                 PluginConfig.Instance.yeet_bombs || PluginConfig.Instance.yeet_walls || PluginConfig.Instance.yeet_duck_walls))
             {
                 BS_Utils.Gameplay.ScoreSubmission.DisableSubmission("AccessAbility");
+                return; // prevent multiple messages
             }
 
             if (BS_Utils.Gameplay.Gamemode.IsPartyActive || is_multiplayer_active)
@@ -72,6 +73,7 @@ namespace AccessAbility
                 if ((PluginConfig.Instance.blue_mode == 2 || PluginConfig.Instance.red_mode == 2) && PluginConfig.Instance.dissolve_distance <= 3)
                 {
                     BS_Utils.Gameplay.ScoreSubmission.DisableSubmission("AccessAbility");
+                    return; // prevent multiple messages
                 }
 
                 if (PluginConfig.Instance.yeet_arcs || PluginConfig.Instance.yeet_chains)
