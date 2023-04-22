@@ -256,7 +256,6 @@ namespace AccessAbility
                 __instance.Dissolve(0.001f);
                 return;
             }
-
             if (PluginConfig.Instance.blue_mode == 2 && __instance.noteData.colorType == ColorType.ColorB && __instance.noteTransform.position.z <= PluginConfig.Instance.dissolve_distance)
             {
                 __instance.Dissolve(0.001f);
@@ -282,7 +281,6 @@ namespace AccessAbility
                 __instance.Dissolve(0.001f);
                 return;
             }
-
             if (PluginConfig.Instance.blue_mode == 2 && __instance.sliderData.colorType == ColorType.ColorB && __instance.transform.position.z <= PluginConfig.Instance.dissolve_distance)
             {
                 __instance.Dissolve(0.001f);
@@ -354,7 +352,6 @@ namespace AccessAbility
                 return true;
             }
 
-
             if (PluginConfig.Instance.yeet_walls)
             {
                 return false;
@@ -376,7 +373,6 @@ namespace AccessAbility
                 return;
             }
 
-
             if (PluginConfig.Instance.yeet_bombs)
             {
                 __instance.GetComponentInChildren<CuttableBySaber>().canBeCut = false;
@@ -395,15 +391,13 @@ namespace AccessAbility
                 return true;
             }
 
-
             //Plugin.Log.Debug("Energy: " + __instance.energy);
             //Plugin.Log.Debug("Change: " + energyChange);
 
             if ((PluginConfig.Instance.yeet_fail && __instance.energy + energyChange <= 0.01) &&
-                ((ScoreUtils.ss_installed == false && ScoreUtils.cc_installed == false) || BS_Utils.Gameplay.Gamemode.IsPartyActive || ScoreUtils.is_multiplayer_active))
+               (ScoreUtils.leaderboards_installed == false || BS_Utils.Gameplay.Gamemode.IsPartyActive || ScoreUtils.is_multiplayer_active))
             {
                 //Plugin.Log.Debug("Saved from failing");
-
                 return false;
             }
 
@@ -424,9 +418,8 @@ namespace AccessAbility
                 return __result;
             }
 
-
             if (PluginConfig.Instance.play_without_modifiers && 
-                ((ScoreUtils.ss_installed == false && ScoreUtils.cc_installed == false) || BS_Utils.Gameplay.Gamemode.IsPartyActive|| ScoreUtils.is_multiplayer_active))
+               (ScoreUtils.leaderboards_installed == false || BS_Utils.Gameplay.Gamemode.IsPartyActive|| ScoreUtils.is_multiplayer_active))
             {
                 return __result;
             }
@@ -490,7 +483,7 @@ namespace AccessAbility
 
 
             if (PluginConfig.Instance.play_without_modifiers &&
-                ((ScoreUtils.ss_installed == false && ScoreUtils.cc_installed == false) || BS_Utils.Gameplay.Gamemode.IsPartyActive || ScoreUtils.is_multiplayer_active))
+                (ScoreUtils.leaderboards_installed == false || BS_Utils.Gameplay.Gamemode.IsPartyActive || ScoreUtils.is_multiplayer_active))
             {
                 return gameplayModifiers;
             }
@@ -527,7 +520,6 @@ namespace AccessAbility
                 return true;
             }
 
-
             if (PluginConfig.Instance.play_without_modifiers || PluginConfig.Instance.yeet_fail)
             {
                 return false;
@@ -549,7 +541,6 @@ namespace AccessAbility
             {
                 return true;
             }
-
 
             if (PluginConfig.Instance.play_without_modifiers || PluginConfig.Instance.yeet_fail)
             {

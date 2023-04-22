@@ -8,8 +8,10 @@ namespace AccessAbility
 {
     internal class ScoreUtils
     {
+        internal static bool bl_installed = true;
         internal static bool ss_installed = true;
         internal static bool cc_installed = true;
+        internal static bool leaderboards_installed = true;
 
         internal static MultiplayerModeSelectionFlowCoordinator multiplayer_1;
         internal static MultiplayerModeSelectionViewController multiplayer_2;
@@ -18,6 +20,16 @@ namespace AccessAbility
 
         internal static void CheckForMods()
         {
+            try
+            {
+                var metadatas = PluginManager.EnabledPlugins.Where(x => x.Id == "BeatLeader");
+                bl_installed = metadatas.Count() > 0;
+            }
+            catch (Exception)
+            {
+                bl_installed = false;
+            }
+
             try
             {
                 var metadatas = PluginManager.EnabledPlugins.Where(x => x.Id == "ScoreSaber");
@@ -38,8 +50,12 @@ namespace AccessAbility
                 cc_installed = false;
             }
 
+            Plugin.Log.Debug("BL install: " + bl_installed);
             Plugin.Log.Debug("SS install: " + ss_installed);
             Plugin.Log.Debug("CC install: " + cc_installed);
+
+            leaderboards_installed = bl_installed || ss_installed || cc_installed;
+            //Plugin.Log.Debug("Leaderboards installed: " + leaderboards_installed);
         }
 
 
@@ -68,7 +84,7 @@ namespace AccessAbility
                 return;
             }
 
-            if (ss_installed || cc_installed)
+            if (leaderboards_installed)
             {
                 if ((PluginConfig.Instance.blue_mode == 2 || PluginConfig.Instance.red_mode == 2) && PluginConfig.Instance.dissolve_distance <= 3)
                 {
