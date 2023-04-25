@@ -73,5 +73,5 @@ If you want to see the whole map but play only one color, AccessAbility can set 
 <img src="https://github.com/zeph-yr/AccessAbility/blob/master/Screenshots/AccessAbility_4.0.0_score_2.png" width="600"/><br>
 
 ## About
-Not all disabilities are visible or obvious. And that doesn't make them any less valid. 💖 Don't let others define you.
+Not all disabilities are visible or obvious. And that doesn't make them any less valid 💖 Don't let others tell you what you can do.
 <br>Thank you to all of you who shared your stories and appreciation with me. It means a lot to know this mod has brought joy to others.
