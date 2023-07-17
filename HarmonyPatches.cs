@@ -44,7 +44,7 @@ namespace AccessAbility
                             // Ok to use elseif: slider and burstslider have angleoffset of 0 as per base game
                         }
 
-                        else if (PluginConfig.Instance.yeet_chains && noteData.scoringType == NoteData.ScoringType.BurstSliderHead)
+                        if (PluginConfig.Instance.yeet_chains && noteData.gameplayType == NoteData.GameplayType.BurstSliderHead)
                         {
                             noteData.ChangeToGameNote();
                         }
@@ -59,7 +59,7 @@ namespace AccessAbility
                             noteData.SetCutDirectionAngleOffset(0);
                         }
 
-                        else if (PluginConfig.Instance.yeet_chains && noteData.scoringType == NoteData.ScoringType.BurstSliderHead)
+                        if (PluginConfig.Instance.yeet_chains && noteData.gameplayType == NoteData.GameplayType.BurstSliderHead)
                         {
                             noteData.ChangeToGameNote();
                         }
