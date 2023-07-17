@@ -5,6 +5,8 @@ using IPA.Config.Stores;
 using System;
 using System.Reflection;
 using IPALogger = IPA.Logging.Logger;
+using SiraUtil.Zenject;
+using AccessAbility.Installers;
 
 namespace AccessAbility
 {
@@ -19,13 +21,14 @@ namespace AccessAbility
         
         
         [Init]
-        public Plugin(IPALogger logger, Config config)
+        public Plugin(IPALogger logger, Config config, Zenjector zenjector)
         {
             Instance = this;
             Plugin.Log = logger;
             Plugin.Log?.Debug("Logger initialized.");
 
             PluginConfig.Instance = config.Generated<PluginConfig>();
+            zenjector.Install<MenuInstaller>(Location.Menu);
         }
 
         [OnEnable]
@@ -37,8 +40,6 @@ namespace AccessAbility
             BS_Utils.Utilities.BSEvents.menuSceneActive += ScoreUtils.BSEvents_menuSceneActive;
 
             ApplyHarmonyPatches();
-
-            BeatSaberMarkupLanguage.GameplaySetup.GameplaySetup.instance.AddTab("AccessAbility", "AccessAbility.ModifierUI.bsml", ModifierUI.instance);
             Donate.Refresh_Text();
         }
 

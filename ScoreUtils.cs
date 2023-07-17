@@ -61,7 +61,7 @@ namespace AccessAbility
 
         internal static void BSEvents_gameSceneLoaded()
         {
-            Plugin.Log.Debug("Game Scene Loaded");
+            //Plugin.Log.Debug("Game Scene Loaded");
 
             // BS 1.21.0
             if (PluginConfig.Instance.enabled == false)

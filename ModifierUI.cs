@@ -1,18 +1,35 @@
 ﻿using AccessAbility.Configuration;
 using BeatSaberMarkupLanguage.Attributes;
-using BeatSaberMarkupLanguage.Components;
 using BeatSaberMarkupLanguage.Components.Settings;
+using BeatSaberMarkupLanguage.GameplaySetup;
 using BeatSaberMarkupLanguage.Parser;
+using System;
 using System.ComponentModel;
 using System.Linq;
 using UnityEngine;
+using Zenject;
+
 
 namespace AccessAbility
 {
-    class ModifierUI : NotifiableSingleton<ModifierUI>
+    class ModifierUI : IInitializable, IDisposable, INotifyPropertyChanged
     {
         internal static GameplayModifiersPanelController gameplayModifiersPanelController;
         public event PropertyChangedEventHandler PropertyChanged;
+
+
+        public void Initialize()
+        {
+            GameplaySetup.instance.AddTab("AccessAbility", "AccessAbility.ModifierUI.bsml", this, MenuType.All);
+        }
+
+        public void Dispose()
+        {
+            if (GameplaySetup.instance != null)
+            {
+                GameplaySetup.instance.RemoveTab("AccessAbility");
+            }
+        }
 
 
         // BS 1.21.0 Addition
@@ -40,7 +57,7 @@ namespace AccessAbility
             set
             {
                 PluginConfig.Instance.blue_mode = value;
-                NotifyPropertyChanged(nameof(Increment_Value_Blue));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Increment_Value_Blue)));
             }
         }
         [UIAction("increment_formatter_blue")]
@@ -54,7 +71,7 @@ namespace AccessAbility
             set
             {
                 PluginConfig.Instance.red_mode = value;
-                NotifyPropertyChanged(nameof(Increment_Value_Red));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Increment_Value_Red)));
             }
         }
         [UIAction("increment_formatter_red")]
@@ -262,6 +279,7 @@ namespace AccessAbility
         {
             Donate.Open_Donate_Browser();
         }
+
 
         [UIValue("donate_modal_text_static_1")]
         private string Donate_Modal_Text_Static_1 => Donate.donate_modal_text_static_1;
