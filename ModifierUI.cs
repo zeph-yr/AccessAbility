@@ -130,6 +130,7 @@ namespace AccessAbility
             Refresh_Modifier_UI();
         }
 
+
         [UIValue("yeet_dots")]
         public bool Yeet_Dots
         {
@@ -143,9 +144,7 @@ namespace AccessAbility
         void Set_Yeet_Dots(bool value)
         {
             Yeet_Dots = value;
-            //Refresh_Modifier_UI();
         }
-
 
 
         [UIValue("yeet_bombs")]
@@ -199,6 +198,22 @@ namespace AccessAbility
         }
 
 
+        [UIValue("play_without_mp_movement")]
+        public bool Play_Without_MP_Movement
+        {
+            get => PluginConfig.Instance.play_without_mp_movement;
+            set
+            {
+                PluginConfig.Instance.play_without_mp_movement = value;
+            }
+        }
+        [UIAction("set_play_without_mp_movement")]
+        void Set_Play_Without_MP_Movement(bool value)
+        {
+            Play_Without_MP_Movement = value;
+        }
+
+
         [UIValue("play_without_modifiers")]
         public bool Play_Without_Modifiers
         {
@@ -216,19 +231,19 @@ namespace AccessAbility
         }
 
 
-        [UIValue("yeet_fail")]
-        public bool Yeet_Fail
+        [UIValue("play_without_fail")]
+        public bool Play_Without_Fail
         {
-            get => PluginConfig.Instance.yeet_fail;
+            get => PluginConfig.Instance.play_without_fail;
             set
             {
-                PluginConfig.Instance.yeet_fail = value;
+                PluginConfig.Instance.play_without_fail = value;
             }
         }
-        [UIAction("set_yeet_fail")]
-        void Set_Yeet_Fail(bool value)
+        [UIAction("set_play_without_fail")]
+        void Set_Play_Without_Fail(bool value)
         {
-            Yeet_Fail = value;
+            Play_Without_Fail = value;
         }
 
 

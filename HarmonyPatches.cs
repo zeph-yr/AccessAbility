@@ -2,6 +2,7 @@
 using HarmonyLib;
 using System;
 using System.Collections.Generic;
+using System.Reflection;
 
 namespace AccessAbility
 {
@@ -380,6 +381,7 @@ namespace AccessAbility
         }
     }
 
+
     [HarmonyPatch(typeof(GameEnergyCounter), "ProcessEnergyChange")]
     internal class GameEnergyCounterPatch
     {
@@ -394,7 +396,7 @@ namespace AccessAbility
             //Plugin.Log.Debug("Energy: " + __instance.energy);
             //Plugin.Log.Debug("Change: " + energyChange);
 
-            if ((PluginConfig.Instance.yeet_fail && __instance.energy + energyChange <= 0.01) &&
+            if ((PluginConfig.Instance.play_without_fail && __instance.energy + energyChange <= 0.01) &&
                (ScoreUtils.leaderboards_installed == false || BS_Utils.Gameplay.Gamemode.IsPartyActive))
             {
                 //Plugin.Log.Debug("Saved from failing");
@@ -405,6 +407,36 @@ namespace AccessAbility
         }
     }
 
+
+    [HarmonyPatch(typeof(MultiplayerVerticalPlayerMovementManager), "Update")]
+    internal class MultiplayerVerticalPlayerMovementPatch
+    {
+        static bool Prefix()
+        {
+            if (PluginConfig.Instance.play_without_mp_movement)
+            {
+                return false;
+            }
+            return true;
+        }
+    }
+
+
+    [HarmonyPatch(typeof(MultiplayerOtherPlayersScoreDiffTextManager), "Update")]
+    internal class MultiplayerOtherPlayersScorePatch
+    {
+        static MethodInfo hideall = AccessTools.Method("MultiplayerOtherPlayersScoreDiffTextManager:HideAll");
+
+        static bool Prefix(MultiplayerOtherPlayersScoreDiffTextManager __instance)
+        {
+            if (PluginConfig.Instance.play_without_mp_movement)
+            {
+                hideall.Invoke(__instance, null);
+                return false;
+            }
+            return true;
+        }
+    }
 
 
     [HarmonyPatch(typeof(GameplayModifiersModelSO), "CreateModifierParamsList")]
@@ -520,7 +552,7 @@ namespace AccessAbility
                 return true;
             }
 
-            if (PluginConfig.Instance.play_without_modifiers || PluginConfig.Instance.yeet_fail)
+            if (PluginConfig.Instance.play_without_modifiers || PluginConfig.Instance.play_without_fail)
             {
                 return false;
             }
@@ -542,7 +574,7 @@ namespace AccessAbility
                 return true;
             }
 
-            if (PluginConfig.Instance.play_without_modifiers || PluginConfig.Instance.yeet_fail)
+            if (PluginConfig.Instance.play_without_modifiers || PluginConfig.Instance.play_without_fail)
             {
                 return false;
             }

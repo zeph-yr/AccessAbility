@@ -72,7 +72,7 @@ namespace AccessAbility
 
             if (PluginConfig.Instance.play_without_score &&
                (PluginConfig.Instance.blue_mode != 0 || PluginConfig.Instance.red_mode != 0 ||
-                PluginConfig.Instance.yeet_arcs || PluginConfig.Instance.yeet_chains || PluginConfig.Instance.yeet_fail ||
+                PluginConfig.Instance.yeet_arcs || PluginConfig.Instance.yeet_chains || PluginConfig.Instance.play_without_fail ||
                 PluginConfig.Instance.yeet_bombs || PluginConfig.Instance.yeet_walls || PluginConfig.Instance.yeet_duck_walls))
             {
                 BS_Utils.Gameplay.ScoreSubmission.DisableSubmission("AccessAbility");

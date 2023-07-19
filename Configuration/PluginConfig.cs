@@ -17,10 +17,11 @@ namespace AccessAbility.Configuration
         public virtual bool yeet_duck_walls { get; set; } = false;
         public virtual bool play_without_score { get; set; } = false;
         public virtual bool play_without_modifiers { get; set; } = false;
-        public virtual bool yeet_fail { get; set; } = false;
+        public virtual bool play_without_fail { get; set; } = false;
         public virtual bool yeet_arcs { get; set; } = false;
         public virtual bool yeet_chains { get; set; } = false;
         public virtual bool yeet_dots { get; set; } = false;
+        public virtual bool play_without_mp_movement { get; set; } = false;
 
 
         public virtual void OnReload()
