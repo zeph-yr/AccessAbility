@@ -53,7 +53,8 @@
 						<text text='~donate_modal_text_static_1' word-wrapping='true' align='Center' rich-text='true'></text>
 					</horizontal>
 					<horizontal preferred-width='56'>
-						<primary-button text='Open Patreon' font-size='3' align='Center' on-click='Open_Donate_Browser' hover-hint='Link opens in web broswer'/>
+						<primary-button text='Patreon' font-size='3' align='Center' on-click='Open_Donate_Patreon' hover-hint='Link opens in web broswer'/>
+						<primary-button text='Kofi' font-size='3' align='Center' on-click='Open_Donate_Kofi' hover-hint='Link opens in web broswer'/>						
 						<text text='~donate_modal_text_static_2' font-size='3' word-wrapping='true' align='Right' rich-text='true'></text>
 					</horizontal>
 				</vertical>

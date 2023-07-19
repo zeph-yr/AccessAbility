@@ -79,7 +79,7 @@ namespace AccessAbility
                 return; // prevent multiple messages
             }
 
-            if (BS_Utils.Gameplay.Gamemode.IsPartyActive || is_multiplayer_active)
+            if (BS_Utils.Gameplay.Gamemode.IsPartyActive)
             {
                 return;
             }

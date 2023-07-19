@@ -23,10 +23,14 @@ namespace AccessAbility
             }
         }
 
-        internal static string Open_Donate_Browser()
+        internal static void Patreon()
         {
             Process.Start("https://www.patreon.com/xeph_yr");
-            return "";
+        }
+
+        internal static void Kofi()
+        {
+            Process.Start("https://ko-fi.com/zeph_yr");
         }
 
         private static async Task Get_Donate_Modal_Text()
@@ -58,14 +62,14 @@ namespace AccessAbility
 
             donate_modal_text_dynamic = reply_text;
 
-            int hint_start = reply_hint.IndexOf("[ACCESSABILITY]");
+            int hint_start = reply_hint.IndexOf("[ACCESSABILITY]"); // 15
             int hint_end = reply_hint.IndexOf("###", hint_start);
 
             if (hint_start != -1)
             {
                 //Logger.log.Debug("reply: " + reply_hint);
                 //Logger.log.Debug("start: " + hint_start + " end: " + hint_end);
-                donate_modal_hint_dynamic = reply_hint.Substring(hint_start + 9, hint_end - hint_start - 9); // Yes. And no, it's not wrong.
+                donate_modal_hint_dynamic = reply_hint.Substring(hint_start + 15, hint_end - hint_start - 15); // Yes. And no, it's not wrong.
             }
         }
     }

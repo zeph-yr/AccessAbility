@@ -395,7 +395,7 @@ namespace AccessAbility
             //Plugin.Log.Debug("Change: " + energyChange);
 
             if ((PluginConfig.Instance.yeet_fail && __instance.energy + energyChange <= 0.01) &&
-               (ScoreUtils.leaderboards_installed == false || BS_Utils.Gameplay.Gamemode.IsPartyActive || ScoreUtils.is_multiplayer_active))
+               (ScoreUtils.leaderboards_installed == false || BS_Utils.Gameplay.Gamemode.IsPartyActive))
             {
                 //Plugin.Log.Debug("Saved from failing");
                 return false;
@@ -419,7 +419,7 @@ namespace AccessAbility
             }
 
             if (PluginConfig.Instance.play_without_modifiers && 
-               (ScoreUtils.leaderboards_installed == false || BS_Utils.Gameplay.Gamemode.IsPartyActive|| ScoreUtils.is_multiplayer_active))
+               (ScoreUtils.leaderboards_installed == false || BS_Utils.Gameplay.Gamemode.IsPartyActive))
             {
                 return __result;
             }
@@ -483,7 +483,7 @@ namespace AccessAbility
 
 
             if (PluginConfig.Instance.play_without_modifiers &&
-                (ScoreUtils.leaderboards_installed == false || BS_Utils.Gameplay.Gamemode.IsPartyActive || ScoreUtils.is_multiplayer_active))
+                (ScoreUtils.leaderboards_installed == false || BS_Utils.Gameplay.Gamemode.IsPartyActive))
             {
                 return gameplayModifiers;
             }
