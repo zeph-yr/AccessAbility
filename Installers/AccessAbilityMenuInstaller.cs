@@ -2,7 +2,7 @@
 
 namespace AccessAbility.Installers
 {
-    internal sealed class MenuInstaller : MonoInstaller
+    internal sealed class AccessAbilityMenuInstaller : Installer
     {
         public override void InstallBindings()
         {

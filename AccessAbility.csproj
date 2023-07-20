@@ -133,7 +133,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Donate.cs" />
-    <Compile Include="Installers\MenuInstaller.cs" />
+    <Compile Include="Installers\AccessAbilityMenuInstaller.cs" />
     <Compile Include="ScoreUtils.cs" />
     <Compile Include="HarmonyPatches.cs" />
     <Compile Include="ModifierUI.cs" />

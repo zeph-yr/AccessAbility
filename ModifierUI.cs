@@ -12,15 +12,18 @@ using Zenject;
 
 namespace AccessAbility
 {
-    class ModifierUI : IInitializable, IDisposable, INotifyPropertyChanged
+    internal class ModifierUI : IInitializable, IDisposable, INotifyPropertyChanged
     {
-        internal static GameplayModifiersPanelController gameplayModifiersPanelController;
+        private static GameplayModifiersPanelController gameplayModifiersPanelController;
         public event PropertyChangedEventHandler PropertyChanged;
 
 
         public void Initialize()
         {
             GameplaySetup.instance.AddTab("AccessAbility", "AccessAbility.ModifierUI.bsml", this, MenuType.All);
+
+            Donate.Refresh_Text();
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Donate_Update_Dynamic)));
         }
 
         public void Dispose()
@@ -34,7 +37,7 @@ namespace AccessAbility
 
         // BS 1.21.0 Addition
         [UIValue("enabled")]
-        public bool Enabled
+        private bool Enabled
         {
             get => PluginConfig.Instance.enabled;
             set
@@ -43,7 +46,7 @@ namespace AccessAbility
             }
         }
         [UIAction("set_enabled")]
-        void Set_Enabled(bool value)
+        private void Set_Enabled(bool value)
         {
             Enabled = value;
             Refresh_Modifier_UI();
@@ -79,9 +82,9 @@ namespace AccessAbility
 
 
         [UIComponent("dissolve_slider")]
-        public SliderSetting Dissolve_Slider;
+        private SliderSetting Dissolve_Slider;
         [UIValue("dissolve_distance")]
-        public float Dissolve_Distance
+        private float Dissolve_Distance
         {
             get => PluginConfig.Instance.dissolve_distance;
             set
@@ -90,7 +93,7 @@ namespace AccessAbility
             }
         }
         [UIAction("set_dissolve_distance")]
-        public void Set_Dissolve_Distance(float value)
+        private void Set_Dissolve_Distance(float value)
         {
             Dissolve_Distance = value;
         }
@@ -98,7 +101,7 @@ namespace AccessAbility
 
         // BS 1.21.0 Addition
         [UIValue("yeet_arcs")]
-        public bool Yeet_Arcs
+        private bool Yeet_Arcs
         {
             get => PluginConfig.Instance.yeet_arcs;
             set
@@ -107,7 +110,7 @@ namespace AccessAbility
             }
         }
         [UIAction("set_yeet_arcs")]
-        void Set_Yeet_Arcs(bool value)
+        private void Set_Yeet_Arcs(bool value)
         {
             Yeet_Arcs = value;
             Refresh_Modifier_UI();
@@ -115,7 +118,7 @@ namespace AccessAbility
 
 
         [UIValue("yeet_chains")]
-        public bool Yeet_Chains
+        private bool Yeet_Chains
         {
             get => PluginConfig.Instance.yeet_chains;
             set
@@ -124,7 +127,7 @@ namespace AccessAbility
             }
         }
         [UIAction("set_yeet_chains")]
-        void Set_Yeet_Chains(bool value)
+        private void Set_Yeet_Chains(bool value)
         {
             Yeet_Chains = value;
             Refresh_Modifier_UI();
@@ -132,7 +135,7 @@ namespace AccessAbility
 
 
         [UIValue("yeet_dots")]
-        public bool Yeet_Dots
+        private bool Yeet_Dots
         {
             get => PluginConfig.Instance.yeet_dots;
             set
@@ -141,14 +144,14 @@ namespace AccessAbility
             }
         }
         [UIAction("set_yeet_dots")]
-        void Set_Yeet_Dots(bool value)
+        private void Set_Yeet_Dots(bool value)
         {
             Yeet_Dots = value;
         }
 
 
         [UIValue("yeet_bombs")]
-        public bool Yeet_Bombs
+        private bool Yeet_Bombs
         {
             get => PluginConfig.Instance.yeet_bombs;
             set
@@ -157,7 +160,7 @@ namespace AccessAbility
             }
         }
         [UIAction("set_yeet_bombs")]
-        void Set_Yeet_Bombs(bool value)
+        private void Set_Yeet_Bombs(bool value)
         {
             Yeet_Bombs = value;
             Refresh_Modifier_UI();
@@ -165,7 +168,7 @@ namespace AccessAbility
 
 
         [UIValue("yeet_walls")]
-        public bool Yeet_Walls
+        private bool Yeet_Walls
         {
             get => PluginConfig.Instance.yeet_walls;
             set
@@ -174,7 +177,7 @@ namespace AccessAbility
             }
         }
         [UIAction("set_yeet_walls")]
-        void Set_Yeet_Walls(bool value)
+        private void Set_Yeet_Walls(bool value)
         {
             Yeet_Walls = value;
             Refresh_Modifier_UI();
@@ -182,7 +185,7 @@ namespace AccessAbility
 
 
         [UIValue("yeet_duck_walls")]
-        public bool Yeet_Duck_Walls
+        private bool Yeet_Duck_Walls
         {
             get => PluginConfig.Instance.yeet_duck_walls;
             set
@@ -191,7 +194,7 @@ namespace AccessAbility
             }
         }
         [UIAction("set_yeet_duck_walls")]
-        void Set_Yeet_Duck_Walls(bool value)
+        private void Set_Yeet_Duck_Walls(bool value)
         {
             Yeet_Duck_Walls = value;
             Refresh_Modifier_UI();
@@ -199,7 +202,7 @@ namespace AccessAbility
 
 
         [UIValue("play_without_mp_movement")]
-        public bool Play_Without_MP_Movement
+        private bool Play_Without_MP_Movement
         {
             get => PluginConfig.Instance.play_without_mp_movement;
             set
@@ -208,14 +211,14 @@ namespace AccessAbility
             }
         }
         [UIAction("set_play_without_mp_movement")]
-        void Set_Play_Without_MP_Movement(bool value)
+        private void Set_Play_Without_MP_Movement(bool value)
         {
             Play_Without_MP_Movement = value;
         }
 
 
         [UIValue("play_without_modifiers")]
-        public bool Play_Without_Modifiers
+        private bool Play_Without_Modifiers
         {
             get => PluginConfig.Instance.play_without_modifiers;
             set
@@ -224,7 +227,7 @@ namespace AccessAbility
             }
         }
         [UIAction("set_play_without_modifiers")]
-        void Set_Play_Without_Modifiers(bool value)
+        private void Set_Play_Without_Modifiers(bool value)
         {
             Play_Without_Modifiers = value;
             Refresh_Modifier_UI();
@@ -232,7 +235,7 @@ namespace AccessAbility
 
 
         [UIValue("play_without_fail")]
-        public bool Play_Without_Fail
+        private bool Play_Without_Fail
         {
             get => PluginConfig.Instance.play_without_fail;
             set
@@ -241,14 +244,14 @@ namespace AccessAbility
             }
         }
         [UIAction("set_play_without_fail")]
-        void Set_Play_Without_Fail(bool value)
+        private void Set_Play_Without_Fail(bool value)
         {
             Play_Without_Fail = value;
         }
 
 
         [UIValue("play_without_score")]
-        public bool Play_Without_Score
+        private bool Play_Without_Score
         {
             get => PluginConfig.Instance.play_without_score;
             set
@@ -257,16 +260,17 @@ namespace AccessAbility
             }
         }
         [UIAction("set_play_without_score")]
-        void Set_Play_Without_Score(bool value)
+        private void Set_Play_Without_Score(bool value)
         {
             Play_Without_Score = value;
         }
 
 
-        internal void Refresh_Modifier_UI()
+        private void Refresh_Modifier_UI()
         {
             gameplayModifiersPanelController = Resources.FindObjectsOfTypeAll<GameplayModifiersPanelController>().FirstOrDefault();
             gameplayModifiersPanelController.RefreshTotalMultiplierAndRankUI();
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Donate_Update_Dynamic)));
         }
 
 
@@ -288,6 +292,7 @@ namespace AccessAbility
             parserParams.EmitEvent("show_donate_modal");
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Donate_Modal_Text_Dynamic)));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Donate_Modal_Hint_Dynamic)));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Donate_Update_Dynamic)));
         }
 
         private void Open_Donate_Patreon()
@@ -310,10 +315,20 @@ namespace AccessAbility
 
         [UIValue("donate_modal_hint_dynamic")]
         private string Donate_Modal_Hint_Dynamic => Donate.donate_modal_hint_dynamic;
+
+        [UIValue("donate_update_dynamic")]
+        private string Donate_Update_Dynamic => Donate.donate_update_dynamic;
+
+
+        [UIAction("#post-parse")]
+        private void PostParse()
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Donate_Update_Dynamic)));
+        }
     }
 
     
-    public enum Mode_Enum
+    internal enum Mode_Enum
     {
         On = 0,
         NoBlocks = 1,

@@ -28,7 +28,7 @@ namespace AccessAbility
             Plugin.Log?.Debug("Logger initialized.");
 
             PluginConfig.Instance = config.Generated<PluginConfig>();
-            zenjector.Install<MenuInstaller>(Location.Menu);
+            zenjector.Install<AccessAbilityMenuInstaller>(Location.Menu);
         }
 
         [OnEnable]
@@ -47,6 +47,8 @@ namespace AccessAbility
         [OnDisable]
         public void OnDisable()
         {
+            BS_Utils.Utilities.BSEvents.gameSceneLoaded -= ScoreUtils.BSEvents_gameSceneLoaded;
+            BS_Utils.Utilities.BSEvents.menuSceneActive -= ScoreUtils.BSEvents_menuSceneActive;
             RemoveHarmonyPatches();
         }
 
