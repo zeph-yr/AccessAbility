@@ -6,35 +6,35 @@ namespace AccessAbility.Configuration
 {
     internal class PluginConfig
     {
-        public static PluginConfig Instance { get; set; }
+        public static PluginConfig Instance { get; internal set; }
 
-        public virtual bool enabled { get; set; } = false;
-        public virtual int blue_mode { get; set; } = 0;
-        public virtual int red_mode { get; set; } = 0;
-        public virtual float dissolve_distance { get; set; } = 6;
-        public virtual bool yeet_bombs { get; set; } = false;
-        public virtual bool yeet_walls { get; set; } = false;
-        public virtual bool yeet_duck_walls { get; set; } = false;
-        public virtual bool play_without_score { get; set; } = false;
-        public virtual bool play_without_modifiers { get; set; } = false;
-        public virtual bool play_without_fail { get; set; } = false;
-        public virtual bool yeet_arcs { get; set; } = false;
-        public virtual bool yeet_chains { get; set; } = false;
-        public virtual bool yeet_dots { get; set; } = false;
-        public virtual bool play_without_mp_movement { get; set; } = false;
+        public virtual bool enabled { get; internal set; } = false;
+        public virtual int blue_mode { get; internal set; } = 0;
+        public virtual int red_mode { get; internal set; } = 0;
+        internal virtual float dissolve_distance { get; set; } = 6;
+        internal virtual bool yeet_bombs { get; set; } = false;
+        internal virtual bool yeet_walls { get; set; } = false;
+        internal virtual bool yeet_duck_walls { get; set; } = false;
+        internal virtual bool play_without_score { get; set; } = false;
+        internal virtual bool play_without_modifiers { get; set; } = false;
+        internal virtual bool play_without_fail { get; set; } = false;
+        internal virtual bool yeet_arcs { get; set; } = false;
+        internal virtual bool yeet_chains { get; set; } = false;
+        internal virtual bool yeet_dots { get; set; } = false;
+        internal virtual bool play_without_mp_movement { get; set; } = false;
 
 
-        public virtual void OnReload()
+        protected virtual void OnReload()
         {
             // Do stuff after config is read from disk.
         }
 
-        public virtual void Changed()
+        protected virtual void Changed()
         {
             // Do stuff when the config is changed.
         }
 
-        public virtual void CopyFrom(PluginConfig other)
+        protected virtual void CopyFrom(PluginConfig other)
         {
             // This instance's members populated from other
         }

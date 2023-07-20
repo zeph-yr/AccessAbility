@@ -1,6 +1,5 @@
 ﻿using AccessAbility.Configuration;
 using IPA.Loader;
-using System;
 using System.Linq;
 using UnityEngine;
 
@@ -25,7 +24,7 @@ namespace AccessAbility
                 var metadatas = PluginManager.EnabledPlugins.Where(x => x.Id == "BeatLeader");
                 bl_installed = metadatas.Count() > 0;
             }
-            catch (Exception)
+            catch
             {
                 bl_installed = false;
             }
@@ -35,7 +34,7 @@ namespace AccessAbility
                 var metadatas = PluginManager.EnabledPlugins.Where(x => x.Id == "ScoreSaber");
                 ss_installed = metadatas.Count() > 0;
             }
-            catch (Exception)
+            catch
             {
                 ss_installed = false;
             }
@@ -45,7 +44,7 @@ namespace AccessAbility
                 var metadatas = PluginManager.EnabledPlugins.Where(x => x.Id == "CustomCampaigns");
                 cc_installed = metadatas.Count() > 0;
             }
-            catch (Exception)
+            catch
             {
                 cc_installed = false;
             }

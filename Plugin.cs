@@ -35,10 +35,8 @@ namespace AccessAbility
         public void OnEnable()
         {
             ScoreUtils.CheckForMods();
-
             BS_Utils.Utilities.BSEvents.gameSceneLoaded += ScoreUtils.BSEvents_gameSceneLoaded;
             BS_Utils.Utilities.BSEvents.menuSceneActive += ScoreUtils.BSEvents_menuSceneActive;
-
             ApplyHarmonyPatches();
             Donate.Refresh_Text();
         }
@@ -52,7 +50,7 @@ namespace AccessAbility
             RemoveHarmonyPatches();
         }
 
-        internal static void ApplyHarmonyPatches()
+        private static void ApplyHarmonyPatches()
         {
             try
             {
@@ -66,7 +64,7 @@ namespace AccessAbility
             }
         }
 
-        internal static void RemoveHarmonyPatches()
+        private static void RemoveHarmonyPatches()
         {
             try
             {
