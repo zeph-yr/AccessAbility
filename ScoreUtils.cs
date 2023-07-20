@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace AccessAbility
 {
-    internal class ScoreUtils
+    internal static class ScoreUtils
     {
         internal static bool bl_installed = true;
         internal static bool ss_installed = true;

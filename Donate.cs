@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace AccessAbility
 {
-    internal class Donate
+    internal static class Donate
     {
         internal static string donate_clickable_text = "<#00000000>------------<#ff0080ff><size=80%>♡ Donate";
         internal static string donate_clickable_hint = "If you'd like to support me";
@@ -36,8 +36,7 @@ namespace AccessAbility
 
         private static async Task Get_Donate_Modal_Text()
         {
-            Plugin.Log.Debug("reply before: " + donate_modal_text_dynamic);
-
+            //Plugin.Log.Debug("reply before: " + donate_modal_text_dynamic);
             string reply_text = "Loading...";
             string reply_hint = "";
             string reply_update = "";
@@ -64,8 +63,6 @@ namespace AccessAbility
                 try
                 {
                     reply_update = await client.DownloadStringTaskAsync("https://raw.githubusercontent.com/zeph-yr/Shoutouts/main/whatsnew.txt");
-                    Plugin.Log.Debug("update text" + reply_update);
-
                 }
                 catch
                 {
@@ -74,7 +71,7 @@ namespace AccessAbility
             }
 
             donate_modal_text_dynamic = reply_text;
-            Plugin.Log.Debug("reply after: " + donate_modal_text_dynamic);
+            //Plugin.Log.Debug("reply after: " + donate_modal_text_dynamic);
 
             int hint_start = reply_hint.IndexOf("[ACCESSABILITY]"); // 15
             int hint_end = reply_hint.IndexOf("###", hint_start);
@@ -83,20 +80,14 @@ namespace AccessAbility
                 //Logger.log.Debug("reply: " + reply_hint);
                 //Logger.log.Debug("start: " + hint_start + " end: " + hint_end);
                 donate_modal_hint_dynamic = reply_hint.Substring(hint_start + 15, hint_end - hint_start - 15); // Yes. And no, it's not wrong.
-                Plugin.Log.Debug("hint:" + donate_modal_hint_dynamic);
             }
-
-            Plugin.Log.Debug("update text" + reply_update);
-            Plugin.Log.Debug("start" + reply_update.IndexOf("[ACCESSABILITY]"));
 
             int update_start = reply_update.IndexOf("[ACCESSABILITY]");
             int update_end = reply_update.IndexOf("###", update_start);
             if (update_start != -1)
             {
                 donate_update_dynamic = reply_update.Substring(update_start + 15, update_end - update_start - 15);
-                Plugin.Log.Debug("update: " + donate_update_dynamic);
             }
-
         }
     }
 }

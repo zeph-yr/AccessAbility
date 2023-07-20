@@ -12,7 +12,7 @@ using Zenject;
 
 namespace AccessAbility
 {
-    internal class ModifierUI : IInitializable, IDisposable, INotifyPropertyChanged
+    internal sealed class ModifierUI : IInitializable, IDisposable, INotifyPropertyChanged
     {
         private static GameplayModifiersPanelController gameplayModifiersPanelController;
         public event PropertyChangedEventHandler PropertyChanged;
@@ -21,7 +21,6 @@ namespace AccessAbility
         public void Initialize()
         {
             GameplaySetup.instance.AddTab("AccessAbility", "AccessAbility.ModifierUI.bsml", this, MenuType.All);
-
             Donate.Refresh_Text();
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Donate_Update_Dynamic)));
         }
@@ -270,7 +269,6 @@ namespace AccessAbility
         {
             gameplayModifiersPanelController = Resources.FindObjectsOfTypeAll<GameplayModifiersPanelController>().FirstOrDefault();
             gameplayModifiersPanelController.RefreshTotalMultiplierAndRankUI();
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Donate_Update_Dynamic)));
         }
 
 
@@ -320,11 +318,12 @@ namespace AccessAbility
         private string Donate_Update_Dynamic => Donate.donate_update_dynamic;
 
 
-        [UIAction("#post-parse")]
+        /*[UIAction("#post-parse")]
         private void PostParse()
         {
+            Plugin.Log.Debug("PostParse");
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Donate_Update_Dynamic)));
-        }
+        }*/
     }
 
     

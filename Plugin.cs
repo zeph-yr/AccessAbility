@@ -11,7 +11,7 @@ using AccessAbility.Installers;
 namespace AccessAbility
 {
     [Plugin(RuntimeOptions.DynamicInit)]
-    public class Plugin
+    public sealed class Plugin
     {
         internal static Plugin Instance { get; private set; }
         internal static IPALogger Log { get; private set; }

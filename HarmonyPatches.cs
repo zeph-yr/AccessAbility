@@ -7,9 +7,9 @@ using System.Reflection;
 namespace AccessAbility
 {
     [HarmonyPatch(typeof(BeatmapDataTransformHelper), "CreateTransformedBeatmapData")]
-    internal class BeatmapDataTransformPatch
+    internal static class BeatmapDataTransformPatch
     {
-        static IReadonlyBeatmapData Postfix(IReadonlyBeatmapData __result)
+        private static IReadonlyBeatmapData Postfix(IReadonlyBeatmapData __result)
         {
             // No longer relevant in v4.1.0 - need to yeet arcs and chains
             /*if (PluginConfig.Instance.blue_mode == 0 && PluginConfig.Instance.red_mode == 0)
@@ -126,7 +126,6 @@ namespace AccessAbility
     }
 
 
-
         /*BeatmapData result_2 = new BeatmapData(__result.numberOfLines);
 
         foreach (BeatmapDataItem beatmapDataItem in __result.allBeatmapDataItems)
@@ -241,9 +240,9 @@ namespace AccessAbility
 
 
     [HarmonyPatch(typeof(NoteController), "Update")]
-    internal class NoteControllerPatch
+    internal static class NoteControllerPatch
     {
-        static void Postfix(NoteController __instance)
+        private static void Postfix(NoteController __instance)
         {
             // BS 1.21.0
             if (PluginConfig.Instance.enabled == false)
@@ -266,9 +265,9 @@ namespace AccessAbility
     }
 
     [HarmonyPatch(typeof(SliderController), "Update")]
-    internal class SliderControllerPatch
+    internal static class SliderControllerPatch
     {
-        static void Postfix(SliderController __instance)
+        private static void Postfix(SliderController __instance)
         {
             // BS 1.21.0
             if (PluginConfig.Instance.enabled == false)
@@ -292,9 +291,9 @@ namespace AccessAbility
 
 
     [HarmonyPatch(typeof(BeatmapDataObstaclesAndBombsTransform), "ShouldUseBeatmapDataItem")]
-    internal class BeatmapDataObstaclesAndBombsTransformPatch
+    internal static class BeatmapDataObstaclesAndBombsTransformPatch
     {
-        static bool Postfix(bool __result, BeatmapDataItem beatmapDataItem, GameplayModifiers.EnabledObstacleType enabledObstaclesType, bool noBombs)
+        private static bool Postfix(bool __result, BeatmapDataItem beatmapDataItem, GameplayModifiers.EnabledObstacleType enabledObstaclesType, bool noBombs)
         {
             // BS 1.21.0
             if (PluginConfig.Instance.enabled == false)
@@ -343,9 +342,9 @@ namespace AccessAbility
 
 
     [HarmonyPatch(typeof(PlayerHeadAndObstacleInteraction), "Update")]
-    internal class ObstacleInteractionPatch
+    internal static class ObstacleInteractionPatch
     {
-        static bool Prefix()
+        private static bool Prefix()
         {
             // BS 1.21.0
             if (PluginConfig.Instance.enabled == false)
@@ -364,9 +363,9 @@ namespace AccessAbility
 
 
     [HarmonyPatch(typeof(BombNoteController), "Init")]
-    internal class BombNoteControllerPatch
+    internal static class BombNoteControllerPatch
     {
-        static void Postfix(ref BombNoteController __instance)
+        private static void Postfix(ref BombNoteController __instance)
         {
             // BS 1.21.0
             if (PluginConfig.Instance.enabled == false)
@@ -383,9 +382,9 @@ namespace AccessAbility
 
 
     [HarmonyPatch(typeof(GameEnergyCounter), "ProcessEnergyChange")]
-    internal class GameEnergyCounterPatch
+    internal static class GameEnergyCounterPatch
     {
-        static bool Prefix(float energyChange, GameEnergyCounter __instance)
+        private static bool Prefix(float energyChange, GameEnergyCounter __instance)
         {
             // BS 1.21.0
             if (PluginConfig.Instance.enabled == false)
@@ -409,9 +408,9 @@ namespace AccessAbility
 
 
     [HarmonyPatch(typeof(MultiplayerVerticalPlayerMovementManager), "Update")]
-    internal class MultiplayerVerticalPlayerMovementPatch
+    internal static class MultiplayerVerticalPlayerMovementPatch
     {
-        static bool Prefix()
+        private static bool Prefix()
         {
             if (PluginConfig.Instance.play_without_mp_movement)
             {
@@ -423,11 +422,10 @@ namespace AccessAbility
 
 
     [HarmonyPatch(typeof(MultiplayerOtherPlayersScoreDiffTextManager), "Update")]
-    internal class MultiplayerOtherPlayersScorePatch
+    internal static class MultiplayerOtherPlayersScorePatch
     {
         static MethodInfo hideall = AccessTools.Method("MultiplayerOtherPlayersScoreDiffTextManager:HideAll");
-
-        static bool Prefix(MultiplayerOtherPlayersScoreDiffTextManager __instance)
+        private static bool Prefix(MultiplayerOtherPlayersScoreDiffTextManager __instance)
         {
             if (PluginConfig.Instance.play_without_mp_movement)
             {
@@ -440,9 +438,9 @@ namespace AccessAbility
 
 
     [HarmonyPatch(typeof(GameplayModifiersModelSO), "CreateModifierParamsList")]
-    internal class GameplayModifiersPatch
+    internal static class GameplayModifiersPatch
     {
-        static List<GameplayModifierParamsSO> Postfix(List<GameplayModifierParamsSO> __result, ref GameplayModifiers gameplayModifiers, ref GameplayModifiersModelSO __instance)
+        private static List<GameplayModifierParamsSO> Postfix(List<GameplayModifierParamsSO> __result, ref GameplayModifiers gameplayModifiers, ref GameplayModifiersModelSO __instance)
         {
             // BS 1.21.0
             if (PluginConfig.Instance.enabled == false)
@@ -474,9 +472,9 @@ namespace AccessAbility
 
 
     [HarmonyPatch(typeof(StandardLevelScenesTransitionSetupDataSO), "Init")]
-    internal class StandardLevelScenesTransitionPatch
+    internal static class StandardLevelScenesTransitionPatch
     {
-        static void Prefix(ref GameplayModifiers gameplayModifiers)
+        private static void Prefix(ref GameplayModifiers gameplayModifiers)
         {
             gameplayModifiers = AccessAbility_Modifiers.Set_AccessAbility_Modifiers(gameplayModifiers);
         }
@@ -484,9 +482,9 @@ namespace AccessAbility
 
 
     [HarmonyPatch(typeof(MissionLevelScenesTransitionSetupDataSO), "Init")]
-    internal class MissionLevelScenesTransitionPatch
+    internal static class MissionLevelScenesTransitionPatch
     {
-        static void Prefix(ref GameplayModifiers gameplayModifiers)
+        private static void Prefix(ref GameplayModifiers gameplayModifiers)
         {
             gameplayModifiers = AccessAbility_Modifiers.Set_AccessAbility_Modifiers(gameplayModifiers);
         }
@@ -494,16 +492,16 @@ namespace AccessAbility
 
 
     [HarmonyPatch(typeof(MultiplayerLevelScenesTransitionSetupDataSO), "Init")]
-    internal class MultiplayerLevelScenesTransitionPatch
+    internal static class MultiplayerLevelScenesTransitionPatch
     {
-        static void Prefix(ref GameplayModifiers gameplayModifiers)
+        private static void Prefix(ref GameplayModifiers gameplayModifiers)
         {
             gameplayModifiers = AccessAbility_Modifiers.Set_AccessAbility_Modifiers(gameplayModifiers);
         }
     }
 
 
-    internal class AccessAbility_Modifiers
+    internal static class AccessAbility_Modifiers
     {
         internal static GameplayModifiers Set_AccessAbility_Modifiers(GameplayModifiers gameplayModifiers)
         {
@@ -542,9 +540,9 @@ namespace AccessAbility
 
     [HarmonyPatch(typeof(PlatformLeaderboardsModel), "UploadScore")]
     [HarmonyPatch(new Type[] { typeof(LeaderboardScoreUploader.ScoreData), typeof(PlatformLeaderboardsModel.UploadScoreCompletionHandler) })]
-    internal class PlatformLeaderboardsModelPatch_1
+    internal static class PlatformLeaderboardsModelPatch_1
     {
-        internal static bool Prefix()
+        private static bool Prefix()
         {
             // BS 1.21.0
             if (PluginConfig.Instance.enabled == false)
@@ -564,9 +562,9 @@ namespace AccessAbility
 
     [HarmonyPatch(typeof(PlatformLeaderboardsModel), "UploadScore")]
     [HarmonyPatch(new Type[] { typeof(IDifficultyBeatmap), typeof(int), typeof(int), typeof(int), typeof(bool), typeof(int), typeof(int), typeof(int), typeof(int), typeof(float), typeof(GameplayModifiers) })]
-    internal class PlatformLeaderboardsModelPatch_2
+    internal static class PlatformLeaderboardsModelPatch_2
     {
-        internal static bool Prefix()
+        private static bool Prefix()
         {
             // BS 1.21.0
             if (PluginConfig.Instance.enabled == false)
