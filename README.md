@@ -7,7 +7,7 @@
 This mod allows you to play the original map with blocks and other elements turned off _without forced score deduction or NF_.
 I want to make this game as accessible and enjoyable for as many of us as possible. It's your game, your ability, and your definition of skill and fun :) 
 
-Supports Left/Righthand playersettings, Multiplayer, OST/DLC, Custom and Base Campaigns, Party, Practice, and score submission! For BS 1.18.3+
+Supports Left/Righthand playersettings, Multiplayer, OST/DLC, Custom and Base Campaigns, Party, Practice, and Leaderboard Score Submission! For BS 1.18.3+
 
 <p><img src="https://github.com/zeph-yr/AccessAbility/blob/master/Screenshots/AccessAbility_5.1.0_screenshot_1.png" width="600"/></p>
 
@@ -18,7 +18,11 @@ AccessAbility *deletes the blocks* of a color and thus accurately represents pla
 If you want to see the whole map but play only one color, AccessAbility can set a color to vanish without counting as miss.
 
 ## New Features
-**v6.0.0** (BS 1.21.0+ only)
+**v7.0.0** (BS 1.21.0 - BS 1.31.0+)
+- **No Multiplayer Platform Movement**: Play next to your friends. Also turns off overhead score differences.
+- Compatibility update for 1.31.0
+  
+**v6.0.0** (BS.1.21.0 to 1.29.1 only)
 - **No Rotated Dots:** Removes any rotation applied on Dot blocks in V2/V3 maps and returns them to vanilla format with the bottom edge parallel to the floor. Will not affect score.
 
 **v5.1.0** (BS.1.21.0+ only)
