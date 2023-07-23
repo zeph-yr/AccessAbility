@@ -290,7 +290,7 @@ namespace AccessAbility
     }
 
 
-    [HarmonyPatch(typeof(BeatmapDataObstaclesAndBombsTransform), "ShouldUseBeatmapDataItem")]
+    [HarmonyPatch(typeof(BeatmapDataObstaclesAndBombsTransform), "ShouldUseBeatmapDataItem")]  // 1.31.0 made this private
     internal static class BeatmapDataObstaclesAndBombsTransformPatch
     {
         private static bool Postfix(bool __result, BeatmapDataItem beatmapDataItem, GameplayModifiers.EnabledObstacleType enabledObstaclesType, bool noBombs)
@@ -412,10 +412,16 @@ namespace AccessAbility
     {
         private static bool Prefix()
         {
+            if (PluginConfig.Instance.enabled == false)
+            {
+                return true;
+            }
+
             if (PluginConfig.Instance.play_without_mp_movement)
             {
                 return false;
             }
+
             return true;
         }
     }
@@ -424,14 +430,20 @@ namespace AccessAbility
     [HarmonyPatch(typeof(MultiplayerOtherPlayersScoreDiffTextManager), "Update")]
     internal static class MultiplayerOtherPlayersScorePatch
     {
-        static MethodInfo hideall = AccessTools.Method("MultiplayerOtherPlayersScoreDiffTextManager:HideAll");
+        private static MethodInfo hideall = AccessTools.Method("MultiplayerOtherPlayersScoreDiffTextManager:HideAll");
         private static bool Prefix(MultiplayerOtherPlayersScoreDiffTextManager __instance)
         {
+            if (PluginConfig.Instance.enabled == false)
+            {
+                return true;
+            }
+
             if (PluginConfig.Instance.play_without_mp_movement)
             {
                 hideall.Invoke(__instance, null);
                 return false;
             }
+
             return true;
         }
     }
