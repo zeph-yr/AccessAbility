@@ -7,7 +7,7 @@ using System.Reflection;
 namespace AccessAbility
 {
     [HarmonyPatch(typeof(BeatmapDataTransformHelper), "CreateTransformedBeatmapData")]
-    internal static class BeatmapDataTransformPatch
+    internal sealed class BeatmapDataTransformPatch
     {
         private static IReadonlyBeatmapData Postfix(IReadonlyBeatmapData __result)
         {
@@ -240,7 +240,7 @@ namespace AccessAbility
 
 
     [HarmonyPatch(typeof(NoteController), "Update")]
-    internal static class NoteControllerPatch
+    internal sealed class NoteControllerPatch
     {
         private static void Postfix(NoteController __instance)
         {
@@ -265,7 +265,7 @@ namespace AccessAbility
     }
 
     [HarmonyPatch(typeof(SliderController), "Update")]
-    internal static class SliderControllerPatch
+    internal sealed class SliderControllerPatch
     {
         private static void Postfix(SliderController __instance)
         {
@@ -290,9 +290,15 @@ namespace AccessAbility
     }
 
 
-    [HarmonyPatch(typeof(BeatmapDataObstaclesAndBombsTransform), "ShouldUseBeatmapDataItem")]  // 1.31.0 made this private
-    internal static class BeatmapDataObstaclesAndBombsTransformPatch
-    {
+    //[HarmonyPatch(typeof(BeatmapDataObstaclesAndBombsTransform), "ShouldUseBeatmapDataItem")]  // 1.31.0 made this private
+    [HarmonyPatch]
+    internal sealed class BeatmapDataObstaclesAndBombsTransformPatch
+    { 
+        private static MethodBase TargetMethod()
+        {
+            return AccessTools.Method("BeatmapDataObstaclesAndBombsTransform:ShouldUseBeatmapDataItem");
+        }
+
         private static bool Postfix(bool __result, BeatmapDataItem beatmapDataItem, GameplayModifiers.EnabledObstacleType enabledObstaclesType, bool noBombs)
         {
             // BS 1.21.0
@@ -342,7 +348,7 @@ namespace AccessAbility
 
 
     [HarmonyPatch(typeof(PlayerHeadAndObstacleInteraction), "Update")]
-    internal static class ObstacleInteractionPatch
+    internal sealed class ObstacleInteractionPatch
     {
         private static bool Prefix()
         {
@@ -363,7 +369,7 @@ namespace AccessAbility
 
 
     [HarmonyPatch(typeof(BombNoteController), "Init")]
-    internal static class BombNoteControllerPatch
+    internal sealed class BombNoteControllerPatch
     {
         private static void Postfix(ref BombNoteController __instance)
         {
@@ -382,7 +388,7 @@ namespace AccessAbility
 
 
     [HarmonyPatch(typeof(GameEnergyCounter), "ProcessEnergyChange")]
-    internal static class GameEnergyCounterPatch
+    internal sealed class GameEnergyCounterPatch
     {
         private static bool Prefix(float energyChange, GameEnergyCounter __instance)
         {
@@ -408,7 +414,7 @@ namespace AccessAbility
 
 
     [HarmonyPatch(typeof(MultiplayerVerticalPlayerMovementManager), "Update")]
-    internal static class MultiplayerVerticalPlayerMovementPatch
+    internal sealed class MultiplayerVerticalPlayerMovementPatch
     {
         private static bool Prefix()
         {
@@ -428,7 +434,7 @@ namespace AccessAbility
 
 
     [HarmonyPatch(typeof(MultiplayerOtherPlayersScoreDiffTextManager), "Update")]
-    internal static class MultiplayerOtherPlayersScorePatch
+    internal sealed class MultiplayerOtherPlayersScorePatch
     {
         private static MethodInfo hideall = AccessTools.Method("MultiplayerOtherPlayersScoreDiffTextManager:HideAll");
         private static bool Prefix(MultiplayerOtherPlayersScoreDiffTextManager __instance)
@@ -450,7 +456,7 @@ namespace AccessAbility
 
 
     [HarmonyPatch(typeof(GameplayModifiersModelSO), "CreateModifierParamsList")]
-    internal static class GameplayModifiersPatch
+    internal sealed class GameplayModifiersPatch
     {
         private static List<GameplayModifierParamsSO> Postfix(List<GameplayModifierParamsSO> __result, ref GameplayModifiers gameplayModifiers, ref GameplayModifiersModelSO __instance)
         {
@@ -484,7 +490,7 @@ namespace AccessAbility
 
 
     [HarmonyPatch(typeof(StandardLevelScenesTransitionSetupDataSO), "Init")]
-    internal static class StandardLevelScenesTransitionPatch
+    internal sealed class StandardLevelScenesTransitionPatch
     {
         private static void Prefix(ref GameplayModifiers gameplayModifiers)
         {
@@ -494,7 +500,7 @@ namespace AccessAbility
 
 
     [HarmonyPatch(typeof(MissionLevelScenesTransitionSetupDataSO), "Init")]
-    internal static class MissionLevelScenesTransitionPatch
+    internal sealed class MissionLevelScenesTransitionPatch
     {
         private static void Prefix(ref GameplayModifiers gameplayModifiers)
         {
@@ -504,7 +510,7 @@ namespace AccessAbility
 
 
     [HarmonyPatch(typeof(MultiplayerLevelScenesTransitionSetupDataSO), "Init")]
-    internal static class MultiplayerLevelScenesTransitionPatch
+    internal sealed class MultiplayerLevelScenesTransitionPatch
     {
         private static void Prefix(ref GameplayModifiers gameplayModifiers)
         {
@@ -513,7 +519,7 @@ namespace AccessAbility
     }
 
 
-    internal static class AccessAbility_Modifiers
+    internal sealed class AccessAbility_Modifiers
     {
         internal static GameplayModifiers Set_AccessAbility_Modifiers(GameplayModifiers gameplayModifiers)
         {
@@ -552,7 +558,7 @@ namespace AccessAbility
 
     [HarmonyPatch(typeof(PlatformLeaderboardsModel), "UploadScore")]
     [HarmonyPatch(new Type[] { typeof(LeaderboardScoreUploader.ScoreData), typeof(PlatformLeaderboardsModel.UploadScoreCompletionHandler) })]
-    internal static class PlatformLeaderboardsModelPatch_1
+    internal sealed class PlatformLeaderboardsModelPatch_1
     {
         private static bool Prefix()
         {
@@ -574,7 +580,7 @@ namespace AccessAbility
 
     [HarmonyPatch(typeof(PlatformLeaderboardsModel), "UploadScore")]
     [HarmonyPatch(new Type[] { typeof(IDifficultyBeatmap), typeof(int), typeof(int), typeof(int), typeof(bool), typeof(int), typeof(int), typeof(int), typeof(int), typeof(float), typeof(GameplayModifiers) })]
-    internal static class PlatformLeaderboardsModelPatch_2
+    internal sealed class PlatformLeaderboardsModelPatch_2
     {
         private static bool Prefix()
         {
