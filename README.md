@@ -18,7 +18,7 @@ AccessAbility *deletes the blocks* of a color and thus accurately represents pla
 If you want to see the whole map but play only one color, AccessAbility can set a color to vanish without counting as miss.
 
 ## New Features
-**v7.0.0** (BS 1.21.0 - BS 1.31.0+)
+**v7.0.0+** (BS 1.21.0 - BS 1.31.0+)
 - **No Multiplayer Platform Movement**: Play next to your friends. Also turns off overhead score differences.
 - Compatibility update for 1.31.0
   
