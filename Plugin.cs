@@ -25,7 +25,6 @@ namespace AccessAbility
         {
             Instance = this;
             Plugin.Log = logger;
-            Plugin.Log?.Debug("Logger initialized.");
 
             PluginConfig.Instance = config.Generated<PluginConfig>();
             zenjector.Install<AccessAbilityMenuInstaller>(Location.Menu);

@@ -121,7 +121,7 @@ namespace AccessAbility
             if (obj != null)
             {
                 //Plugin.Log.Debug("MultiplayerModeSelectionFlowController didFinish");
-                Plugin.Log.Debug("Exit MP");
+                //Plugin.Log.Debug("Exit MP");
                 is_multiplayer_active = false;
             }
         }
@@ -129,7 +129,7 @@ namespace AccessAbility
         private static void Multiplayer_2_didFinishEvent(MultiplayerModeSelectionViewController arg1, MultiplayerModeSelectionViewController.MenuButton arg2)
         {
             //Plugin.Log.Debug("MultiplayerModeSelectionViewController didFinish");
-            Plugin.Log.Debug("In MP");
+            //Plugin.Log.Debug("In MP");
             is_multiplayer_active = true;
         }
     }
