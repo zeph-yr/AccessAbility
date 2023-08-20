@@ -44,7 +44,7 @@
 	</settings-container>
 	<vertical pad-top='53'>
 		<horizontal child-expand-width='true'>
-			<text text='AccessAbility v7.0.1 by Zephyr9125' font-color='#ff0080ff' font-size='3' align='Center' hover-hint='Not all disabilities are visible. And that does not make them any less valid.'></text>
+			<text text='AccessAbility v7.1.0 by Zephyr9125' font-color='#ff0080ff' font-size='3' align='Center' hover-hint='Not all disabilities are visible. And that does not make them any less valid.'></text>
 			<clickable-text text='~open_donate_text' rich-text='true' font-color='#ff0080ff' align='Left' click-event='show_donate_modal' on-click='open_donate_modal' hover-hint='~open_donate_hint'/>
 		</horizontal>
 		<horizontal>

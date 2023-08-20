@@ -3,9 +3,11 @@ using BeatSaberMarkupLanguage.Attributes;
 using BeatSaberMarkupLanguage.Components.Settings;
 using BeatSaberMarkupLanguage.GameplaySetup;
 using BeatSaberMarkupLanguage.Parser;
+using HarmonyLib;
 using System;
 using System.ComponentModel;
 using System.Linq;
+using System.Reflection;
 using UnityEngine;
 using Zenject;
 
@@ -268,7 +270,12 @@ namespace AccessAbility
         private void Refresh_Modifier_UI()
         {
             gameplayModifiersPanelController = Resources.FindObjectsOfTypeAll<GameplayModifiersPanelController>().FirstOrDefault();
-            gameplayModifiersPanelController.RefreshTotalMultiplierAndRankUI();
+
+            if (gameplayModifiersPanelController != null)
+            {
+                MethodInfo refresh = AccessTools.Method("GameplayModifiersPanelController:RefreshTotalMultiplierAndRankUI");
+                refresh.Invoke(gameplayModifiersPanelController, null);
+            }
         }
 
 

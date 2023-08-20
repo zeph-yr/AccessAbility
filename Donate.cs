@@ -45,27 +45,29 @@ namespace AccessAbility
             {
                 try
                 {
-                    reply_text = await client.DownloadStringTaskAsync("https://raw.githubusercontent.com/zeph-yr/Shoutouts/main/README.md");
+                    reply_text = await client.DownloadStringTaskAsync("https://www.xephai.com/aa/?a=ACCESSABILITY&b=text");
                 }
                 catch
                 {
-                    reply_text = "Loading failed. Pls ping Zeph on Discord, TY!";
+                    reply_text = await client.DownloadStringTaskAsync("https://raw.githubusercontent.com/zeph-yr/Shoutouts/main/README.md");
                     Plugin.Log.Debug("Failed to fetch Donate info");
                 }
                 try
+                {
+                    reply_hint = await client.DownloadStringTaskAsync("https://www.xephai.com/aa/?a=ACCESSABILITY&b=hint");
+                }
+                catch
                 {
                     reply_hint = await client.DownloadStringTaskAsync("https://raw.githubusercontent.com/zeph-yr/Shoutouts/main/hoverhints.txt");
-                }
-                catch
-                {
                     Plugin.Log.Debug("Failed to fetch Donate info");
                 }
                 try
                 {
-                    reply_update = await client.DownloadStringTaskAsync("https://raw.githubusercontent.com/zeph-yr/Shoutouts/main/whatsnew.txt");
+                    reply_update = await client.DownloadStringTaskAsync("https://www.xephai.com/aa/?a=ACCESSABILITY&b=update");
                 }
                 catch
                 {
+                    reply_update = await client.DownloadStringTaskAsync("https://raw.githubusercontent.com/zeph-yr/Shoutouts/main/whatsnew.txt");
                     Plugin.Log.Debug("Failed to fetch Donate info");
                 }
             }
