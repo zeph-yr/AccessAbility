@@ -62,7 +62,15 @@ If you want to see the whole map but play only one color, AccessAbility can set 
 ## Play One Handed Dodge-Cube
 - Set `Distance` to 0 for the color you're not playing, then try not to hit those blocks as you play the color you want! ^^
 
-## Demo
+
+## About
+Copyright © 2021 - 2023 Zephyr | www.xephai.com
+
+Not all disabilities are visible or obvious. And that doesn't make them any less valid 💖 Don't let others tell you what you can do.
+<br>Thank you to all of you who shared your stories and appreciation with me. It means a lot to know this mod has brought joy to others.
+<br>
+
+## Quick Demo
 <b>Scoring Options</b><br>
 <img src="https://github.com/zeph-yr/AccessAbility/blob/master/Screenshots/AccessAbility_4.0.0_menu_2.png" width="600"/><br><br>
 <b>Map played with red blocks turned off. Only the blue blocks are being scored</b><br>
@@ -76,6 +84,4 @@ If you want to see the whole map but play only one color, AccessAbility can set 
 <b>Map played with No Score Modifiers, Friendly Bombs, and Friendly Walls in Party. Notice NB and NO are not registered and -15% was not applied to score</b><br>
 <img src="https://github.com/zeph-yr/AccessAbility/blob/master/Screenshots/AccessAbility_4.0.0_score_2.png" width="600"/><br>
 
-## About
-Not all disabilities are visible or obvious. And that doesn't make them any less valid 💖 Don't let others tell you what you can do.
-<br>Thank you to all of you who shared your stories and appreciation with me. It means a lot to know this mod has brought joy to others.
+
